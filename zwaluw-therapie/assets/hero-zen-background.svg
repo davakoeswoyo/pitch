@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title>Calm abstract background</title>
+  <desc>Soft layered background with warm light, an architectural arch, and subtle botanical shapes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f5ef"/>
+      <stop offset="52%" stop-color="#efe9de"/>
+      <stop offset="100%" stop-color="#e6ece3"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="24%" r="48%">
+      <stop offset="0%" stop-color="#fffdf6" stop-opacity="0.98"/>
+      <stop offset="36%" stop-color="#f7efe2" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#f7efe2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e4ddd0"/>
+      <stop offset="100%" stop-color="#ddd7cc"/>
+    </linearGradient>
+    <linearGradient id="arch" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7f2e9" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#ece4d8" stop-opacity="0.72"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="800" cy="220" rx="520" ry="280" fill="url(#sun)"/>
+
+  <path d="M0 710C178 660 296 650 468 676C604 696 754 742 910 744C1092 748 1274 672 1600 624V1000H0Z" fill="url(#floor)"/>
+  <path d="M0 770C184 726 348 724 532 764C682 796 844 860 1028 858C1188 856 1352 808 1600 758V1000H0Z" fill="#dfe7dc" opacity="0.92"/>
+  <path d="M0 846C214 822 388 836 580 882C738 920 914 976 1120 972C1266 970 1408 946 1600 904V1000H0Z" fill="#f6f1e9" opacity="0.94"/>
+
+  <path d="M1088 120C1298 120 1438 286 1438 506V1000H738V506C738 286 878 120 1088 120Z" fill="url(#arch)" opacity="0.78"/>
+  <path d="M1088 164C1264 164 1382 304 1382 490V1000H794V490C794 304 912 164 1088 164Z" fill="none" stroke="#d8d0c3" stroke-width="3" opacity="0.55"/>
+  <path d="M1088 220C1228 220 1320 332 1320 474V1000H856V474C856 332 948 220 1088 220Z" fill="none" stroke="#ddd6cb" stroke-width="2" opacity="0.44"/>
+
+  <g opacity="0.2" fill="#7d9478">
+    <path d="M248 774C204 722 204 634 252 582C292 622 304 690 284 742C274 764 262 774 248 774Z"/>
+    <path d="M304 816C274 770 286 694 338 650C368 696 364 758 334 798C324 810 314 816 304 816Z"/>
+    <path d="M366 784C350 738 370 670 426 640C448 688 434 748 396 778C386 786 376 788 366 784Z"/>
+  </g>
+
+  <g opacity="0.16" fill="#b5694a">
+    <ellipse cx="528" cy="324" rx="92" ry="148"/>
+    <ellipse cx="528" cy="324" rx="58" ry="112" fill="#f8f4ed" opacity="0.6"/>
+  </g>
+
+  <g opacity="0.32" stroke="#d8d1c6" stroke-width="2" fill="none">
+    <line x1="84" y1="198" x2="454" y2="198"/>
+    <line x1="1210" y1="804" x2="1516" y2="804"/>
+  </g>
+</svg>

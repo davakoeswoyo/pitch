@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zwaluw Therapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="contact">
+
+<nav>
+  <a class="logo" href="./index.html" onclick="go('home')">Zwaluw <em>Therapie</em></a>
+  <ul class="nav-links">
+    <li><a href="./index.html" onclick="go('home')" id="n-home">Home</a></li>
+    <li><a href="./about.html" onclick="go('about')" id="n-about">Over ons</a></li>
+    <li><a href="./programs.html" onclick="go('programs')" id="n-programs">Programma's</a></li>
+    <li><a href="./articles.html" onclick="go('articles')" id="n-articles">Artikelen</a></li>
+    <li><a href="./research.html" onclick="go('research')" id="n-research">Onderzoek</a></li>
+    <li><a href="./contact.html" onclick="go('contact')" id="n-contact" class="active">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="go('contact')">Afspraak boeken</button>
+</nav>
+
+<div id="p-contact" class="page active">
+
+  <div class="page-hero" style="margin-top:64px;">
+    <div class="circles-wrap">
+      <div class="circle" style="width:560px;height:560px;opacity:.5"></div>
+      <div class="circle" style="width:380px;height:380px;opacity:.65"></div>
+      <div class="circle" style="width:230px;height:230px;opacity:.75"></div>
+    </div>
+    <div class="page-hero-inner">
+      <div class="breadcrumb">Home <span>›</span> Contact</div>
+      <div class="eyebrow" style="justify-content:center;margin-bottom:16px;">Neem contact op</div>
+      <h1 class="display" style="font-size:3.8rem;margin-bottom:20px;">Wij zijn er<br>voor <em>u</em></h1>
+      <p style="color:var(--ink-muted);font-size:1rem;line-height:1.8;max-width:480px;margin:0 auto;">Heeft u een vraag of wilt u een afspraak boeken? Wij reageren altijd binnen één werkdag.</p>
+    </div>
+  </div>
+
+  <section class="section-gray">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-side">
+          <div class="eyebrow no-lines" style="justify-content:flex-start;color:rgba(250,249,247,.35);letter-spacing:2.5px;margin-bottom:14px;">Bereikbaarheid</div>
+          <div style="width:32px;height:1px;background:rgba(250,249,247,.2);margin-bottom:20px;"></div>
+          <h2 class="heading" style="color:var(--cream);font-size:2rem;margin-bottom:10px;">Wij zijn er<br>voor <em style="color:var(--sage-light);">u</em></h2>
+          <p>Vrijblijvend kennismakingsgesprek altijd mogelijk. We luisteren en helpen u de juiste richting te vinden.</p>
+          <div style="margin-top:32px;">
+            <div class="c-item"><div class="c-glyph">📧</div><div><h5>E-mail</h5><p>contact@zwaluwtherapie.nl</p></div></div>
+            <div class="c-item"><div class="c-glyph">📞</div><div><h5>Telefoon</h5><p>+31 6 34 77 67 10</p></div></div>
+            <div class="c-item"><div class="c-glyph">🕐</div><div><h5>Openingstijden</h5><p>Maandag t/m vrijdag: 9:00–17:30<br>Zaterdag op afspraak</p></div></div>
+            <div class="c-item"><div class="c-glyph">📍</div><div><h5>Locatie</h5><p>Online & op locatie mogelijk.<br>Adres op aanvraag.</p></div></div>
+          </div>
+          <div class="guide-callout">
+            <p>"Download de gratis gids over homeostase en ontdek hoe uw herstel begint."</p>
+            <button class="btn btn-sm" style="background:white;color:var(--terra);font-size:.62rem;letter-spacing:1px;" onclick="alert('Gratis gids wordt gedownload!')">Gratis gids downloaden →</button>
+          </div>
+        </div>
+        <div class="contact-form-panel">
+          <h3>Stuur een bericht</h3>
+          <p>Vul het formulier in — we nemen zo snel mogelijk contact op.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Voornaam *</label><input type="text" placeholder="Uw voornaam"></div>
+            <div class="form-group"><label>Achternaam *</label><input type="text" placeholder="Uw achternaam"></div>
+          </div>
+          <div class="form-group"><label>E-mailadres *</label><input type="email" placeholder="uw@email.nl"></div>
+          <div class="form-group"><label>Telefoonnummer</label><input type="tel" placeholder="+31 6 ..."></div>
+          <div class="form-group"><label>Onderwerp</label>
+            <select><option>Afspraak boeken</option><option>Informatie over programma's</option><option>Vraag over diagnostiek</option><option>Anders</option></select>
+          </div>
+          <div class="form-group"><label>Uw bericht</label><textarea placeholder="Beschrijf kort uw situatie of vraag..."></textarea></div>
+          <button class="btn btn-dark btn-md" style="width:100%;justify-content:center;" onclick="alert('Uw bericht is verzonden! We nemen zo snel mogelijk contact op.')">Verstuur bericht →</button>
+          <p style="font-size:.68rem;color:var(--ink-faint);text-align:center;margin-top:12px;letter-spacing:.3px;">Uw gegevens worden vertrouwelijk behandeld conform de AVG.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking CTA -->
+  <section class="quote-band quote-band-gold">
+    <div class="container quote-band-inner">
+      <p class="quote-copy">"Meer energie. Minder stress. Lichamelijke vrijheid, dat is waar we naartoe werken."</p>
+      <p class="quote-source">Rosa Kaiser - Zwaluw Therapie</p>
+    </div>
+  </section>
+
+  <div class="cta-section section-green">
+    <div class="circles-wrap">
+      <div class="circle" style="width:500px;height:500px;opacity:.5"></div>
+      <div class="circle" style="width:340px;height:340px;opacity:.65"></div>
+      <div class="circle" style="width:200px;height:200px;opacity:.75"></div>
+    </div>
+    <div class="cta-inner">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:14px;">Direct boeken</div>
+      <div class="rule center" style="margin-bottom:24px;"></div>
+      <h2>Plan een<br>kennismakings&shy;<em>gesprek</em></h2>
+      <p>30 minuten vrijblijvend — ontdek welk traject het beste bij u past.</p>
+      <div class="cta-btns">
+        <button class="btn btn-dark btn-lg" onclick="alert('U wordt doorgestuurd naar het boekingssysteem...')">📅 Plan een afspraak</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Zwaluw <em>Therapie</em></div><p>Meer energie. Minder stress. Lichamelijke vrijheid - dat is waar we naartoe werken.</p></div>
+      <div><h5>Navigatie</h5><ul><li><a onclick="go('home')">Home</a></li><li><a onclick="go('about')">Over ons</a></li><li><a onclick="go('programs')">Programma's</a></li><li><a onclick="go('articles')">Artikelen</a></li></ul></div>
+      <div><h5>Meer</h5><ul><li><a onclick="go('research')">Onderzoek</a></li><li><a onclick="go('contact')">Contact</a></li><li><a onclick="alert('Gratis gids')">Gratis gids</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a>contact@zwaluwtherapie.nl</a></li><li><a>+31 6 34 77 67 10</a></li><li><a>Ma–Vr: 9:00–17:30</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>Copyright 2026 Zwaluw Therapie - Rosa Kaiser</p><div class="socials"><div class="soc">📷</div><div class="soc">f</div><div class="soc">in</div></div></div>
+  </footer>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>

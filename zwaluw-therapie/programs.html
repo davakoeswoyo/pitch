@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zwaluw Therapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="programs">
+
+<nav>
+  <a class="logo" href="./index.html" onclick="go('home')">Zwaluw <em>Therapie</em></a>
+  <ul class="nav-links">
+    <li><a href="./index.html" onclick="go('home')" id="n-home">Home</a></li>
+    <li><a href="./about.html" onclick="go('about')" id="n-about">Over ons</a></li>
+    <li><a href="./programs.html" onclick="go('programs')" id="n-programs" class="active">Programma's</a></li>
+    <li><a href="./articles.html" onclick="go('articles')" id="n-articles">Artikelen</a></li>
+    <li><a href="./research.html" onclick="go('research')" id="n-research">Onderzoek</a></li>
+    <li><a href="./contact.html" onclick="go('contact')" id="n-contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="go('contact')">Afspraak boeken</button>
+</nav>
+
+<div id="p-programs" class="page active">
+
+  <div class="page-hero" style="margin-top:64px;">
+    <div class="circles-wrap">
+      <div class="circle" style="width:580px;height:580px;opacity:.5"></div>
+      <div class="circle" style="width:400px;height:400px;opacity:.65"></div>
+      <div class="circle" style="width:250px;height:250px;opacity:.75"></div>
+    </div>
+    <div class="page-hero-inner">
+      <div class="breadcrumb">Home <span>›</span> Programma's</div>
+      <div class="eyebrow terra" style="justify-content:center;margin-bottom:16px;">Trajecten</div>
+      <h1 class="display" style="font-size:3.8rem;margin-bottom:20px;">Kies uw <em>traject</em></h1>
+      <p style="color:var(--ink-muted);font-size:1rem;line-height:1.8;max-width:520px;margin:0 auto;">Elk programma is opgebouwd rond uw persoonlijke situatie. Stapsgewijs, wetenschappelijk onderbouwd en op menselijke maat.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="prog-grid">
+        <div class="prog-card">
+          <div class="prog-eyebrow">Basis</div>
+          <h3>Basis Herstel<br>programma</h3>
+          <p>De basis op orde. De rest volgt vanzelf. Een rustige eerste stap om overzicht en richting te krijgen.</p>
+          <ul class="prog-features">
+            <li><span class="dot"></span>90 min. intake gesprek</li>
+            <li><span class="dot"></span>Basis gezondheidscheck</li>
+            <li><span class="dot"></span>Persoonlijk adviesrapport</li>
+            <li><span class="dot"></span>1 vervolgconsult inbegrepen</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;" onclick="go('contact')">Informatie aanvragen</button>
+        </div>
+        <div class="prog-card featured">
+          <div class="prog-eyebrow">Meest gekozen</div>
+          <h3>Hersteltraject<br>12 weken</h3>
+          <p>Volledig begeleid traject voor structureel herstel van lichaam en geest.</p>
+          <ul class="prog-features">
+            <li><span class="dot"></span>Uitgebreide intake</li>
+            <li><span class="dot"></span>Bloedanalyse</li>
+            <li><span class="dot"></span>HRV-meting</li>
+            <li><span class="dot"></span>Wekelijkse begeleiding</li>
+            <li><span class="dot"></span>Voedings- & supplementplan</li>
+            <li><span class="dot"></span>Leefstijladvies op maat</li>
+          </ul>
+          <button class="btn btn-sage btn-sm" style="width:100%;justify-content:center;" onclick="go('contact')">Afspraak boeken</button>
+        </div>
+        <div class="prog-card">
+          <div class="prog-eyebrow">Intensief traject</div>
+          <h3>Diepgaand<br>herstel</h3>
+          <p>Voor wie met complexe, langdurige klachten te maken heeft en maximale begeleiding zoekt.</p>
+          <ul class="prog-features">
+            <li><span class="dot"></span>Volledige diagnostiek</li>
+            <li><span class="dot"></span>Ontlastingsanalyse</li>
+            <li><span class="dot"></span>Gezichtsanalyse</li>
+            <li><span class="dot"></span>Maandelijkse evaluatie</li>
+            <li><span class="dot"></span>Prioriteit ondersteuning</li>
+            <li><span class="dot"></span>15% productkorting</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;" onclick="go('contact')">Informatie aanvragen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band quote-band-gold">
+    <div class="container quote-band-inner">
+      <p class="quote-copy">"De basis op orde. De rest volgt vanzelf."</p>
+      <p class="quote-source">Rosa Kaiser - Basis Herstelprogramma</p>
+    </div>
+  </section>
+
+  <section class="section-gray">
+    <div class="container">
+      <div style="margin-bottom:40px;">
+        <div class="eyebrow no-lines" style="justify-content:flex-start;margin-bottom:14px;">Klachtengebieden</div>
+        <div class="rule" style="margin-bottom:20px;"></div>
+        <h2 class="heading" style="font-size:2rem;">Voor wie is dit?</h2>
+      </div>
+      <div class="complaints-grid">
+        <div class="complaint-cell"><div class="complaint-icon">😴</div><h4>Vermoeidheid</h4><p>Chronische uitputting zonder duidelijke oorzaak</p></div>
+        <div class="complaint-cell"><div class="complaint-icon">🌀</div><h4>Stress & burn-out</h4><p>Overprikkeld zenuwstelsel en mentale overbelasting</p></div>
+        <div class="complaint-cell"><div class="complaint-icon">🌙</div><h4>Slaapproblemen</h4><p>Moeite met inslapen of uitgerust wakker worden</p></div>
+        <div class="complaint-cell"><div class="complaint-icon">🌿</div><h4>Spijsvertering</h4><p>Darmklachten, opgeblazenheid, voedselgevoeligheden</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section section-green">
+    <div class="circles-wrap">
+      <div class="circle" style="width:520px;height:520px;opacity:.5"></div>
+      <div class="circle" style="width:360px;height:360px;opacity:.65"></div>
+    </div>
+    <div class="cta-inner">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:14px;">Gratis oriëntatie</div>
+      <div class="rule center" style="margin-bottom:24px;"></div>
+      <h2>Niet zeker welk<br>programma past?</h2>
+      <p>Plan een gratis oriëntatiegesprek en we helpen u de juiste keuze te maken.</p>
+      <div class="cta-btns">
+        <button class="btn btn-dark btn-lg" onclick="go('contact')">Gratis oriëntatie →</button>
+        <button class="btn btn-outline btn-lg" onclick="alert('Gratis gids wordt gedownload!')">Download gratis gids</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Zwaluw <em>Therapie</em></div><p>Meer energie. Minder stress. Lichamelijke vrijheid - dat is waar we naartoe werken.</p></div>
+      <div><h5>Navigatie</h5><ul><li><a onclick="go('home')">Home</a></li><li><a onclick="go('about')">Over ons</a></li><li><a onclick="go('programs')">Programma's</a></li><li><a onclick="go('articles')">Artikelen</a></li></ul></div>
+      <div><h5>Meer</h5><ul><li><a onclick="go('research')">Onderzoek</a></li><li><a onclick="go('contact')">Contact</a></li><li><a onclick="alert('Gratis gids')">Gratis gids</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a>contact@zwaluwtherapie.nl</a></li><li><a>+31 6 34 77 67 10</a></li><li><a>Ma–Vr: 9:00–17:30</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>Copyright 2026 Zwaluw Therapie - Rosa Kaiser</p><div class="socials"><div class="soc">📷</div><div class="soc">f</div><div class="soc">in</div></div></div>
+  </footer>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>

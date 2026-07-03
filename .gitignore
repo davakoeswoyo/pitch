@@ -1,0 +1,31 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+**/.idea/
+*.log
+
+# Local environment and deployment state
+.env
+.env.*
+**/.env
+**/.env.*
+**/.vercel/
+
+# Private/source client materials
+**/Documentation/
+**/documentation/
+**/archive/
+**/Archive/
+**/PUSH_NOTES.md
+**/push-notes.md
+
+# Platform-specific config that should not be published through Pages
+**/vercel.json
+
+# Office temp files
+~$*
+
+# Extra nested repo/editor metadata inside client folders
+*/.gitignore

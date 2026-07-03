@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zwaluw Therapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="articles">
+
+<nav>
+  <a class="logo" href="./index.html" onclick="go('home')">Zwaluw <em>Therapie</em></a>
+  <ul class="nav-links">
+    <li><a href="./index.html" onclick="go('home')" id="n-home">Home</a></li>
+    <li><a href="./about.html" onclick="go('about')" id="n-about">Over ons</a></li>
+    <li><a href="./programs.html" onclick="go('programs')" id="n-programs">Programma's</a></li>
+    <li><a href="./articles.html" onclick="go('articles')" id="n-articles" class="active">Artikelen</a></li>
+    <li><a href="./research.html" onclick="go('research')" id="n-research">Onderzoek</a></li>
+    <li><a href="./contact.html" onclick="go('contact')" id="n-contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="go('contact')">Afspraak boeken</button>
+</nav>
+
+<div id="p-articles" class="page active">
+
+  <div class="page-hero" style="margin-top:64px;">
+    <div class="circles-wrap">
+      <div class="circle" style="width:560px;height:560px;opacity:.5"></div>
+      <div class="circle" style="width:380px;height:380px;opacity:.6"></div>
+      <div class="circle" style="width:240px;height:240px;opacity:.7"></div>
+    </div>
+    <div class="page-hero-inner">
+      <div class="breadcrumb">Home <span>›</span> Artikelen</div>
+      <div class="eyebrow" style="justify-content:center;margin-bottom:16px;">Kennisbank</div>
+      <h1 class="display" style="font-size:3.8rem;margin-bottom:20px;">Leer & <em>herstel</em></h1>
+      <p style="color:var(--ink-muted);font-size:1rem;line-height:1.8;max-width:520px;margin:0 auto;">Educatieve content over gezondheid, homeostase en herstel. Wetenschappelijk onderbouwd en toegankelijk geschreven.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="cat-pills">
+        <button class="cat-pill active">Alle artikelen</button>
+        <button class="cat-pill">Homeostase</button>
+        <button class="cat-pill">Voeding</button>
+        <button class="cat-pill">Slaap</button>
+        <button class="cat-pill">Stress</button>
+        <button class="cat-pill">Diagnostiek</button>
+        <button class="cat-pill">Leefstijl</button>
+      </div>
+
+      <div class="article-featured">
+        <div class="article-featured-img">⚖️</div>
+        <div class="article-featured-body">
+          <div class="eyebrow terra" style="margin-bottom:14px;">Uitgelicht · Homeostase</div>
+          <h2>Wat is homeostase en waarom is het de kern van uw gezondheid?</h2>
+          <p>Het menselijk lichaam streeft voortdurend naar balans. In dit artikel leggen we uit wat homeostase is, hoe het verstoord raakt en hoe u het kunt herstellen.</p>
+          <button class="btn btn-dark btn-sm">Lees artikel →</button>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        <div class="article-cell">
+          <div class="eyebrow terra">Diagnostiek</div>
+          <h3>Wat vertelt uw bloed over uw gezondheid?</h3>
+          <p>Welke markers zijn relevant en wat betekent uw uitslag precies?</p>
+          <div class="article-meta">Rosa Kaiser · 8 min leestijd</div>
+        </div>
+        <div class="article-cell">
+          <div class="eyebrow" style="color:var(--ink-muted);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:block;">Slaap</div>
+          <h3>De invloed van slaap op hormonale balans</h3>
+          <p>Chronisch slechte slaap raakt hormonen, immuunsysteem en energie direct aan.</p>
+          <div class="article-meta">Rosa Kaiser · 6 min leestijd</div>
+        </div>
+        <div class="article-cell">
+          <div class="eyebrow gold" style="font-size:.58rem;letter-spacing:2px;display:block;margin-bottom:10px;">Voeding</div>
+          <h3>Darmen als tweede brein: de connectie uitgelegd</h3>
+          <p>Hoe de darm-hersenverbinding uw stemming en energie bepaalt.</p>
+          <div class="article-meta">Rosa Kaiser · 10 min leestijd</div>
+        </div>
+        <div class="article-cell">
+          <div class="eyebrow" style="color:var(--ink-muted);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:block;">Stress</div>
+          <h3>Chronische stress en het stresshormoon cortisol</h3>
+          <p>Wat doet langdurige stress met uw lichaam en hoe kunt u het kalmeren?</p>
+          <div class="article-meta">Rosa Kaiser · 7 min leestijd</div>
+        </div>
+        <div class="article-cell">
+          <div class="eyebrow terra" style="font-size:.58rem;display:block;margin-bottom:10px;">Diagnostiek</div>
+          <h3>HRV-meting: wat zegt uw hartvariabiliteit?</h3>
+          <p>HRV als indicator voor herstelcapaciteit en stressniveau.</p>
+          <div class="article-meta">Rosa Kaiser · 5 min leestijd</div>
+        </div>
+        <div class="article-cell">
+          <div class="eyebrow" style="color:var(--ink-muted);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:block;">Leefstijl</div>
+          <h3>Ritme als medicijn: de kracht van dagstructuur</h3>
+          <p>Hoe een vaste dagstructuur diepgaande invloed heeft op uw biologie.</p>
+          <div class="article-meta">Rosa Kaiser · 9 min leestijd</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band quote-band-gold">
+    <div class="container quote-band-inner">
+      <p class="quote-copy">"Je darmen sturen je hersenen aan. Zorg goed voor je tweede brein."</p>
+      <p class="quote-source">Rosa Kaiser - Darm-Hersen Regulatie</p>
+    </div>
+  </section>
+
+  <div class="nl-strip section-green">
+    <div>
+      <h2 class="heading" style="color:var(--cream);font-size:2rem;">Artikelen in uw inbox?</h2>
+      <p>Schrijf u in voor de nieuwsbrief en ontvang maandelijks educatieve content over gezondheid en herstel.</p>
+    </div>
+    <div>
+      <div class="nl-form">
+        <input type="email" placeholder="uw@email.nl">
+        <button onclick="alert('Ingeschreven!')">Inschrijven</button>
+      </div>
+      <p style="font-size:.68rem;color:rgba(250,249,247,.3);margin-top:10px;letter-spacing:.5px;">Geen spam. Uitschrijven is altijd mogelijk.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">Zwaluw <em>Therapie</em></div><p>Meer energie. Minder stress. Lichamelijke vrijheid - dat is waar we naartoe werken.</p></div>
+      <div><h5>Navigatie</h5><ul><li><a onclick="go('home')">Home</a></li><li><a onclick="go('about')">Over ons</a></li><li><a onclick="go('programs')">Programma's</a></li><li><a onclick="go('articles')">Artikelen</a></li></ul></div>
+      <div><h5>Meer</h5><ul><li><a onclick="go('research')">Onderzoek</a></li><li><a onclick="go('contact')">Contact</a></li><li><a onclick="alert('Gratis gids')">Gratis gids</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a>contact@zwaluwtherapie.nl</a></li><li><a>+31 6 34 77 67 10</a></li><li><a>Ma–Vr: 9:00–17:30</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>Copyright 2026 Zwaluw Therapie - Rosa Kaiser</p><div class="socials"><div class="soc">📷</div><div class="soc">f</div><div class="soc">in</div></div></div>
+  </footer>
+</div>
+<script src="./script.js"></script>
+</body>
+</html>
