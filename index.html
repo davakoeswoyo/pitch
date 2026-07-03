@@ -201,55 +201,11 @@
             line-height: 1;
             color: var(--ink);
             flex-shrink: 0;
-            padding-right: 20px;
-            margin-right: 20px;
-            border-right: 1px solid rgba(124, 58, 237, 0.2);
         }
 
         .nav-logo span,
         .footer-logo span {
             color: var(--vlight);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            list-style: none;
-            margin-right: 16px;
-        }
-
-        .nav-links li {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            display: inline-flex;
-            align-items: center;
-            line-height: 1;
-            font-size: 11px;
-            color: var(--ink3);
-            text-decoration: none;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--ink);
-        }
-
-        .nav-dot {
-            display: block;
-            align-self: center;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--vlt);
-            box-shadow: 0 0 10px var(--vlt), 0 0 20px var(--vlt);
-            animation: pulse 3s ease infinite;
-            flex-shrink: 0;
         }
 
         #hero-pillar {
@@ -560,10 +516,6 @@
                 padding: 20px var(--site-gutter);
             }
 
-            .nav-links {
-                display: none;
-            }
-
             #cur,
             #cur2 {
                 display: none;
@@ -579,14 +531,7 @@
             }
 
             .nav-logo {
-                padding-right: 0;
-                margin-right: 0;
-                border-right: none;
                 font-size: 16px;
-            }
-
-            .nav-dot {
-                margin-left: 10px;
             }
 
             section {
@@ -658,11 +603,6 @@
 
     <nav>
         <a href="./" class="nav-logo">Dava <span>K.</span></a>
-        <ul class="nav-links">
-            <li><a href="#sites">Preview sites</a></li>
-            <li><a href="https://davakoeswoyo.github.io/">Portfolio</a></li>
-        </ul>
-        <div class="nav-dot" aria-hidden="true"></div>
     </nav>
 
     <main>
