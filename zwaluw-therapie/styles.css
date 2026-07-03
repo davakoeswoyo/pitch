@@ -109,6 +109,8 @@ body {
   color: var(--cream);
 }
 
+.preview-breadcrumb:has(.preview-breadcrumb-pitch:hover),
+.preview-breadcrumb:has(.preview-breadcrumb-pitch:focus-visible),
 .preview-breadcrumb-path:has(.preview-breadcrumb-pitch:hover),
 .preview-breadcrumb-path:has(.preview-breadcrumb-pitch:focus-visible) {
   color: var(--cream);
