@@ -137,7 +137,7 @@
             }
         }
 
-        .nav-row {
+        .breadcrumb-row {
             position: absolute;
             top: 0;
             left: 0;
@@ -149,13 +149,20 @@
             padding: 28px var(--site-gutter);
         }
 
-        .nav-aside {
+        .breadcrumb-link {
             font-size: 11px;
             color: var(--ink3);
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-decoration: none;
             opacity: 0;
             animation: fadeUp 0.6s ease 0.6s forwards;
+            transition: color 0.2s, transform 0.25s;
+        }
+
+        .breadcrumb-link:hover {
+            color: var(--vlight);
+            transform: translateX(-3px);
         }
 
         nav {
@@ -245,16 +252,6 @@
             flex-shrink: 0;
         }
 
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 var(--site-gutter) 44px;
-            position: relative;
-            overflow: hidden;
-        }
-
         #hero-pillar {
             position: fixed;
             inset: 0;
@@ -290,229 +287,15 @@
             mix-blend-mode: screen;
         }
 
-        .ghost-bg {
-            --ghost-scroll: 0px;
-            position: absolute;
-            top: 50%;
-            left: -12px;
-            transform: translateY(calc(-52% + var(--ghost-scroll)));
-            font-family: var(--serif);
-            font-size: clamp(160px, 26vw, 340px);
-            font-style: italic;
-            font-weight: 300;
-            color: rgba(196, 176, 255, 0.035);
-            -webkit-text-stroke: 1px rgba(196, 176, 255, 0.28);
-            pointer-events: none;
-            white-space: nowrap;
-            letter-spacing: -8px;
-            user-select: none;
-            line-height: 1;
-            text-shadow: 0 0 22px rgba(124, 58, 237, 0.08);
-            will-change: transform;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: min(var(--frame-wide), 100%);
-            margin: 0 auto;
-        }
-
-        .hero-eyebrow,
-        .site-engine {
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-eyebrow {
-            font-size: 12px;
-            color: var(--vlight);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            gap: 12px;
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.15s forwards;
-        }
-
-        .hero-eyebrow::before,
-        .site-engine::before {
-            content: "";
-            height: 1px;
-        }
-
-        .hero-eyebrow::before {
-            width: 28px;
-            background: var(--vlight);
-        }
-
-        h1,
         h2 {
             font-family: var(--serif);
             font-weight: 300;
             color: var(--ink);
         }
 
-        h1 {
-            font-size: clamp(64px, 9vw, 128px);
-            line-height: 0.93;
-            letter-spacing: -2px;
-            opacity: 0;
-            animation: fadeUp 1s ease 0.25s forwards;
-        }
-
-        h1 em,
         h2 em {
             font-style: italic;
             color: var(--vlight);
-        }
-
-        h1 .line2 {
-            display: block;
-            padding-left: clamp(48px, 8vw, 120px);
-            color: var(--ink2);
-        }
-
-        h1 .line3 {
-            display: block;
-            font-style: italic;
-            color: var(--vlight);
-        }
-
-        .hero-bottom {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 48px;
-            margin-top: 56px;
-            opacity: 0;
-            animation: fadeUp 0.9s ease 0.5s forwards;
-        }
-
-        .hero-desc {
-            font-size: 15px;
-            color: var(--ink2);
-            line-height: 2;
-            max-width: 430px;
-            font-weight: 300;
-        }
-
-        .hero-desc strong {
-            color: var(--ink);
-            font-weight: 400;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 14px;
-            flex-shrink: 0;
-        }
-
-        .btn-p,
-        .btn-g {
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .btn-p {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--vlt);
-            color: #fff;
-            font-family: var(--mono);
-            font-size: 12px;
-            padding: 13px 28px;
-            border-radius: 2px;
-            transition: background 0.2s, transform 0.25s, gap 0.3s;
-        }
-
-        .btn-p:hover {
-            background: var(--violet);
-            transform: translateY(-2px);
-            gap: 16px;
-        }
-
-        .btn-g {
-            font-size: 12px;
-            color: var(--ink3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.2s, gap 0.3s;
-        }
-
-        .btn-g:hover {
-            color: var(--vlight);
-            gap: 14px;
-        }
-
-        .btn-g::after {
-            content: "\2192";
-            color: var(--vlight);
-        }
-
-        .marquee-wrap {
-            overflow: hidden;
-            border-top: 1px solid var(--bg3);
-            border-bottom: 1px solid var(--bg3);
-            padding: 22px 0;
-            background: var(--bg2);
-        }
-
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: marquee 28s linear infinite;
-        }
-
-        .marquee-track-reverse {
-            animation-direction: reverse;
-            animation-duration: 24s;
-        }
-
-        .marquee-item {
-            display: flex;
-            white-space: nowrap;
-        }
-
-        .m-word {
-            font-family: var(--serif);
-            font-size: 20px;
-            font-style: italic;
-            font-weight: 300;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 0 32px;
-            transition: color 0.2s;
-        }
-
-        .m-word:hover {
-            color: var(--vlight);
-        }
-
-        .m-sep {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            min-width: 18px;
-            color: #000;
-            font-size: 0;
-            line-height: 1;
-            opacity: 1;
-            transform: translateY(-1px);
-        }
-
-        .m-sep::before {
-            content: "\2726";
-            font-size: 14px;
-            line-height: 1;
-            color: inherit;
         }
 
         section {
@@ -688,21 +471,6 @@
             letter-spacing: 0.5px;
         }
 
-        .td-tags {
-            text-align: right;
-        }
-
-        .p-tag {
-            display: inline-block;
-            font-size: 10px;
-            color: var(--ink3);
-            border: 1px solid var(--bg3);
-            padding: 4px 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-left: 6px;
-        }
-
         .site-arrow {
             color: var(--vlt);
             transition: transform 0.3s;
@@ -750,11 +518,6 @@
             50% { opacity: 0.4; }
         }
 
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -793,13 +556,11 @@
                 --frame-copy: 100%;
             }
 
-            .nav-row {
+            .breadcrumb-row {
                 padding: 20px var(--site-gutter);
             }
 
-            .nav-aside,
-            .nav-links,
-            .td-tags {
+            .nav-links {
                 display: none;
             }
 
@@ -826,17 +587,6 @@
 
             .nav-dot {
                 margin-left: 10px;
-            }
-
-            #hero {
-                padding: 20px var(--site-gutter) 40px;
-                min-height: 100svh;
-            }
-
-            .ghost-bg {
-                font-size: clamp(100px, 32vw, 180px);
-                left: -8px;
-                -webkit-text-stroke-width: 0.5px;
             }
 
             section {
@@ -873,41 +623,6 @@
                 margin-bottom: 72px;
             }
 
-            .hero-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 28px;
-                margin-top: 36px;
-            }
-
-            .hero-desc {
-                max-width: 100%;
-            }
-
-            .hero-actions {
-                flex-direction: row;
-                align-items: center;
-                width: 100%;
-                gap: 16px;
-            }
-
-            h1 {
-                font-size: clamp(52px, 14vw, 80px);
-                letter-spacing: -1.5px;
-            }
-
-            h1 .line2 {
-                padding-left: clamp(24px, 6vw, 60px);
-            }
-
-            .btn-p {
-                padding: 12px 22px;
-            }
-
-            .hero-actions .btn-g {
-                min-height: 40px;
-            }
-
             td {
                 padding: 20px 8px;
             }
@@ -933,75 +648,24 @@
 <body>
     <div id="cur" aria-hidden="true"></div>
     <div id="cur2" aria-hidden="true"></div>
+    <div id="hero-pillar" aria-hidden="true">
+        <div class="light-pillar-fallback"></div>
+    </div>
 
-    <div class="nav-row">
-        <span class="nav-aside">Pitch 2026</span>
-        <span class="nav-aside">Client websites</span>
+    <div class="breadcrumb-row">
+        <a href="https://davakoeswoyo.github.io/" class="breadcrumb-link">&larr; Back to portfolio</a>
     </div>
 
     <nav>
-        <a href="#hero" class="nav-logo">Dava <span>K.</span></a>
+        <a href="./" class="nav-logo">Dava <span>K.</span></a>
         <ul class="nav-links">
-            <li><a href="#sites">Sites</a></li>
+            <li><a href="#sites">Preview sites</a></li>
             <li><a href="https://davakoeswoyo.github.io/">Portfolio</a></li>
         </ul>
         <div class="nav-dot" aria-hidden="true"></div>
     </nav>
 
     <main>
-        <section id="hero">
-            <div id="hero-pillar" aria-hidden="true">
-                <div class="light-pillar-fallback"></div>
-            </div>
-            <div class="ghost-bg">PITCH</div>
-
-            <div class="hero-content">
-                <div class="hero-eyebrow">Client pitch websites</div>
-                <h1>
-                    Website
-                    <span class="line2">previews</span>
-                    <span class="line3">-ready to view.</span>
-                </h1>
-                <div class="hero-bottom">
-                    <p class="hero-desc">
-                        <strong>Static client pitch sites.</strong><br>
-                        A public preview index for selected concepts,<br>
-                        prototypes, and lightweight client website builds.<br>
-                        Same craft, same stack, separate from the portfolio.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="./zwaluw-therapie/" class="btn-p">Open Zwaluw <span aria-hidden="true">&rarr;</span></a>
-                        <a href="#sites" class="btn-g">View sites</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="marquee-wrap" aria-hidden="true">
-            <div class="marquee-track">
-                <div class="marquee-item">
-                    <span class="m-word">Client Websites</span><span class="m-sep">*</span>
-                    <span class="m-word">Pitch Concepts</span><span class="m-sep">*</span>
-                    <span class="m-word">HTML - CSS - JS</span><span class="m-sep">*</span>
-                    <span class="m-word">Static Previews</span><span class="m-sep">*</span>
-                    <span class="m-word">GitHub Pages</span><span class="m-sep">*</span>
-                    <span class="m-word">Web Developer</span><span class="m-sep">*</span>
-                    <span class="m-word">Bali, Indonesia</span><span class="m-sep">*</span>
-                    <span class="m-word">Fast & Clean</span><span class="m-sep">*</span>
-                </div>
-                <div class="marquee-item">
-                    <span class="m-word">Client Websites</span><span class="m-sep">*</span>
-                    <span class="m-word">Pitch Concepts</span><span class="m-sep">*</span>
-                    <span class="m-word">HTML - CSS - JS</span><span class="m-sep">*</span>
-                    <span class="m-word">Static Previews</span><span class="m-sep">*</span>
-                    <span class="m-word">GitHub Pages</span><span class="m-sep">*</span>
-                    <span class="m-word">Web Developer</span><span class="m-sep">*</span>
-                    <span class="m-word">Bali, Indonesia</span><span class="m-sep">*</span>
-                    <span class="m-word">Fast & Clean</span><span class="m-sep">*</span>
-                </div>
-            </div>
-        </div>
-
         <section id="sites">
             <div class="section-ghost section-ghost-web">SITES</div>
             <div class="s-label">
@@ -1024,11 +688,6 @@
                                     <div class="site-sub">Therapeutic platform pitch website</div>
                                 </a>
                             </td>
-                            <td class="td-tags" aria-hidden="true">
-                                <span class="p-tag">Static</span>
-                                <span class="p-tag">Pitch</span>
-                                <span class="p-tag">Live</span>
-                            </td>
                             <td class="site-arrow" aria-hidden="true">&#8594;</td>
                         </tr>
                     </tbody>
@@ -1036,7 +695,7 @@
             </div>
 
             <footer>
-                <a href="#hero" class="footer-logo">Dava <span>K.</span></a>
+                <a href="#sites" class="footer-logo">Dava <span>K.</span></a>
                 <span>&copy; 2026 Dava Koeswoyo</span>
                 <span>Bali, Indonesia</span>
             </footer>
@@ -1047,7 +706,7 @@
         const cursor = document.getElementById("cur");
         const cursorRing = document.getElementById("cur2");
         const revealElements = document.querySelectorAll(".reveal");
-        const ghostTargets = document.querySelectorAll(".ghost-bg, .section-ghost");
+        const ghostTargets = document.querySelectorAll(".section-ghost");
         let mouseX = 0;
         let mouseY = 0;
         let ringX = 0;
