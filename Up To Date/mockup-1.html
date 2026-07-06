@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapsalon Up to Date — Ontwerp 1 · Warm Redactioneel</title>
+<!--
+  DEV-NOTITIES (niet publiceren):
+  - ADRES CONFLICT: oude site toonde Arumerweg 16 (footer) én 18 (contact). Hier: 16. Bevestig met klant.
+  - OPENINGSTIJDEN: PLACEHOLDER, niet echt. Vervang met echte tijden van klant.
+  - GALERIJ: placeholder-tegels. Vervang met echte kapselfoto's.
+  - KAART: embed op dorpsniveau. Vervang met exacte bevestigde adres-embed.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f7f1e8; --paper2:#efe6d7; --ink:#2b2320; --ink2:#5b5048;
+    --terra:#b5623c; --terra-d:#8f4a2b; --gold:#c99a4e; --line:#d8cbb6;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  /* Breadcrumb */
+  .crumb{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:13px;letter-spacing:.03em;}
+  .crumb a{display:inline-flex;align-items:center;gap:8px;padding:9px 28px;color:var(--paper);text-decoration:none;opacity:.85;transition:opacity .2s;}
+  .crumb a:hover{opacity:1;color:var(--gold);}
+
+  /* Nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;max-width:1120px;margin:0 auto;border-bottom:1px solid var(--line);}
+  .logo{font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:.01em;text-decoration:none;color:var(--ink);}
+  .logo em{color:var(--terra);font-style:italic;font-weight:500;}
+  .nav-links{display:flex;gap:30px;list-style:none;font-size:14px;letter-spacing:.04em;text-transform:uppercase;}
+  .nav-links a{text-decoration:none;color:var(--ink2);transition:color .2s;}
+  .nav-links a:hover{color:var(--terra);}
+  .nav-cta{font-family:var(--sans);font-size:13px;letter-spacing:.05em;text-transform:uppercase;background:var(--terra);color:#fff;border:none;padding:11px 20px;border-radius:2px;cursor:pointer;text-decoration:none;transition:background .2s;}
+  .nav-cta:hover{background:var(--terra-d);}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:70px 0 60px;}
+  .hero .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:20px;}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(44px,6vw,74px);line-height:1.04;margin-bottom:24px;}
+  .hero h1 em{font-style:italic;color:var(--terra);}
+  .hero p{font-size:18px;color:var(--ink2);max-width:44ch;margin-bottom:32px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;padding:13px 26px;border-radius:2px;text-decoration:none;transition:.2s;}
+  .btn-solid{background:var(--ink);color:var(--paper);}
+  .btn-solid:hover{background:var(--terra);}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+  .hero-fig{position:relative;aspect-ratio:4/5;background:linear-gradient(135deg,var(--paper2),#e2d3bd);border:1px solid var(--line);border-radius:3px;overflow:hidden;}
+  .hero-fig .tag{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;background:linear-gradient(transparent,rgba(43,35,32,.72));color:var(--paper);font-family:var(--serif);font-style:italic;font-size:18px;}
+  .hero-fig .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.5;}
+
+  section{padding:66px 0;}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
+  .sec-title{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4vw,44px);line-height:1.1;margin-bottom:22px;}
+
+  /* About */
+  .about{border-top:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about p+p{margin-top:16px;}
+  .about p{color:var(--ink2);font-size:17px;}
+  .sig{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--terra);margin-top:24px;}
+  .about-fig{aspect-ratio:1/1;background:linear-gradient(135deg,#e7d9c3,#d8c3a5);border:1px solid var(--line);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:13px;letter-spacing:.1em;text-transform:uppercase;opacity:.9;}
+
+  /* Services + Prices */
+  .prices{background:var(--paper2);}
+  .price-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:36px;}
+  .price-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 56px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);}
+  .price-row .name{font-family:var(--serif);font-size:20px;}
+  .price-row .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);}
+  .price-row .amt{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;}
+  .price-note{margin-top:28px;font-size:13px;font-style:italic;color:var(--ink2);}
+
+  /* Gallery */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .tile{aspect-ratio:1/1;border-radius:3px;border:1px solid var(--line);background:linear-gradient(135deg,var(--paper2),#e3d4bd);display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;transition:transform .3s;}
+  .tile:nth-child(3n){background:linear-gradient(135deg,#e8d9c1,#d3ba97);}
+  .tile:hover{transform:translateY(-4px);opacity:1;}
+
+  /* Location */
+  .loc{border-top:1px solid var(--line);}
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;}
+  .hours{list-style:none;}
+  .hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:16px;}
+  .hours li.today{color:var(--terra);font-weight:600;}
+  .hours .day{font-family:var(--serif);}
+  .map-frame{border:1px solid var(--line);border-radius:3px;overflow:hidden;min-height:340px;}
+  .map-frame iframe{width:100%;height:100%;min-height:340px;border:0;filter:sepia(.28) saturate(.9);}
+  .addr-line{margin-top:18px;font-size:15px;color:var(--ink2);}
+  .addr-line strong{color:var(--ink);}
+
+  /* Contact / footer */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 34px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  footer h3{font-family:var(--serif);font-size:30px;margin-bottom:14px;}
+  footer h3 em{color:var(--gold);font-style:italic;}
+  footer p,footer a{color:#e7ddcf;text-decoration:none;font-size:15px;}
+  footer a:hover{color:var(--gold);}
+  .foot-col h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .foot-col a{display:block;margin-bottom:9px;}
+  .foot-bottom{margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:#b3a692;}
+  .frysk{font-family:var(--serif);font-style:italic;color:var(--gold);}
+
+  @media(max-width:860px){
+    .hero,.about-grid,.loc-grid,.foot-grid{grid-template-columns:1fr;gap:36px;}
+    .price-list{grid-template-columns:1fr;}
+    .gal-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Breadcrumb -->
+<div class="crumb"><a href="index.html">&larr;&nbsp; Terug naar ontwerpen</a></div>
+
+<nav>
+  <a class="logo" href="#top">Up to <em>Date</em></a>
+  <ul class="nav-links">
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#prijzen">Prijzen</a></li>
+    <li><a href="#werk">Ons werk</a></li>
+    <li><a href="#bezoek">Bezoek</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:0517531390">Maak een afspraak</a>
+</nav>
+
+<div class="wrap" id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <div class="kicker">Kapsalon · Witmarsum, Fryslân</div>
+      <h1>Knippen met <em>aandacht</em>, in het hart van het dorp.</h1>
+      <p>Bij Kapsalon Up to Date knippen, kleuren en verzorgen we het haar van dames, heren en kinderen — persoonlijk, ontspannen en zonder poespas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="tel:0517531390">Bel voor een afspraak</a>
+        <a class="btn btn-ghost" href="#prijzen">Bekijk de prijzen</a>
+      </div>
+    </div>
+    <div class="hero-fig">
+      <div class="ph">Salonfoto — volgt</div>
+      <div class="tag">Vakwerk sinds jaar en dag</div>
+    </div>
+  </section>
+</div>
+
+<!-- About -->
+<section class="about" id="over">
+  <div class="wrap about-grid">
+    <div class="about-fig">Portret / interieur — volgt</div>
+    <div>
+      <div class="eyebrow">Over de salon</div>
+      <h2 class="sec-title">Een vertrouwd adres voor jong en oud.</h2>
+      <p>Up to Date is een kleine, persoonlijke kapsalon in Witmarsum. Bij ons voel je je meteen thuis: een kopje koffie, een goed gesprek en alle tijd om samen naar het kapsel te kijken dat bij jóu past.</p>
+      <p>Of je nu komt voor een frisse coupe, een nieuwe kleur of gewoon je vertrouwde knipbeurt — we nemen de tijd en werken met zorg. Van kleintjes tot opa's: iedereen is welkom.</p>
+      <p class="sig">Mei leafde makke yn Fryslân.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Prices -->
+<section class="prices" id="prijzen">
+  <div class="wrap">
+    <div class="price-head">
+      <div>
+        <div class="eyebrow">Diensten &amp; tarieven</div>
+        <h2 class="sec-title">Prijslijst</h2>
+      </div>
+      <a class="btn btn-ghost" href="tel:0517531390">Afspraak maken</a>
+    </div>
+    <div class="price-list">
+      <div class="price-row"><span class="name">Knippen dame</span><span class="dots"></span><span class="amt">€ 27,50</span></div>
+      <div class="price-row"><span class="name">Knippen heer</span><span class="dots"></span><span class="amt">€ 26,50</span></div>
+      <div class="price-row"><span class="name">Knippen kind</span><span class="dots"></span><span class="amt">€ 25,00</span></div>
+      <div class="price-row"><span class="name">Knippen kind t/m 3 jaar</span><span class="dots"></span><span class="amt">€ 24,50</span></div>
+      <div class="price-row"><span class="name">Heren tondeuse</span><span class="dots"></span><span class="amt">€ 19,50</span></div>
+      <div class="price-row"><span class="name">Kleuren</span><span class="dots"></span><span class="amt">v.a. € 59,50</span></div>
+      <div class="price-row"><span class="name">Highlights</span><span class="dots"></span><span class="amt">v.a. € 62,50</span></div>
+      <div class="price-row"><span class="name">Watergolven</span><span class="dots"></span><span class="amt">v.a. € 39,50</span></div>
+      <div class="price-row"><span class="name">Opsteken</span><span class="dots"></span><span class="amt">v.a. € 47,50</span></div>
+    </div>
+    <p class="price-note">Prijswijzigingen voorbehouden.</p>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="werk">
+  <div class="wrap">
+    <div class="eyebrow">Ons werk</div>
+    <h2 class="sec-title">Een greep uit onze kapsels</h2>
+    <div class="gal-grid">
+      <div class="tile">Foto 1</div><div class="tile">Foto 2</div><div class="tile">Foto 3</div><div class="tile">Foto 4</div>
+      <div class="tile">Foto 5</div><div class="tile">Foto 6</div><div class="tile">Foto 7</div><div class="tile">Foto 8</div>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="loc" id="bezoek">
+  <div class="wrap">
+    <div class="eyebrow">Bezoek ons</div>
+    <h2 class="sec-title">Openingstijden &amp; locatie</h2>
+    <div class="loc-grid">
+      <div>
+        <!-- OPENINGSTIJDEN: PLACEHOLDER — vervang met echte tijden -->
+        <ul class="hours">
+          <li><span class="day">Maandag</span><span>Gesloten</span></li>
+          <li><span class="day">Dinsdag</span><span>08:30 – 17:30</span></li>
+          <li><span class="day">Woensdag</span><span>08:30 – 17:30</span></li>
+          <li><span class="day">Donderdag</span><span>08:30 – 21:00</span></li>
+          <li><span class="day">Vrijdag</span><span>08:30 – 17:30</span></li>
+          <li><span class="day">Zaterdag</span><span>08:00 – 13:00</span></li>
+          <li><span class="day">Zondag</span><span>Gesloten</span></li>
+        </ul>
+        <p class="addr-line"><strong>Kapsalon Up to Date</strong><br>Arumerweg 16, 8748 AB Witmarsum<br>Gratis parkeren voor de deur.</p>
+      </div>
+      <div class="map-frame">
+        <iframe title="Kaart Witmarsum" loading="lazy" src="https://maps.google.com/maps?q=Arumerweg%2016%20Witmarsum&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer / contact -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <h3>Up to <em>Date</em></h3>
+      <p>Kapsalon voor dames, heren en kinderen.<br>Arumerweg 16, 8748 AB Witmarsum, Fryslân.</p>
+      <p class="frysk" style="margin-top:16px;">Oant sjen!</p>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="tel:0517531390">0517 531390</a>
+      <a href="mailto:info@kapsalonuptodate.nl">info@kapsalonuptodate.nl</a>
+    </div>
+    <div class="foot-col">
+      <h4>Volg ons</h4>
+      <a href="https://instagram.com/kapsalon.up.to.date" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/uptodatekapsalon" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© Kapsalon Up to Date — Witmarsum</span>
+    <span>Prijswijzigingen voorbehouden.</span>
+  </div>
+</footer>
+
+</body>
+</html>
