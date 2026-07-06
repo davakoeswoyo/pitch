@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapsalon Up to Date — Ontwerpkeuze</title>
+<!--
+  HUB / HOUSING PAGE — bewust ongestyled.
+  Geen globale huisstijl. Elke kaart draagt ALLEEN de stijl van het ontwerp
+  waar hij naartoe linkt. Kaartstijlen zijn gescoped (eigen class-prefix) zodat
+  ze elkaar of de pagina niet beïnvloeden.
+-->
+
+<!-- Fonts per kaart (elk ontwerp z'n eigen set) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600&family=Alfa+Slab+One&family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* --- Minimale, neutrale hub-structuur (geen huisstijl) --- */
+  body{background:#ffffff;color:#000000;margin:24px;}
+  .hub{max-width:940px;margin:0 auto;}
+  .hub h1{font-size:22px;font-weight:normal;margin:0 0 4px;}
+  .hub p{margin:0 0 24px;color:#333;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+  .card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;min-height:230px;}
+
+  /* ===== KAART 1 · Warm Redactioneel (gescoped: .c1) ===== */
+  .c1{background:#f7f1e8;color:#2b2320;border:1px solid #d8cbb6;padding:30px 32px;font-family:"Inter",system-ui,sans-serif;position:relative;}
+  .c1 .c1-crumb{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#b5623c;}
+  .c1 .c1-name{font-family:"Playfair Display",serif;font-weight:700;font-size:30px;line-height:1.05;margin:14px 0 8px;color:#2b2320;}
+  .c1 .c1-name em{font-style:italic;color:#b5623c;}
+  .c1 .c1-desc{font-size:14px;color:#5b5048;max-width:34ch;}
+  .c1 .c1-swatch{display:flex;gap:6px;margin:18px 0;}
+  .c1 .c1-swatch span{width:26px;height:26px;border-radius:50%;border:1px solid #d8cbb6;}
+  .c1 .c1-cta{font-family:"Playfair Display",serif;font-style:italic;font-size:18px;color:#b5623c;}
+
+  /* ===== KAART 2 · Retro Kapper (gescoped: .c2) ===== */
+  .c2{background:#152238;color:#f3e9d6;padding:0;font-family:"Roboto Condensed","Oswald",sans-serif;position:relative;}
+  .c2 .c2-stripe{height:8px;background:repeating-linear-gradient(45deg,#b3282d 0 18px,#f3e9d6 18px 36px,#152238 36px 54px);}
+  .c2 .c2-body{padding:26px 30px;}
+  .c2 .c2-crumb{font-family:"Oswald",sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e0a731;}
+  .c2 .c2-name{font-family:"Alfa Slab One",serif;font-size:30px;line-height:1;margin:12px 0 10px;color:#f3e9d6;text-shadow:3px 3px 0 #b3282d;}
+  .c2 .c2-desc{font-size:15px;color:#d8cbb0;max-width:34ch;}
+  .c2 .c2-cta{display:inline-block;margin-top:18px;font-family:"Oswald",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:#152238;background:#e0a731;padding:9px 16px;}
+
+  /* ===== KAART 3 · Modern Minimaal (gescoped: .c3) ===== */
+  .c3{background:#ffffff;color:#111111;border:1px solid #e7e7e7;padding:30px 32px;font-family:"Inter",system-ui,sans-serif;position:relative;}
+  .c3 .c3-crumb{display:inline-flex;align-items:center;gap:7px;font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:12px;color:#4f46e5;background:#eef0ff;padding:5px 12px;border-radius:100px;}
+  .c3 .c3-crumb b{width:7px;height:7px;background:#4f46e5;border-radius:50%;display:inline-block;}
+  .c3 .c3-name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:32px;letter-spacing:-.03em;line-height:1;margin:16px 0 10px;}
+  .c3 .c3-desc{font-size:14px;color:#6a6a6a;max-width:34ch;}
+  .c3 .c3-cta{display:inline-block;margin-top:20px;font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:14px;background:#111;color:#fff;padding:10px 18px;border-radius:100px;}
+
+  /* ===== KAART 4 · Zacht Roze (gescoped: .c4) ===== */
+  .c4{background:#fdf3f7;color:#463a41;border:1px solid #f3d9e3;padding:30px 32px;font-family:"Poppins",system-ui,sans-serif;position:relative;overflow:hidden;}
+  .c4 .c4-blob{position:absolute;width:210px;height:190px;border-radius:50% 50% 48% 52%/55% 50% 50% 45%;background:linear-gradient(150deg,#e58aab,#f3d9e3);top:-70px;right:-60px;opacity:.9;}
+  .c4 .c4-crumb{position:relative;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#d16b8e;}
+  .c4 .c4-name{position:relative;font-family:"DM Serif Display",serif;font-size:32px;line-height:1.04;margin:14px 0 8px;color:#463a41;}
+  .c4 .c4-name em{font-style:italic;color:#d16b8e;}
+  .c4 .c4-desc{position:relative;font-size:14px;color:#6f6169;max-width:34ch;}
+  .c4 .c4-cta{position:relative;display:inline-block;margin-top:18px;font-weight:600;font-size:14px;background:#e58aab;color:#fff;padding:10px 20px;border-radius:100px;box-shadow:0 10px 20px -10px #d16b8e;}
+</style>
+</head>
+<body>
+
+<div class="hub">
+  <h1>Kapsalon Up to Date — Ontwerpkeuze</h1>
+  <p>Klik op een ontwerp om het te bekijken.</p>
+
+  <div class="grid">
+
+    <!-- Kaart 1 -->
+    <a class="card c1" href="mockup-1.html">
+      <div class="c1-crumb">Ontwerp 1</div>
+      <div class="c1-name">Warm <em>Redactioneel</em></div>
+      <div class="c1-swatch"><span style="background:#f7f1e8"></span><span style="background:#b5623c"></span><span style="background:#2b2320"></span><span style="background:#c99a4e"></span></div>
+      <div class="c1-desc">Zacht, tijdloos en magazine-achtig. Serif-koppen, crème en terracotta.</div>
+      <div class="c1-cta" style="margin-top:14px;">Bekijk dit ontwerp →</div>
+    </a>
+
+    <!-- Kaart 2 -->
+    <a class="card c2" href="mockup-2.html">
+      <div class="c2-stripe"></div>
+      <div class="c2-body">
+        <div class="c2-crumb">Ontwerp 2</div>
+        <div class="c2-name">Retro Kapper</div>
+        <div class="c2-desc">Vintage barbershop: navy, barbier-rood en mosterd. Stoer en gezellig.</div>
+        <div class="c2-cta">Bekijk dit ontwerp →</div>
+      </div>
+    </a>
+
+    <!-- Kaart 3 -->
+    <a class="card c3" href="mockup-3.html">
+      <div class="c3-crumb"><b></b>Ontwerp 3</div>
+      <div class="c3-name">Modern Minimaal</div>
+      <div class="c3-desc">Strak, wit en rustig met één frisse accentkleur. Veel witruimte.</div>
+      <div class="c3-cta">Bekijk dit ontwerp →</div>
+    </a>
+
+    <!-- Kaart 4 -->
+    <a class="card c4" href="mockup-4.html">
+      <div class="c4-blob"></div>
+      <div class="c4-crumb">Ontwerp 4</div>
+      <div class="c4-name">Zacht <em>Roze</em></div>
+      <div class="c4-desc">Zacht en vriendelijk: roze tinten, ronde vormen en veel lucht. Fris en warm.</div>
+      <div class="c4-cta">Bekijk dit ontwerp →</div>
+    </a>
+
+  </div>
+</div>
+
+</body>
+</html>
