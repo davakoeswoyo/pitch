@@ -34,5 +34,7 @@ desktop.ini
 **/HANDOFF.md
 **/PLAN.md
 
-# Large photo source folders (too large for git)
-laia/Images/
+# Full size photo sources (too large for git; Images/ holds the WebP set built from these)
+laia/Images_originals/
+laia/Images/**/*.mp4
+laia/Images/**/*.mov
