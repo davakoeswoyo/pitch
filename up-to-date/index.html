@@ -18,7 +18,19 @@
 
 <style>
   /* --- Minimale, neutrale hub-structuur (geen huisstijl) --- */
-  body{background:#ffffff;color:#000000;margin:24px;}
+  body{background:#ffffff;color:#000000;margin:24px;padding-top:36px;}
+
+  /* Preview-kruimelpad naar de pitch-index. Hoort niet bij de huisstijl. */
+  .preview-breadcrumb{position:fixed;top:0;left:0;right:0;z-index:120;height:36px;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 42px;background:#1c1a17;border-bottom:1px solid rgba(250,249,247,.12);color:rgba(250,249,247,.58);font-family:system-ui,-apple-system,sans-serif;font-size:.62rem;font-weight:500;letter-spacing:1.5px;line-height:1;text-transform:uppercase;}
+  .preview-breadcrumb-label,.preview-breadcrumb-path,.preview-breadcrumb-separator,.preview-breadcrumb a{transition:color .2s,opacity .2s;}
+  .preview-breadcrumb-path{display:inline-flex;align-items:center;color:rgba(250,249,247,.7);}
+  .preview-breadcrumb a{color:inherit;text-decoration:none;}
+  .preview-breadcrumb-separator{padding:0 2px;color:rgba(250,249,247,.34);}
+  .preview-breadcrumb-root:hover,.preview-breadcrumb-root:focus-visible{color:#faf9f7;}
+  .preview-breadcrumb-path:has(.preview-breadcrumb-pitch:hover),
+  .preview-breadcrumb-path:has(.preview-breadcrumb-pitch:focus-visible){color:#faf9f7;}
+  .preview-breadcrumb-path:has(.preview-breadcrumb-pitch:hover) .preview-breadcrumb-separator,
+  .preview-breadcrumb-path:has(.preview-breadcrumb-pitch:focus-visible) .preview-breadcrumb-separator{color:#faf9f7;}
   .hub{max-width:940px;margin:0 auto;}
   .hub h1{font-size:22px;font-weight:normal;margin:0 0 4px;}
   .hub p{margin:0 0 24px;color:#333;}
@@ -63,6 +75,13 @@
 </style>
 </head>
 <body>
+
+<div class="preview-breadcrumb" aria-label="Preview breadcrumb">
+  <span class="preview-breadcrumb-label">&larr; Back to</span>
+  <span class="preview-breadcrumb-path">
+    <a class="preview-breadcrumb-root" href="https://davakoeswoyo.github.io/">davakoeswoyo</a><span class="preview-breadcrumb-separator">/</span><a class="preview-breadcrumb-pitch" href="https://davakoeswoyo.github.io/pitch/">pitch</a>
+  </span>
+</div>
 
 <div class="hub">
   <h1>Kapsalon Up to Date — Ontwerpkeuze</h1>
