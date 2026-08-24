@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nasaru Child Foundation · Choose a design</title>
+<!--
+  HUB PAGE — deliberately unstyled.
+  No house style of its own. Each card carries ONLY the style of the design it
+  links to. Card styles are scoped with their own prefix so they cannot bleed
+  into each other or the page.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Manrope:wght@400;500;600;700;800&family=Platypi:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* --- Minimal neutral hub structure, no house style --- */
+  body{background:#ffffff;color:#000000;margin:24px;padding-top:36px;font-family:system-ui,-apple-system,sans-serif;}
+
+  /* Preview breadcrumb back to the pitch index. Not part of any design. */
+  .dk-preview-breadcrumb{position:fixed;top:0;left:0;right:0;z-index:120;height:36px;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 42px;background:#1c1a17;border-bottom:1px solid rgba(250,249,247,.12);color:rgba(250,249,247,.58);font-size:.62rem;font-weight:500;letter-spacing:1.5px;line-height:1;text-transform:uppercase;}
+  .dk-preview-breadcrumb-path{display:inline-flex;align-items:center;color:rgba(250,249,247,.7);}
+  .dk-preview-breadcrumb a{color:inherit;text-decoration:none;transition:color .2s;}
+  .dk-preview-breadcrumb-separator{padding:0 2px;color:rgba(250,249,247,.34);}
+  .dk-preview-breadcrumb a:hover{color:#faf9f7;}
+
+  .dk-hub{max-width:1080px;margin:0 auto;}
+  .dk-hub h1{font-size:22px;font-weight:normal;margin:0 0 4px;}
+  .dk-hub .dk-sub{margin:0 0 6px;color:#333;font-size:15px;}
+  .dk-hub .dk-note{margin:0 0 26px;color:#666;font-size:13px;max-width:70ch;line-height:1.6;}
+  .dk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:940px){.dk-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.dk-grid{grid-template-columns:1fr;}}
+  .dk-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;min-height:300px;}
+  .dk-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;}
+
+  /* ===== CARD 1 · Warm Earth (scoped: .dk-c1) ===== */
+  .dk-c1{background:#faf5ec;color:#2b2521;border:1px solid #e2d6c1;font-family:"Manrope",system-ui,sans-serif;}
+  .dk-c1 .dk-c1-body{padding:26px 28px 30px;}
+  .dk-c1 .dk-c1-crumb{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b0522d;}
+  .dk-c1 .dk-c1-name{font-family:"Literata",Georgia,serif;font-weight:700;font-size:27px;line-height:1.1;margin:12px 0 10px;}
+  .dk-c1 .dk-c1-desc{font-size:14px;line-height:1.6;color:#5f544b;}
+  .dk-c1 .dk-c1-swatch{display:flex;gap:6px;margin:18px 0 16px;}
+  .dk-c1 .dk-c1-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid #e2d6c1;}
+  .dk-c1 .dk-c1-cta{display:inline-block;background:#b0522d;color:#fff;font-size:13px;font-weight:600;padding:11px 22px;border-radius:6px;}
+
+  /* ===== CARD 2 · Clear and Trusted (scoped: .dk-c2) ===== */
+  .dk-c2{background:#ffffff;color:#16211c;border:1px solid #e2e7e3;font-family:"Manrope",system-ui,sans-serif;letter-spacing:-.01em;}
+  .dk-c2 .dk-c2-body{padding:26px 28px 30px;}
+  .dk-c2 .dk-c2-crumb{display:inline-block;background:#e8f0eb;color:#245640;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:100px;}
+  .dk-c2 .dk-c2-name{font-weight:800;font-size:27px;letter-spacing:-.035em;line-height:1.08;margin:14px 0 10px;}
+  .dk-c2 .dk-c2-desc{font-size:14px;line-height:1.6;color:#5a6b62;letter-spacing:0;}
+  .dk-c2 .dk-c2-swatch{display:flex;gap:6px;margin:18px 0 16px;}
+  .dk-c2 .dk-c2-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid #e2e7e3;}
+  .dk-c2 .dk-c2-cta{display:inline-block;background:#2f6b4f;color:#fff;font-size:13px;font-weight:600;padding:11px 22px;border-radius:100px;letter-spacing:0;}
+
+  /* ===== CARD 3 · Bold and Photo Led (scoped: .dk-c3) ===== */
+  .dk-c3{background:#14120f;color:#f7f3ea;border:1px solid #282319;font-family:"Manrope",system-ui,sans-serif;}
+  .dk-c3 .dk-c3-body{padding:26px 28px 30px;}
+  .dk-c3 .dk-c3-crumb{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#e0a33c;}
+  .dk-c3 .dk-c3-name{font-family:"Platypi",Georgia,serif;font-weight:800;font-size:28px;line-height:1.05;letter-spacing:-.02em;margin:12px 0 10px;}
+  .dk-c3 .dk-c3-desc{font-size:14px;line-height:1.6;color:rgba(247,243,234,.68);}
+  .dk-c3 .dk-c3-swatch{display:flex;gap:6px;margin:18px 0 16px;}
+  .dk-c3 .dk-c3-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid rgba(247,243,234,.2);}
+  .dk-c3 .dk-c3-cta{display:inline-block;background:#e0a33c;color:#14120f;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border-radius:2px;}
+</style>
+</head>
+<body>
+
+<div class="dk-preview-breadcrumb" aria-label="Preview breadcrumb">
+  <span>&larr; Back to</span>
+  <span class="dk-preview-breadcrumb-path">
+    <a href="https://davakoeswoyo.github.io/">davakoeswoyo</a><span class="dk-preview-breadcrumb-separator">/</span><a href="https://davakoeswoyo.github.io/pitch/">pitch</a>
+  </span>
+</div>
+
+<div class="dk-hub">
+  <h1>Nasaru Child Foundation &middot; choose a design</h1>
+  <p class="dk-sub">Three one page designs. Same structure, same content, same photos, three different feels. Click one to view it full size.</p>
+  <p class="dk-note">All three follow the redesign brief: the eleven section homepage structure, honest early stage positioning, no invented impact numbers, a permanent Current Priority section around the WhyDonate campaign closing 15 September 2026, an expanded Get Involved section with a volunteer form, an Our Journey timeline, and an Updates feed Marina can post to. Built from stock WordPress blocks in the standard editor on the Twenty Twenty-Five theme. No custom code, nothing to maintain. Highlighted items are placeholders the client still needs to supply.</p>
+
+  <div class="dk-grid">
+
+    <!-- Card 1 -->
+    <a class="dk-card dk-c1" href="mockup-1.html">
+      <img class="dk-shot" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/07/img_0908.jpg?w=800" alt="Children smiling together in the Nasaru classroom">
+      <div class="dk-c1-body">
+        <div class="dk-c1-crumb">Design 1</div>
+        <div class="dk-c1-name">Warm Earth</div>
+        <div class="dk-c1-desc">Soft sand and terracotta with a serif headline. Warm and human, grounded in the village. Programmes and Get Involved sit in tidy cards.</div>
+        <div class="dk-c1-swatch"><span style="background:#faf5ec"></span><span style="background:#b0522d"></span><span style="background:#d99b3f"></span><span style="background:#2b2521"></span></div>
+        <div class="dk-c1-cta">View this design</div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a class="dk-card dk-c2" href="mockup-2.html">
+      <img class="dk-shot" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1559.jpg?w=800" alt="Children holding alphabet charts in the classroom">
+      <div class="dk-c2-body">
+        <div class="dk-c2-crumb">Design 2</div>
+        <div class="dk-c2-name">Clear and Trusted</div>
+        <div class="dk-c2-desc">White, calm and easy to read, with one green accent. The look donors, grant bodies and partners expect. Fastest of the three to build and the easiest for Marina to edit.</div>
+        <div class="dk-c2-swatch"><span style="background:#ffffff"></span><span style="background:#2f6b4f"></span><span style="background:#e8f0eb"></span><span style="background:#16211c"></span></div>
+        <div class="dk-c2-cta">View this design</div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a class="dk-card dk-c3" href="mockup-3.html">
+      <img class="dk-shot" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1122.jpg?w=800" alt="Children jumping with their arms in the air outdoors">
+      <div class="dk-c3-body">
+        <div class="dk-c3-crumb">Design 3</div>
+        <div class="dk-c3-name">Bold and Photo Led</div>
+        <div class="dk-c3-desc">Dark background so the photos carry the page. Big type, full width images, strong donate and volunteer moments.</div>
+        <div class="dk-c3-swatch"><span style="background:#14120f"></span><span style="background:#e0a33c"></span><span style="background:#282319"></span><span style="background:#f7f3ea"></span></div>
+        <div class="dk-c3-cta">View this design</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+</body>
+</html>

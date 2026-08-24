@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nasaru Child Foundation · Design 1 · Warm Earth</title>
+<!--
+  BUILD ROUTE: WordPress standard editor only. No custom CSS.
+  Theme: Twenty Twenty-Five. Style variation: warm / earthy palette set in Styles.
+  Fonts: Literata (headings) + Manrope (body), both bundled with Twenty Twenty-Five.
+  Blocks: Cover, Group, Columns, Media and Text, Gallery, Image, Heading, Paragraph,
+  Buttons, Separator, Spacer, Form, Latest Posts, Social Icons.
+  Section order follows the redesign brief section 35.
+  NO INVENTED NUMBERS anywhere on this page (brief section 6.2).
+  Items marked .dk-tbc are placeholders the client must supply.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dk-sand:#faf5ec; --dk-sand-2:#f1e7d6; --dk-ink:#2b2521; --dk-ink-2:#5f544b;
+    --dk-clay:#b0522d; --dk-clay-dark:#8c3f21; --dk-gold:#d99b3f; --dk-line:#e2d6c1;
+    --dk-serif:"Literata",Georgia,serif; --dk-sans:"Manrope",system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--dk-sand);color:var(--dk-ink);font-family:var(--dk-sans);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .dk-wrap{max-width:1120px;margin:0 auto;padding:0 26px;}
+  .dk-narrow{max-width:720px;margin:0 auto;}
+  .dk-tbc{background:#fff6d9;border-bottom:1px dotted #b0522d;color:#8c3f21;font-style:italic;padding:0 3px;}
+
+  .dk-crumb{background:var(--dk-ink);color:var(--dk-sand);font-size:12px;letter-spacing:.12em;text-transform:uppercase;}
+  .dk-crumb a{display:inline-flex;align-items:center;gap:8px;padding:9px 26px;color:var(--dk-sand);text-decoration:none;opacity:.8;}
+  .dk-crumb a:hover{opacity:1;color:var(--dk-gold);}
+
+  .dk-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 26px;max-width:1120px;margin:0 auto;}
+  .dk-nav-logo{font-family:var(--dk-serif);font-weight:700;font-size:20px;line-height:1.15;text-decoration:none;color:var(--dk-ink);}
+  .dk-nav-logo span{display:block;font-family:var(--dk-sans);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dk-clay);}
+  .dk-nav-links{display:flex;align-items:center;gap:20px;list-style:none;font-size:14px;font-weight:500;flex-wrap:wrap;}
+  .dk-nav-links a{text-decoration:none;color:var(--dk-ink-2);}
+  .dk-nav-links a:hover{color:var(--dk-clay);}
+
+  .dk-hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:96px 26px;overflow:hidden;}
+  .dk-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .dk-hero-veil{position:absolute;inset:0;background:rgba(43,37,33,.58);}
+  .dk-hero-in{position:relative;max-width:800px;color:#fff;}
+  .dk-hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dk-gold);margin-bottom:20px;}
+  .dk-hero h1{font-family:var(--dk-serif);font-weight:700;font-size:clamp(32px,5.6vw,56px);line-height:1.1;margin-bottom:20px;}
+  .dk-hero p{font-size:clamp(16px,2.1vw,20px);line-height:1.6;color:rgba(255,255,255,.9);margin:0 auto 34px;max-width:620px;}
+
+  .dk-btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .dk-btns-c{justify-content:center;}
+  .dk-btn{display:inline-block;padding:14px 30px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;background:var(--dk-clay);color:#fff;border:2px solid var(--dk-clay);}
+  .dk-btn:hover{background:var(--dk-clay-dark);border-color:var(--dk-clay-dark);}
+  .dk-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6);}
+  .dk-btn-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff;}
+  .dk-btn-dark{background:var(--dk-ink);border-color:var(--dk-ink);color:#fff;}
+  .dk-btn-dark:hover{background:#12100e;border-color:#12100e;}
+  .dk-btn-line{background:transparent;color:var(--dk-ink);border-color:var(--dk-line);}
+  .dk-btn-line:hover{background:#fff;border-color:var(--dk-ink-2);}
+  .dk-btn-sm{padding:10px 20px;font-size:14px;}
+
+  .dk-sec{padding:86px 0;}
+  .dk-sec-alt{background:var(--dk-sand-2);}
+  .dk-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:14px;}
+  .dk-sec h2{font-family:var(--dk-serif);font-weight:700;font-size:clamp(27px,3.8vw,40px);line-height:1.18;margin-bottom:22px;}
+  .dk-sec p{color:var(--dk-ink-2);margin-bottom:16px;}
+  .dk-sec p:last-child{margin-bottom:0;}
+  .dk-center{text-align:center;}
+  .dk-head-c{text-align:center;max-width:660px;margin:0 auto 50px;}
+  .dk-head-c h2{margin-bottom:12px;}
+  .dk-head-c p{color:var(--dk-ink-2);}
+
+  .dk-lede{font-family:var(--dk-serif);font-size:clamp(19px,2.4vw,24px);line-height:1.55;color:var(--dk-ink);margin-bottom:24px;}
+
+  .dk-mt{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .dk-mt img{border-radius:8px;aspect-ratio:1/1;object-fit:cover;width:100%;}
+  .dk-figcap{font-size:13px;color:var(--dk-ink-2);margin-top:10px;font-style:italic;}
+
+  .dk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .dk-grid-2{grid-template-columns:repeat(2,1fr);}
+  .dk-card{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:32px 28px;}
+  .dk-card-num{font-family:var(--dk-serif);font-size:15px;font-weight:600;color:var(--dk-gold);margin-bottom:12px;}
+  .dk-card h3{font-family:var(--dk-serif);font-size:20px;font-weight:600;line-height:1.25;margin-bottom:12px;}
+  .dk-card p{font-size:15px;color:var(--dk-ink-2);margin:0 0 14px;}
+  .dk-card p:last-child{margin-bottom:0;}
+  .dk-card ul{margin:0;padding-left:18px;font-size:15px;color:var(--dk-ink-2);}
+  .dk-card ul li{margin-bottom:6px;}
+
+  /* Current priority */
+  .dk-prio{background:var(--dk-ink);color:#fff;border-radius:10px;padding:46px 44px;display:grid;grid-template-columns:1.4fr 1fr;gap:44px;align-items:center;}
+  .dk-prio h2{font-family:var(--dk-serif);font-size:clamp(25px,3.4vw,34px);line-height:1.2;margin-bottom:16px;color:#fff;}
+  .dk-prio .dk-eyebrow{color:var(--dk-gold);}
+  .dk-prio p{color:rgba(255,255,255,.82);margin-bottom:16px;}
+  .dk-deadline{border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:26px;text-align:center;}
+  .dk-deadline span{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dk-gold);margin-bottom:10px;}
+  .dk-deadline strong{display:block;font-family:var(--dk-serif);font-size:24px;font-weight:700;line-height:1.2;margin-bottom:20px;}
+
+  .dk-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .dk-gal figure img{aspect-ratio:1/1;object-fit:cover;width:100%;border-radius:6px;}
+  .dk-gal figcaption{font-size:13px;color:var(--dk-ink-2);margin-top:10px;line-height:1.5;}
+
+  /* Timeline */
+  .dk-time{max-width:760px;margin:0 auto;}
+  .dk-time-row{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--dk-line);}
+  .dk-time-row:last-child{border-bottom:1px solid var(--dk-line);}
+  .dk-time-when{font-family:var(--dk-serif);font-size:15px;font-weight:700;color:var(--dk-clay);}
+  .dk-time-what h3{font-family:var(--dk-serif);font-size:19px;font-weight:600;margin-bottom:8px;}
+  .dk-time-what p{font-size:15px;color:var(--dk-ink-2);margin:0;}
+
+  /* Form */
+  .dk-form{background:#fff;border:1px solid var(--dk-line);border-radius:10px;padding:38px;max-width:760px;margin:0 auto;}
+  .dk-form h3{font-family:var(--dk-serif);font-size:22px;font-weight:600;margin-bottom:8px;}
+  .dk-form > p{font-size:15px;color:var(--dk-ink-2);margin-bottom:24px;}
+  .dk-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .dk-field{display:flex;flex-direction:column;gap:6px;}
+  .dk-field.dk-full{grid-column:1/-1;}
+  .dk-field label{font-size:13px;font-weight:600;color:var(--dk-ink);}
+  .dk-field input,.dk-field select,.dk-field textarea{font-family:inherit;font-size:15px;color:var(--dk-ink);background:var(--dk-sand);border:1px solid var(--dk-line);border-radius:6px;padding:11px 13px;width:100%;}
+  .dk-field textarea{min-height:96px;resize:vertical;}
+
+  /* Updates */
+  .dk-post{background:#fff;border:1px solid var(--dk-line);border-radius:8px;overflow:hidden;}
+  .dk-post img{aspect-ratio:16/10;object-fit:cover;width:100%;}
+  .dk-post-b{padding:22px 24px 26px;}
+  .dk-post-b .dk-date{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:10px;}
+  .dk-post-b h3{font-family:var(--dk-serif);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px;}
+  .dk-post-b p{font-size:14px;color:var(--dk-ink-2);margin:0;}
+
+  .dk-contact{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px;margin:0 auto;}
+  .dk-contact-card{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:30px 24px;text-align:center;}
+  .dk-contact-card .dk-label{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:10px;}
+  .dk-contact-card a,.dk-contact-card span.dk-val{font-family:var(--dk-serif);font-size:17px;font-weight:600;text-decoration:none;word-break:break-word;display:block;}
+  .dk-contact-card a:hover{color:var(--dk-clay);}
+
+  .dk-foot{background:var(--dk-ink);color:rgba(250,245,236,.62);padding:52px 26px;text-align:center;font-size:14px;}
+  .dk-foot strong{display:block;font-family:var(--dk-serif);font-size:20px;color:var(--dk-sand);margin-bottom:8px;font-weight:600;}
+  .dk-foot p{margin-bottom:6px;}
+
+  @media(max-width:900px){
+    .dk-mt{grid-template-columns:1fr;gap:32px;}
+    .dk-grid{grid-template-columns:1fr 1fr;}
+    .dk-prio{grid-template-columns:1fr;gap:30px;padding:36px 30px;}
+    .dk-contact{grid-template-columns:1fr;}
+  }
+  @media(max-width:620px){
+    .dk-grid,.dk-grid-2,.dk-fields{grid-template-columns:1fr;}
+    .dk-gal{grid-template-columns:1fr;}
+    .dk-time-row{grid-template-columns:1fr;gap:8px;}
+    .dk-sec{padding:60px 0;}
+    .dk-nav{justify-content:center;text-align:center;}
+    .dk-nav-links{justify-content:center;gap:16px;}
+    .dk-btns{justify-content:center;}
+    .dk-form{padding:26px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="dk-crumb"><a href="index.html">&larr; Back to the three designs</a></div>
+
+<header>
+  <nav class="dk-nav">
+    <a class="dk-nav-logo" href="#top">Nasaru Child Foundation<span>Oltukai Village, Tanzania</span></a>
+    <ul class="dk-nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#journey">Our Journey</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="#updates">Updates</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="dk-btn dk-btn-sm" href="#priority">Donate</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 1. HERO -->
+<section class="dk-hero" id="top">
+  <img class="dk-hero-bg" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/07/img_0908.jpg?w=1400" alt="Children smiling together in the Nasaru classroom in Oltukai Village">
+  <div class="dk-hero-veil"></div>
+  <div class="dk-hero-in">
+    <div class="dk-hero-eyebrow">Oltukai Village &middot; Monduli &middot; Tanzania</div>
+    <h1>Help us build early childhood education in the Maasai community</h1>
+    <p>Empowering Maasai children through quality early childhood education and community development.</p>
+    <div class="dk-btns dk-btns-c">
+      <a class="dk-btn" href="#priority">Donate</a>
+      <a class="dk-btn dk-btn-ghost" href="#involved">Get Involved</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. MISSION / SHORT INTRODUCTION -->
+<section class="dk-sec" id="about">
+  <div class="dk-wrap dk-narrow dk-center">
+    <div class="dk-eyebrow">About Us</div>
+    <p class="dk-lede">Nasaru is at the beginning of its journey. We are building the foundation for a long term early childhood education project in the Maasai community, and we are looking for volunteers, partners and supporters who want to help us build it.</p>
+    <p>Nasaru Child Foundation is a community led nonprofit organization based in Oltukai Village, Monduli District, Arusha Region, Tanzania. We are committed to improving the lives of vulnerable children through quality early childhood education, child protection, and community development.</p>
+    <p>Working together with families, local leaders, volunteers, and partners, we provide a nurturing learning environment while promoting children&rsquo;s health, nutrition, and overall well being.</p>
+  </div>
+</section>
+
+<!-- 3. THE CHALLENGE -->
+<section class="dk-sec dk-sec-alt" id="challenge">
+  <div class="dk-wrap dk-mt">
+    <div>
+      <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1382.jpg?w=1000" alt="Children sitting on open ground outdoors during a lesson, with cattle grazing behind them">
+      <p class="dk-figcap">A lesson outdoors in Oltukai. Classes run wherever there is space.</p>
+    </div>
+    <div>
+      <div class="dk-eyebrow">The challenge</div>
+      <h2>Every child deserves a safe place to learn</h2>
+      <p>In underserved Maasai communities, access to quality education and essential services is often limited. Children frequently start primary school without the early learning that helps them keep up, and lessons happen wherever there is shade or space.</p>
+      <p>Early childhood is when the habits of learning are formed. It is the point where a small amount of support changes the whole path that follows, which is why we have chosen to start here.</p>
+      <p>We believe that every child deserves a safe place to learn, grow, and reach their full potential.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WHAT WE ARE BUILDING -->
+<section class="dk-sec" id="building">
+  <div class="dk-wrap dk-narrow dk-center">
+    <div class="dk-eyebrow">What we are building</div>
+    <h2>A preschool the community runs itself</h2>
+    <p>Nasaru is working to create better early childhood education opportunities and community support in the Maasai community of Oltukai Village.</p>
+    <p>That means permanent classrooms and child friendly toilets, a nutritious daily meal for every child who attends, teachers trained in early childhood education, books and learning materials, and parents and local leaders who are part of running it.</p>
+    <p>We are building it step by step, and we are open about where we currently stand.</p>
+  </div>
+</section>
+
+<!-- 5. OUR WORK -->
+<section class="dk-sec dk-sec-alt" id="work">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Our Work</div>
+      <h2>Six programmes, one goal</h2>
+    </div>
+    <div class="dk-grid">
+      <div class="dk-card">
+        <div class="dk-card-num">01</div>
+        <h3>Early Childhood Education</h3>
+        <p>Providing quality early learning for Maasai children through play based education, literacy, numeracy, and a safe, nurturing environment that prepares them for primary school.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">02</div>
+        <h3>Safe Preschool Construction</h3>
+        <p>Building permanent classrooms, child friendly toilets, and a secure learning environment where every child can learn safely and with dignity.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">03</div>
+        <h3>School Feeding Program</h3>
+        <p>Providing nutritious daily meals to improve children&rsquo;s health, school attendance, and ability to learn.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">04</div>
+        <h3>Community Engagement</h3>
+        <p>Working with parents, local leaders, and volunteers to strengthen education and create lasting community support for children.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">05</div>
+        <h3>Learning Resources</h3>
+        <p>Supplying books, educational toys, classroom furniture, and teaching materials that help children thrive.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">06</div>
+        <h3>Teacher Development</h3>
+        <p>Equipping teachers with modern early childhood education skills to deliver high quality learning experiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CURRENT PRIORITY -->
+<section class="dk-sec" id="priority">
+  <div class="dk-wrap">
+    <div class="dk-prio">
+      <div>
+        <div class="dk-eyebrow">Our current priority</div>
+        <h2>Our first fundraising campaign is open now</h2>
+        <p>We are currently raising funds to <span class="dk-tbc">[specific objective to confirm with Nasaru]</span>. This campaign is helping us take the next step toward creating better educational opportunities for children in Oltukai.</p>
+        <p>We do not yet have established funders. Everything raised goes into building the project from the ground up, and we will report back here on what it paid for.</p>
+      </div>
+      <div class="dk-deadline">
+        <span>Campaign closes</span>
+        <strong>15 September 2026</strong>
+        <div class="dk-btns dk-btns-c"><a class="dk-btn" href="#contact">Donate on WhyDonate</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. PHOTOS AND STORIES -->
+<section class="dk-sec dk-sec-alt">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">From Oltukai</div>
+      <h2>What this project actually looks like</h2>
+    </div>
+    <div class="dk-gal">
+      <figure>
+        <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1559.jpg?w=800" alt="Children holding up alphabet and number charts at the front of the classroom">
+        <figcaption>Letters and numbers with charts the class made. Oltukai Village.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1202.jpg?w=800" alt="Young children drinking porridge from coloured cups indoors">
+        <figcaption>Porridge before lessons. A daily meal keeps children in class.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1142.jpg?w=800" alt="Children holding hands in a circle playing a game outside a building">
+        <figcaption>Play based learning outside the current classroom building.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8. GET INVOLVED -->
+<section class="dk-sec" id="involved">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Get Involved</div>
+      <h2>Nasaru is growing from the ground up</h2>
+      <p>We are looking for people who want to help build something meaningful. There is more than one way in.</p>
+    </div>
+    <div class="dk-grid">
+      <div class="dk-card">
+        <div class="dk-card-num">Volunteer</div>
+        <h3>Give your time or your skills</h3>
+        <p>We are looking for:</p>
+        <ul>
+          <li>Teachers and educators</li>
+          <li>Early childhood education specialists</li>
+          <li>Construction and project volunteers</li>
+          <li>Fundraising volunteers</li>
+          <li>Social media and communications help</li>
+          <li>General community volunteers</li>
+        </ul>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">Partner</div>
+        <h3>Work with us as an organisation</h3>
+        <p>We are looking to build long term relationships with schools, companies, NGOs, foundations, education organisations, local businesses and professionals who can offer expertise, materials or ongoing support.</p>
+        <p>Tell us what you can offer and we will tell you honestly what we need most.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">Fundraise</div>
+        <h3>Raise funds or awareness</h3>
+        <p>Run a collection at your school, workplace or community group, or simply share our campaign with people who would care about it.</p>
+        <p>We will send you photos and updates you can use, so the people who gave can see where it went.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;">
+      <form class="dk-form" onsubmit="return false;">
+        <h3>Tell us how you would like to help</h3>
+        <p>Fill this in and Marina will get back to you. There is no commitment in sending it.</p>
+        <div class="dk-fields">
+          <div class="dk-field"><label for="f1-name">Name</label><input id="f1-name" type="text" autocomplete="name"></div>
+          <div class="dk-field"><label for="f1-email">Email</label><input id="f1-email" type="email" autocomplete="email"></div>
+          <div class="dk-field"><label for="f1-phone">Phone or WhatsApp</label><input id="f1-phone" type="tel" autocomplete="tel"></div>
+          <div class="dk-field"><label for="f1-loc">Where are you based</label><input id="f1-loc" type="text"></div>
+          <div class="dk-field"><label for="f1-area">Area of interest</label>
+            <select id="f1-area">
+              <option>Education</option><option>Construction</option><option>Fundraising</option>
+              <option>Social media</option><option>Communications</option><option>Administration</option>
+              <option>General volunteering</option><option>Partnership</option><option>Other</option>
+            </select>
+          </div>
+          <div class="dk-field"><label for="f1-avail">Availability</label><input id="f1-avail" type="text" placeholder="For example: two weeks in January"></div>
+          <div class="dk-field dk-full"><label for="f1-skills">Skills or background</label><input id="f1-skills" type="text"></div>
+          <div class="dk-field dk-full"><label for="f1-msg">Message</label><textarea id="f1-msg"></textarea></div>
+          <div class="dk-field dk-full"><div class="dk-btns"><button class="dk-btn" type="submit">Send</button></div></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 9. OUR JOURNEY -->
+<section class="dk-sec dk-sec-alt" id="journey">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Our Journey</div>
+      <h2>Where we are, and where we are going</h2>
+      <p>We are early, and we would rather show you the real timeline than pretend otherwise.</p>
+    </div>
+    <div class="dk-time">
+      <div class="dk-time-row">
+        <div class="dk-time-when">2026 &middot; Foundation</div>
+        <div class="dk-time-what">
+          <h3>Nasaru Child Foundation is established</h3>
+          <p>Early childhood classes begin in Oltukai Village, run with families and local leaders. <span class="dk-tbc">[founding date to confirm]</span></p>
+        </div>
+      </div>
+      <div class="dk-time-row">
+        <div class="dk-time-when">2026 &middot; Fundraising</div>
+        <div class="dk-time-what">
+          <h3>Our first campaign opens</h3>
+          <p>We launch a WhyDonate campaign to fund the next stage of the project. It closes on 15 September 2026.</p>
+        </div>
+      </div>
+      <div class="dk-time-row">
+        <div class="dk-time-when">2026 / 27 &middot; Development</div>
+        <div class="dk-time-what">
+          <h3>The next step</h3>
+          <p><span class="dk-tbc">[next objective to confirm with Nasaru, for example: first permanent classroom, or teacher training]</span></p>
+        </div>
+      </div>
+      <div class="dk-time-row">
+        <div class="dk-time-when">Future &middot; Expansion</div>
+        <div class="dk-time-what">
+          <h3>A preschool that lasts</h3>
+          <p>Permanent classrooms, trained teachers, a reliable daily meal, and community programmes that reach more families in Monduli District.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. UPDATES -->
+<section class="dk-sec" id="updates">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Updates</div>
+      <h2>Follow our progress</h2>
+      <p>Marina posts updates from the village here, so you can see what is happening between campaigns.</p>
+    </div>
+    <div class="dk-grid">
+      <article class="dk-post">
+        <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1171.jpg?w=700" alt="Children sitting outside with cups while goats graze nearby">
+        <div class="dk-post-b">
+          <div class="dk-date">Latest post</div>
+          <h3>Feeding programme, week by week</h3>
+          <p>A short update on what the children ate this month and who helped provide it.</p>
+        </div>
+      </article>
+      <article class="dk-post">
+        <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1122.jpg?w=700" alt="Children jumping with their arms in the air outdoors">
+        <div class="dk-post-b">
+          <div class="dk-date">Post</div>
+          <h3>Meet the children of Oltukai</h3>
+          <p>Photographs and short stories from the families we work with.</p>
+        </div>
+      </article>
+      <article class="dk-post">
+        <img src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/07/img_0908.jpg?w=700" alt="A group of smiling children in front of the classroom blackboard">
+        <div class="dk-post-b">
+          <div class="dk-date">Post</div>
+          <h3>Why we started with early years</h3>
+          <p>Marina explains the thinking behind the project and what comes next.</p>
+        </div>
+      </article>
+    </div>
+    <div class="dk-btns dk-btns-c" style="margin-top:34px;"><a class="dk-btn dk-btn-line" href="#top">Read all updates</a></div>
+  </div>
+</section>
+
+<!-- 11. CONTACT -->
+<section class="dk-sec dk-sec-alt" id="contact">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Contact Us</div>
+      <h2>Talk to Marina directly</h2>
+      <p>Whether you want to volunteer, partner, donate or just ask a question, this reaches the person running the programme.</p>
+    </div>
+    <div class="dk-contact">
+      <div class="dk-contact-card">
+        <div class="dk-label">Call / WhatsApp</div>
+        <a href="tel:+255784694738">+255 784 694 738</a>
+      </div>
+      <div class="dk-contact-card">
+        <div class="dk-label">Email</div>
+        <a href="mailto:nasaruchildfoundation@gmail.com">nasaruchildfoundation@gmail.com</a>
+      </div>
+      <div class="dk-contact-card">
+        <div class="dk-label">Where we are</div>
+        <span class="dk-val">Oltukai Village, Monduli District, Arusha Region, Tanzania</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dk-foot">
+  <strong>Nasaru Child Foundation</strong>
+  <p>Oltukai Village, Monduli District, Arusha Region, Tanzania</p>
+  <p><span class="dk-tbc">[registration or legal information to add when available]</span></p>
+</footer>
+
+</body>
+</html>
