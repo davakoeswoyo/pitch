@@ -27,18 +27,40 @@ sections of it, in the order the brief gives for the homepage (§35).
 | Home | The page itself |
 | About Us | Section 2, Mission and honest stage statement |
 | Our Work | Section 5, the six programmes |
-| Our Journey | Section 9, timeline |
-| Get Involved | Section 8, Volunteer / Partner / Fundraise plus the volunteer form |
+| Our Journey | Section 9, timeline (Designs 1 and 3 only) |
+| Get Involved | Section 8, Volunteer / Partner / Fundraise, with the volunteer form on Designs 1 and 3 |
 | Donate | Section 6, Current Priority with the WhyDonate campaign |
 | Contact | Section 11 |
 
 The one genuine gap is the blog (§20). A one page site cannot hold a growing feed
 of posts, and the brief is right that Marina needs somewhere to publish updates.
-The Updates section on each mockup shows the three most recent posts using the
+On Designs 1 and 3 the Updates section shows the three most recent posts using the
 stock Latest Posts block, and the posts themselves live on the standard WordPress
 posts page. That is one extra page, it comes free with WordPress, and it needs no
-design work. If you would rather cut it, delete the Updates section and the site
-still works.
+design work.
+
+Design 2 does not have it. That is the deliberate trade for the 250 EUR price, and
+it is the first thing to add back if the client wants the site to keep growing the
+way §32 describes.
+
+---
+
+## What each design costs to build
+
+| | Design 1 Warm Earth | Design 2 Clear and Trusted | Design 3 Bold and Photo Led |
+|---|---|---|---|
+| Sections | 11 | 8 | 11 |
+| Volunteer form (§15) | yes | no | yes |
+| Our Journey timeline (§18) | yes | no | yes |
+| Updates feed and blog page (§20) | yes | no | yes |
+| Cover blocks | 2 | 0 | 2 |
+| Extra pages | 1 (posts) | 0 | 1 (posts) |
+| Scope | full brief | **250 EUR** | full brief |
+
+Design 2 is the one to quote at 250 EUR. Designs 1 and 3 carry the whole brief and
+should be priced above it. All three are the same content and the same build route,
+so the client can start on Design 2 and add the form, the timeline and the blog
+later without a rebuild.
 
 ---
 
@@ -49,14 +71,15 @@ still works.
 | Theme | Twenty Twenty-Five (ships with WordPress, block theme) |
 | Where the look is set | Appearance › Editor › Styles (colours, fonts, spacing) |
 | Fonts | Only fonts already bundled with Twenty Twenty-Five, so nothing to upload |
-| Page type | One page plus the stock posts page for Updates |
+| Page type | One page. Designs 1 and 3 add the stock posts page for Updates; Design 2 does not |
 | Blocks used | Cover, Group, Columns, Media and Text, Gallery, Image, Heading, Paragraph, List, Buttons, Separator, Spacer, Form, Latest Posts, Social Icons |
 
 **Anchor navigation without code:** select a Group or Cover block, open Block ›
 Advanced › HTML anchor, type `about`, `work`, `journey`, `involved`, `updates`,
 `contact`, `priority`. Point the Navigation block links at `#about` and so on.
 
-**The volunteer form (§15)** is the stock WordPress Form block. Fields: name,
+**The volunteer form (§15)** appears on Designs 1 and 3 only, not on Design 2. It
+is the stock WordPress Form block. Fields: name,
 email, phone or WhatsApp, location, area of interest (dropdown), skills or
 background, availability, message. Submissions arrive by email and are stored in
 the dashboard. No plugin needed on WordPress.com paid plans or on self hosted
@@ -143,22 +166,52 @@ times for the timeline, Latest Posts for Updates.
 
 ---
 
-## Design 2 · Clear and Trusted (`mockup-2.html`)
+## Design 2 · Clear and Trusted (`mockup-2.html`) — the 250 EUR build
 
 White, calm, one green accent, no boxed cards. The look donors, grant bodies and
-partners expect. **Fastest to build and the easiest for Marina to maintain**,
-because most sections are a plain Columns block with text in it and there is only
-one Cover block on the page.
+partners expect.
+
+**This one is deliberately scoped to the 250 EUR price.** Eight sections, every one
+of them a Columns or Group block with text in it. No Cover block, no Form block,
+no Latest Posts block, no timeline, no second page. It is the smallest thing that
+still does the brief's important work.
 
 **Styles panel:** background `#ffffff`, alternate `#f5f7f5`, text `#16211c`,
 accent `#2f6b4f`, soft accent `#e8f0eb`. Manrope throughout, button radius set to
 fully rounded in Styles › Blocks › Button.
 
-Notable blocks: Columns split hero with no overlay, programmes and Get Involved as
-plain Columns separated by Separator blocks, a rounded green Group for the Current
-Priority, one Cover block for the Get Involved break, Form block, Latest Posts.
+Sections: hero, about, our work, current priority, photos, get involved, contact,
+footer.
 
-If the client cannot decide, this is the one to recommend.
+### What it keeps from the brief, because it costs nothing
+
+- Honest early stage positioning and the "help us build this" story (§6.2, §7, §33)
+- Zero invented impact numbers (§6.2)
+- The permanent Current Priority section with the WhyDonate campaign and its
+  15 September 2026 deadline, so the page survives the campaign ending (§11, §12)
+- Concrete volunteer, partner and fundraise roles instead of "we need
+  volunteers" (§8.1, §14)
+- Photo captions that say what each picture shows (§21)
+- The challenge folded into the About section rather than given its own (§10)
+- Corrected copy: the weak hero line is gone, "Contact Us", "Email" (§28, §29)
+
+### What it drops to hold the price
+
+| Dropped | Brief | What it would have cost |
+|---|---|---|
+| Volunteer form | §15 | Form block setup, field config, notification routing, spam handling, testing. The single most expensive item in the brief |
+| Our Journey timeline | §18 | Four more block groups, and Marina has to keep it current or it goes stale |
+| Updates feed and blog page | §20 | A second page, a Latest Posts block, and post templates |
+| Separate What we are building section | §10 | Folded into About instead |
+
+The trade is real and worth saying out loud to the client: without the form,
+volunteers contact Marina by WhatsApp or email, which she is already doing. Without
+the blog, the site is a brochure that needs a manual edit to look alive. If they
+want the site to keep growing the way §32 describes, the blog is the first thing
+to add back, and Designs 1 and 3 already include it.
+
+Two Get Involved buttons go straight to WhatsApp and email, which covers the
+recruitment job the form would have done, at zero build cost.
 
 ---
 
