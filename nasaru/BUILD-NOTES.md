@@ -63,6 +63,11 @@ the dashboard. No plugin needed on WordPress.com paid plans or on self hosted
 WordPress 6.8 and later. If the host does not have the Form block, the fallback
 is a mailto link, which is worse but costs nothing.
 
+**Designer credit:** each footer ends with a "Created by Dava Koeswoyo" line
+linking to davakoeswoyo.com. It is a Paragraph block inside the footer template
+part, coloured with the theme accent so it sits in the palette rather than on top
+of it. Still stock, still editable, and Marina can remove it at any time.
+
 **Section order on every design (§35):**
 
 1. Hero
