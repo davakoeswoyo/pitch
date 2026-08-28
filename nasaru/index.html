@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nasaru Child Foundation · Choose a design</title>
+<title>Nasaru Child Foundation (NCF) · Prototypes</title>
 <!--
   HUB PAGE — deliberately unstyled.
-  No house style of its own. Each card carries ONLY the style of the design it
-  links to. Card styles are scoped with their own prefix so they cannot bleed
-  into each other or the page.
+  No house style of its own. Each card carries ONLY the style of the prototype it
+  links to. Card styles are scoped with their own prefix.
+  Prototypes 1 and 3 were dropped after the client picked Prototype 2.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Manrope:wght@400;500;600;700;800&family=Platypi:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* --- Minimal neutral hub structure, no house style --- */
   body{background:#ffffff;color:#000000;margin:24px;padding-top:36px;font-family:system-ui,-apple-system,sans-serif;}
@@ -24,48 +24,32 @@
   .dk-preview-breadcrumb-separator{padding:0 2px;color:rgba(250,249,247,.34);}
   .dk-preview-breadcrumb a:hover{color:#faf9f7;}
 
-  .dk-hub{max-width:1080px;margin:0 auto;}
+  .dk-hub{max-width:940px;margin:0 auto;}
   .dk-hub h1{font-size:22px;font-weight:normal;margin:0 0 4px;}
   .dk-hub .dk-sub{margin:0 0 6px;color:#333;font-size:15px;}
-  .dk-hub .dk-note{margin:0 0 26px;color:#666;font-size:13px;max-width:70ch;line-height:1.6;}
-  .dk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  @media(max-width:940px){.dk-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:640px){.dk-grid{grid-template-columns:1fr;}}
-  .dk-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;min-height:300px;}
+  .dk-hub .dk-note{margin:0 0 12px;color:#666;font-size:13px;max-width:74ch;line-height:1.6;}
+  .dk-hub .dk-note:last-of-type{margin-bottom:26px;}
+  .dk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:720px){.dk-grid{grid-template-columns:1fr;}}
+  .dk-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;}
   .dk-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;}
-  .dk-credit{max-width:1080px;margin:36px auto 0;padding-top:22px;border-top:1px solid #e6e6e6;font-size:13px;color:#666;text-align:center;}
+
+  /* ===== Warm Earth cards (scoped: .dk-w) ===== */
+  .dk-w{background:#faf5ec;color:#2b2521;border:1px solid #e2d6c1;font-family:"Manrope",system-ui,sans-serif;}
+  .dk-w .dk-w-body{padding:26px 28px 30px;}
+  .dk-w .dk-w-crumb{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b0522d;}
+  .dk-w .dk-w-name{font-family:"Literata",Georgia,serif;font-weight:700;font-size:26px;line-height:1.15;margin:12px 0 10px;}
+  .dk-w .dk-w-desc{font-size:14px;line-height:1.6;color:#5f544b;}
+  .dk-w .dk-w-swatch{display:flex;gap:6px;margin:18px 0 16px;}
+  .dk-w .dk-w-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid #e2d6c1;}
+  .dk-w .dk-w-cta{display:inline-block;background:#b0522d;color:#fff;font-size:13px;font-weight:600;padding:11px 22px;border-radius:6px;}
+  .dk-w.dk-old .dk-w-name,.dk-w.dk-old .dk-w-desc{color:#7a6d61;}
+  .dk-w.dk-old .dk-w-cta{background:transparent;color:#2b2521;border:1px solid #e2d6c1;}
+  .dk-w .dk-now{display:inline-block;margin-left:8px;background:#b0522d;color:#faf5ec;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.14em;padding:3px 8px;border-radius:100px;vertical-align:1px;}
+
+  .dk-credit{max-width:940px;margin:36px auto 0;padding-top:22px;border-top:1px solid #e6e6e6;font-size:13px;color:#666;text-align:center;}
   .dk-credit a{color:#111;text-decoration:none;border-bottom:1px solid #cccccc;}
   .dk-credit a:hover{border-bottom-color:#111111;}
-
-  /* ===== CARD 1 · Clear and Trusted (scoped: .dk-c1) ===== */
-  .dk-c1{background:#ffffff;color:#16211c;border:1px solid #e2e7e3;font-family:"Manrope",system-ui,sans-serif;letter-spacing:-.01em;}
-  .dk-c1 .dk-c1-body{padding:26px 28px 30px;}
-  .dk-c1 .dk-c1-crumb{display:inline-block;background:#e8f0eb;color:#245640;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:100px;}
-  .dk-c1 .dk-c1-name{font-weight:800;font-size:27px;letter-spacing:-.035em;line-height:1.08;margin:14px 0 10px;}
-  .dk-c1 .dk-c1-desc{font-size:14px;line-height:1.6;color:#5a6b62;letter-spacing:0;}
-  .dk-c1 .dk-c1-swatch{display:flex;gap:6px;margin:18px 0 16px;}
-  .dk-c1 .dk-c1-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid #e2e7e3;}
-  .dk-c1 .dk-c1-cta{display:inline-block;background:#2f6b4f;color:#fff;font-size:13px;font-weight:600;padding:11px 22px;border-radius:100px;letter-spacing:0;}
-
-  /* ===== CARD 2 · Warm Earth (scoped: .dk-c2) ===== */
-  .dk-c2{background:#faf5ec;color:#2b2521;border:1px solid #e2d6c1;font-family:"Manrope",system-ui,sans-serif;}
-  .dk-c2 .dk-c2-body{padding:26px 28px 30px;}
-  .dk-c2 .dk-c2-crumb{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b0522d;}
-  .dk-c2 .dk-c2-name{font-family:"Literata",Georgia,serif;font-weight:700;font-size:27px;line-height:1.1;margin:12px 0 10px;}
-  .dk-c2 .dk-c2-desc{font-size:14px;line-height:1.6;color:#5f544b;}
-  .dk-c2 .dk-c2-swatch{display:flex;gap:6px;margin:18px 0 16px;}
-  .dk-c2 .dk-c2-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid #e2d6c1;}
-  .dk-c2 .dk-c2-cta{display:inline-block;background:#b0522d;color:#fff;font-size:13px;font-weight:600;padding:11px 22px;border-radius:6px;}
-
-  /* ===== CARD 3 · Bold and Photo Led (scoped: .dk-c3) ===== */
-  .dk-c3{background:#14120f;color:#f7f3ea;border:1px solid #282319;font-family:"Manrope",system-ui,sans-serif;}
-  .dk-c3 .dk-c3-body{padding:26px 28px 30px;}
-  .dk-c3 .dk-c3-crumb{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#e0a33c;}
-  .dk-c3 .dk-c3-name{font-family:"Platypi",Georgia,serif;font-weight:800;font-size:28px;line-height:1.05;letter-spacing:-.02em;margin:12px 0 10px;}
-  .dk-c3 .dk-c3-desc{font-size:14px;line-height:1.6;color:rgba(247,243,234,.68);}
-  .dk-c3 .dk-c3-swatch{display:flex;gap:6px;margin:18px 0 16px;}
-  .dk-c3 .dk-c3-swatch span{width:24px;height:24px;border-radius:50%;border:1px solid rgba(247,243,234,.2);}
-  .dk-c3 .dk-c3-cta{display:inline-block;background:#e0a33c;color:#14120f;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -78,46 +62,32 @@
 </div>
 
 <div class="dk-hub">
-  <h1>Nasaru Child Foundation &middot; choose a design</h1>
-  <p class="dk-sub">Three one page designs. Same structure, same content, same photos, three different feels. Click one to view it full size.</p>
-  <p class="dk-note">All three follow the redesign brief: honest early stage positioning, no invented impact numbers, a permanent Current Priority section around the WhyDonate campaign closing 15 September 2026, concrete volunteer and partner roles, and captioned photography. Designs 2 and 3 add the full eleven section structure with a volunteer form, an Our Journey timeline, and an Updates feed Marina can post to. Built from stock WordPress blocks in the standard editor on the Twenty Twenty-Five theme. No custom code, nothing to maintain. Highlighted items are placeholders the client still needs to supply.</p>
-  <p class="dk-note"><strong>Design 1 is the lightest build.</strong> Eight sections, no volunteer form, no timeline, no blog. Designs 2 and 3 add all three, so treat them as the fuller option.</p>
+  <h1>Nasaru Child Foundation (NCF) &middot; prototypes</h1>
+  <p class="dk-sub">Marina picked this design and asked to keep its theme and colours. Two versions of it below. The other two prototypes have been dropped.</p>
+  <p class="dk-note">Version 2 keeps the same palette and typefaces, and rebuilds the sections, layout, buttons and text around Marina&rsquo;s answers: the real story of how Nasaru started, why children here start school late, the team and board, what volunteers can actually do, and the real figures as they stand today.</p>
+  <p class="dk-note">Photos and the NCF logo are now the organisation&rsquo;s own files rather than borrowed from the old site. Highlighted items are the last few things still needed from Marina.</p>
 
   <div class="dk-grid">
 
-    <!-- Card 1 -->
-    <a class="dk-card dk-c1" href="mockup-1.html">
-      <img class="dk-shot" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1559.jpg?w=800" alt="Children holding alphabet charts in the classroom">
-      <div class="dk-c1-body">
-        <div class="dk-c1-crumb">Design 1</div>
-        <div class="dk-c1-name">Clear and Trusted</div>
-        <div class="dk-c1-desc">White, calm and easy to read, with one green accent. The look donors, grant bodies and partners expect. Eight sections, no form, no blog. The lightest of the three.</div>
-        <div class="dk-c1-swatch"><span style="background:#ffffff"></span><span style="background:#2f6b4f"></span><span style="background:#e8f0eb"></span><span style="background:#16211c"></span></div>
-        <div class="dk-c1-cta">View this design</div>
+    <a class="dk-card dk-w dk-old" href="mockup-2.html">
+      <img class="dk-shot" src="Images/children-counting-stones-outdoors.jpg" alt="Children counting with small stones on a concrete slab outdoors">
+      <div class="dk-w-body">
+        <div class="dk-w-crumb">Version 1</div>
+        <div class="dk-w-name">Warm Earth</div>
+        <div class="dk-w-desc">Soft sand and terracotta with a serif headline. Warm and human, grounded in the village. Programmes and Get Involved sit in tidy cards.</div>
+        <div class="dk-w-swatch"><span style="background:#faf5ec"></span><span style="background:#b0522d"></span><span style="background:#d99b3f"></span><span style="background:#2b2521"></span></div>
+        <div class="dk-w-cta">View version 1</div>
       </div>
     </a>
 
-    <!-- Card 2 -->
-    <a class="dk-card dk-c2" href="mockup-2.html">
-      <img class="dk-shot" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/07/img_0908.jpg?w=800" alt="Children smiling together in the Nasaru classroom">
-      <div class="dk-c2-body">
-        <div class="dk-c2-crumb">Design 2</div>
-        <div class="dk-c2-name">Warm Earth</div>
-        <div class="dk-c2-desc">Soft sand and terracotta with a serif headline. Warm and human, grounded in the village. Programmes and Get Involved sit in tidy cards.</div>
-        <div class="dk-c2-swatch"><span style="background:#faf5ec"></span><span style="background:#b0522d"></span><span style="background:#d99b3f"></span><span style="background:#2b2521"></span></div>
-        <div class="dk-c2-cta">View this design</div>
-      </div>
-    </a>
-
-    <!-- Card 3 -->
-    <a class="dk-card dk-c3" href="mockup-3.html">
-      <img class="dk-shot" src="https://nasaruchildsupportcenter.family.blog/wp-content/uploads/2026/08/img_1122.jpg?w=800" alt="Children jumping with their arms in the air outdoors">
-      <div class="dk-c3-body">
-        <div class="dk-c3-crumb">Design 3</div>
-        <div class="dk-c3-name">Bold and Photo Led</div>
-        <div class="dk-c3-desc">Dark background so the photos carry the page. Big type, full width images, strong donate and volunteer moments.</div>
-        <div class="dk-c3-swatch"><span style="background:#14120f"></span><span style="background:#e0a33c"></span><span style="background:#282319"></span><span style="background:#f7f3ea"></span></div>
-        <div class="dk-c3-cta">View this design</div>
+    <a class="dk-card dk-w" href="mockup-2-v2.html">
+      <img class="dk-shot" src="Images/children-smiling-classroom-blackboard.jpg" alt="Children smiling together in front of the blackboard at the Nasaru learning centre">
+      <div class="dk-w-body">
+        <div class="dk-w-crumb">Version 2 <em class="dk-now">current</em></div>
+        <div class="dk-w-name">Warm Earth, with Marina&rsquo;s answers</div>
+        <div class="dk-w-desc">The same design, with everything Marina told us added into it: how Nasaru started, the team and board, the real figures today, the eight volunteer roles, About Us rewritten in her words, NCF&rsquo;s own logo and photos, and a working blog.</div>
+        <div class="dk-w-swatch"><span style="background:#faf5ec"></span><span style="background:#b0522d"></span><span style="background:#d99b3f"></span><span style="background:#76101b"></span></div>
+        <div class="dk-w-cta">View version 2</div>
       </div>
     </a>
 
