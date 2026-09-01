@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes from a week of storytelling &middot; Nasaru Child Foundation (NCF)</title>
+<!--
+  VERSION 2 BLOG. Same Twenty Twenty-Five theme and Styles settings as the one pager,
+  so in WordPress this is the stock Blog template and single post template. No extra
+  design work and no custom CSS: the theme applies the same palette and fonts.
+  Article bodies are lorem ipsum placeholder until Marina writes the real posts.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400;1,7..72,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dk-sand:#faf5ec; --dk-sand-2:#f1e7d6; --dk-ink:#2b2521; --dk-ink-2:#5f544b;
+    --dk-clay:#b0522d; --dk-clay-dark:#8c3f21; --dk-gold:#d99b3f; --dk-line:#e2d6c1;
+    --dk-serif:"Literata",Georgia,serif; --dk-sans:"Manrope",system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--dk-sand);color:var(--dk-ink);font-family:var(--dk-sans);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .dk-wrap{max-width:1120px;margin:0 auto;padding:0 26px;}
+  .dk-narrow{max-width:720px;margin:0 auto;}
+  .dk-tbc{background:#fff6d9;border-bottom:1px dotted #b0522d;color:#8c3f21;font-style:italic;padding:0 3px;}
+
+  .dk-crumb{background:var(--dk-ink);color:var(--dk-sand);font-size:12px;letter-spacing:.12em;text-transform:uppercase;}
+  .dk-crumb a{display:inline-flex;align-items:center;gap:8px;padding:9px 26px;color:var(--dk-sand);text-decoration:none;opacity:.8;}
+  .dk-crumb a:hover{opacity:1;color:var(--dk-gold);}
+
+  .dk-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 26px;max-width:1120px;margin:0 auto;}
+  .dk-nav-logo{font-family:var(--dk-serif);font-weight:700;font-size:20px;line-height:1.15;text-decoration:none;color:var(--dk-ink);}
+  .dk-nav-logo span{display:block;font-family:var(--dk-sans);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dk-clay);}
+  .dk-nav-links{display:flex;align-items:center;gap:20px;list-style:none;font-size:14px;font-weight:500;flex-wrap:wrap;}
+  .dk-nav-links a{text-decoration:none;color:var(--dk-ink-2);}
+  .dk-nav-links a:hover{color:var(--dk-clay);}
+  .dk-nav-links a.dk-btn,.dk-nav-links a.dk-btn:hover{color:#fff;}
+  .dk-nav-links a[aria-current="page"]{color:var(--dk-clay);border-bottom:2px solid var(--dk-clay);padding-bottom:2px;}
+
+  .dk-hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:96px 26px;overflow:hidden;}
+  .dk-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .dk-hero-veil{position:absolute;inset:0;background:rgba(43,37,33,.58);}
+  .dk-hero-in{position:relative;max-width:800px;color:#fff;}
+  .dk-hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dk-gold);margin-bottom:20px;}
+  .dk-hero h1{font-family:var(--dk-serif);font-weight:700;font-size:clamp(32px,5.6vw,56px);line-height:1.1;margin-bottom:20px;}
+  .dk-hero p{font-size:clamp(16px,2.1vw,20px);line-height:1.6;color:rgba(255,255,255,.9);margin:0 auto 34px;max-width:620px;}
+
+  .dk-btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .dk-btns-c{justify-content:center;}
+  .dk-btn{display:inline-block;padding:14px 30px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;background:var(--dk-clay);color:#fff;border:2px solid var(--dk-clay);}
+  .dk-btn:hover{background:var(--dk-clay-dark);border-color:var(--dk-clay-dark);}
+  .dk-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6);}
+  .dk-btn-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff;}
+  .dk-btn-dark{background:var(--dk-ink);border-color:var(--dk-ink);color:#fff;}
+  .dk-btn-dark:hover{background:#12100e;border-color:#12100e;}
+  .dk-btn-line{background:transparent;color:var(--dk-ink);border-color:var(--dk-line);}
+  .dk-btn-line:hover{background:#fff;border-color:var(--dk-ink-2);}
+  .dk-btn-sm{padding:10px 20px;font-size:14px;}
+
+  .dk-sec{padding:86px 0;}
+  .dk-sec-alt{background:var(--dk-sand-2);}
+  .dk-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:14px;}
+  .dk-sec h2{font-family:var(--dk-serif);font-weight:700;font-size:clamp(27px,3.8vw,40px);line-height:1.18;margin-bottom:22px;}
+  .dk-sec p{color:var(--dk-ink-2);margin-bottom:16px;}
+  .dk-sec p:last-child{margin-bottom:0;}
+  .dk-center{text-align:center;}
+  .dk-head-c{text-align:center;max-width:660px;margin:0 auto 50px;}
+  .dk-head-c h2{margin-bottom:12px;}
+  .dk-head-c p{color:var(--dk-ink-2);}
+
+  .dk-lede{font-family:var(--dk-serif);font-size:clamp(19px,2.4vw,24px);line-height:1.55;color:var(--dk-ink);margin-bottom:24px;}
+
+  .dk-mt{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .dk-mt img{border-radius:8px;aspect-ratio:1/1;object-fit:cover;width:100%;}
+  .dk-figcap{font-size:13px;color:var(--dk-ink-2);margin-top:10px;font-style:italic;}
+
+  .dk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .dk-grid-2{grid-template-columns:repeat(2,1fr);}
+  .dk-card{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:32px 28px;}
+  .dk-card-num{font-family:var(--dk-serif);font-size:15px;font-weight:600;color:var(--dk-gold);margin-bottom:12px;}
+  .dk-card h3{font-family:var(--dk-serif);font-size:20px;font-weight:600;line-height:1.25;margin-bottom:12px;}
+  .dk-card p{font-size:15px;color:var(--dk-ink-2);margin:0 0 14px;}
+  .dk-card p:last-child{margin-bottom:0;}
+  .dk-card ul{margin:0;padding-left:18px;font-size:15px;color:var(--dk-ink-2);}
+  .dk-card ul li{margin-bottom:6px;}
+
+  /* Current priority */
+  .dk-prio{background:var(--dk-ink);color:#fff;border-radius:10px;padding:46px 44px;display:grid;grid-template-columns:1.4fr 1fr;gap:44px;align-items:center;}
+  .dk-prio h2{font-family:var(--dk-serif);font-size:clamp(25px,3.4vw,34px);line-height:1.2;margin-bottom:16px;color:#fff;}
+  .dk-prio .dk-eyebrow{color:var(--dk-gold);}
+  .dk-prio p{color:rgba(255,255,255,.82);margin-bottom:16px;}
+  .dk-deadline{border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:26px;text-align:center;}
+  .dk-deadline span{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dk-gold);margin-bottom:10px;}
+  .dk-deadline strong{display:block;font-family:var(--dk-serif);font-size:24px;font-weight:700;line-height:1.2;margin-bottom:20px;}
+
+  .dk-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .dk-gal figure img{aspect-ratio:1/1;object-fit:cover;width:100%;border-radius:6px;}
+  .dk-gal figcaption{font-size:13px;color:var(--dk-ink-2);margin-top:10px;line-height:1.5;}
+
+  /* Timeline */
+  .dk-time{max-width:760px;margin:0 auto;}
+  .dk-time-row{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--dk-line);}
+  .dk-time-row:last-child{border-bottom:1px solid var(--dk-line);}
+  .dk-time-when{font-family:var(--dk-serif);font-size:15px;font-weight:700;color:var(--dk-clay);}
+  .dk-time-what h3{font-family:var(--dk-serif);font-size:19px;font-weight:600;margin-bottom:8px;}
+  .dk-time-what p{font-size:15px;color:var(--dk-ink-2);margin:0;}
+
+  /* Form */
+  .dk-form{background:#fff;border:1px solid var(--dk-line);border-radius:10px;padding:38px;max-width:760px;margin:0 auto;}
+  .dk-form h3{font-family:var(--dk-serif);font-size:22px;font-weight:600;margin-bottom:8px;}
+  .dk-form > p{font-size:15px;color:var(--dk-ink-2);margin-bottom:24px;}
+  .dk-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .dk-field{display:flex;flex-direction:column;gap:6px;}
+  .dk-field.dk-full{grid-column:1/-1;}
+  .dk-field label{font-size:13px;font-weight:600;color:var(--dk-ink);}
+  .dk-field input,.dk-field select,.dk-field textarea{font-family:inherit;font-size:15px;color:var(--dk-ink);background:var(--dk-sand);border:1px solid var(--dk-line);border-radius:6px;padding:11px 13px;width:100%;}
+  .dk-field textarea{min-height:96px;resize:vertical;}
+
+  /* Updates */
+  .dk-post{background:#fff;border:1px solid var(--dk-line);border-radius:8px;overflow:hidden;}
+  .dk-post img{aspect-ratio:16/10;object-fit:cover;width:100%;}
+  .dk-post-b{padding:22px 24px 26px;}
+  .dk-post-b .dk-date{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:10px;}
+  .dk-post-b h3{font-family:var(--dk-serif);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px;}
+  .dk-post-b p{font-size:14px;color:var(--dk-ink-2);margin:0;}
+
+  .dk-contact{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:960px;margin:0 auto;}
+  .dk-contact-card{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:30px 24px;text-align:center;}
+  .dk-contact-card .dk-label{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:10px;}
+  .dk-contact-card a,.dk-contact-card span.dk-val{font-family:var(--dk-serif);font-size:17px;font-weight:600;text-decoration:none;word-break:break-word;display:block;}
+  .dk-contact-card a:hover{color:var(--dk-clay);}
+
+  .dk-foot{background:var(--dk-ink);color:rgba(250,245,236,.62);padding:52px 26px;text-align:center;font-size:14px;}
+  .dk-foot strong{display:block;font-family:var(--dk-serif);font-size:20px;color:var(--dk-sand);margin-bottom:8px;font-weight:600;}
+  .dk-foot p{margin-bottom:6px;}
+  .dk-credit{margin-top:24px;padding-top:22px;border-top:1px solid rgba(250,245,236,.14);font-size:13px;color:rgba(250,245,236,.5);}
+  .dk-credit a{color:var(--dk-gold);text-decoration:none;border-bottom:1px solid rgba(217,155,63,.45);}
+  .dk-credit a:hover{color:var(--dk-sand);border-bottom-color:var(--dk-sand);}
+
+  /* --- added for version 2 --- */
+  .dk-nav-logo{display:flex;align-items:center;gap:13px;}
+  .dk-nav-logo img{height:54px;width:auto;}
+  .dk-nav-logo-txt{display:block;}
+  .dk-nav-logo-txt b{display:block;font-family:var(--dk-serif);font-weight:700;font-size:18px;line-height:1.2;color:var(--dk-ink);}
+  .dk-nav-logo-txt span{display:block;font-family:var(--dk-sans);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dk-clay);margin-top:3px;}
+  .dk-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px;text-align:center;}
+  .dk-stat{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:26px 18px;}
+  .dk-stat strong{display:block;font-family:var(--dk-serif);font-size:clamp(27px,3.4vw,36px);font-weight:700;line-height:1;color:var(--dk-clay);margin-bottom:9px;}
+  .dk-stat span{display:block;font-size:14px;color:var(--dk-ink-2);line-height:1.45;}
+  .dk-quote{border-left:3px solid var(--dk-clay);padding:6px 0 6px 22px;margin:24px 0;text-align:left;}
+  .dk-quote p{font-family:var(--dk-serif);font-style:italic;font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--dk-ink);margin:0 0 8px;}
+  .dk-quote cite{font-style:normal;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-clay);}
+  .dk-lead{display:grid;grid-template-columns:250px 1fr;gap:38px;align-items:center;background:#fff;border:1px solid var(--dk-line);border-radius:10px;padding:34px;margin-bottom:24px;text-align:left;}
+  .dk-lead-photo{aspect-ratio:1/1;border-radius:8px;background:var(--dk-sand-2);border:1px dashed var(--dk-line);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:13px;}
+  .dk-lead h3{font-family:var(--dk-serif);font-size:23px;font-weight:700;margin-bottom:4px;}
+  .dk-lead .dk-role{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:14px;}
+  .dk-lead p{font-size:15px;color:var(--dk-ink-2);margin-bottom:12px;}
+  .dk-lead p:last-child{margin-bottom:0;}
+  .dk-board{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .dk-board div{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:22px 18px;text-align:center;}
+  .dk-board strong{display:block;font-family:var(--dk-serif);font-size:16px;font-weight:600;margin-bottom:6px;}
+  .dk-board span{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-clay);}
+  .dk-lockup{height:150px;width:auto;margin:0 auto 26px;}
+
+  @media(max-width:900px){
+    .dk-stats{grid-template-columns:1fr 1fr;}
+    .dk-lead{grid-template-columns:1fr;gap:24px;}
+    .dk-board{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:620px){
+    .dk-stats,.dk-board{grid-template-columns:1fr;}
+  }
+
+  @media(max-width:900px){
+    .dk-mt{grid-template-columns:1fr;gap:32px;}
+    .dk-grid{grid-template-columns:1fr 1fr;}
+    .dk-prio{grid-template-columns:1fr;gap:30px;padding:36px 30px;}
+    .dk-contact{grid-template-columns:1fr;}
+  }
+  @media(max-width:620px){
+    .dk-grid,.dk-grid-2,.dk-fields{grid-template-columns:1fr;}
+    .dk-gal{grid-template-columns:1fr;}
+    .dk-time-row{grid-template-columns:1fr;gap:8px;}
+    .dk-sec{padding:60px 0;}
+    .dk-nav{justify-content:center;text-align:center;}
+    .dk-nav-links{justify-content:center;gap:16px;}
+    .dk-btns{justify-content:center;}
+    .dk-form{padding:26px 22px;}
+  }
+
+  /* --- blog pages --- */
+  .dk-blog-head{padding:70px 0 44px;text-align:center;}
+  .dk-blog-head h1{font-family:var(--dk-serif);font-weight:700;font-size:clamp(32px,5vw,50px);line-height:1.1;margin-bottom:16px;}
+  .dk-blog-head p{color:var(--dk-ink-2);max-width:620px;margin:0 auto;}
+  .dk-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .dk-posts .dk-post{display:block;text-decoration:none;color:inherit;transition:border-color .2s;}
+  .dk-posts .dk-post:hover{border-color:var(--dk-clay);}
+  .dk-back{display:inline-block;font-size:14px;font-weight:600;color:var(--dk-clay);text-decoration:none;margin-bottom:26px;}
+  .dk-back:hover{color:var(--dk-clay-dark);}
+  .dk-article{max-width:760px;margin:0 auto;padding:56px 0 80px;}
+  .dk-article .dk-date{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dk-clay);margin-bottom:14px;}
+  .dk-article h1{font-family:var(--dk-serif);font-weight:700;font-size:clamp(29px,4.4vw,44px);line-height:1.14;margin-bottom:18px;}
+  .dk-article .dk-standfirst{font-family:var(--dk-serif);font-size:clamp(18px,2.2vw,21px);line-height:1.5;color:var(--dk-ink-2);margin-bottom:30px;}
+  .dk-article img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;margin-bottom:12px;}
+  .dk-article figcaption{font-size:13px;font-style:italic;color:var(--dk-ink-2);margin-bottom:34px;}
+  .dk-article h2{font-family:var(--dk-serif);font-weight:700;font-size:clamp(21px,2.8vw,27px);line-height:1.25;margin:34px 0 14px;}
+  .dk-article p{color:var(--dk-ink-2);margin-bottom:18px;}
+  .dk-dummy{background:#fff6d9;border:1px dotted #b0522d;color:#8c3f21;font-size:13px;border-radius:6px;padding:12px 16px;margin-bottom:30px;}
+  .dk-more{border-top:1px solid var(--dk-line);padding-top:40px;margin-top:50px;}
+  .dk-more h2{font-family:var(--dk-serif);font-size:22px;font-weight:700;margin-bottom:22px;}
+  @media(max-width:900px){.dk-posts{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.dk-posts{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="dk-crumb"><a href="index.html">&larr; Back to the prototypes</a></div>
+
+<header>
+  <nav class="dk-nav">
+    <a class="dk-nav-logo" href="mockup-2-v3.html#top">
+      <img src="Images/ncf-emblem.png" alt="Nasaru Child Foundation emblem: two children holding hands beneath an acacia tree, inside a circle marked NCF">
+      <span class="dk-nav-logo-txt"><b>Nasaru Child Foundation</b><span>Oltukai Village, Tanzania</span></span>
+    </a>
+    <ul class="dk-nav-links">
+      <li><a href="mockup-2-v3.html#about">About</a></li>
+      <li><a href="mockup-2-v3.html#work">Our Work</a></li>
+      <li><a href="mockup-2-v3.html#team">Our Team</a></li>
+      <li><a href="mockup-2-v3.html#involved">Get Involved</a></li>
+      <li><a href="mockup-2-v3-blog.html" aria-current="page">Updates</a></li>
+      <li><a href="mockup-2-v3.html#contact">Contact</a></li>
+      <li><a class="dk-btn dk-btn-sm" href="mockup-2-v3.html#priority">Donate</a></li>
+    </ul>
+  </nav>
+</header>
+
+<article class="dk-wrap dk-article">
+  <a class="dk-back" href="mockup-2-v3-blog.html">&larr; All updates</a>
+  <div class="dk-date">30 June 2026</div>
+  <h1>Notes from a week of storytelling</h1>
+  <p class="dk-standfirst">Reading, storytelling and creative play, and why they matter this early.</p>
+  <figure>
+    <img src="Images/child-writing-notebook-red-jacket.jpg" alt="A young child in a red jacket concentrating while writing in a lined notebook">
+    <figcaption>Quiet concentration during a writing session.</figcaption>
+  </figure>
+  <div class="dk-dummy">Placeholder text. This is where Marina writes the post.</div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+  <h2>Consectetur adipiscing elit</h2>
+  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <div class="dk-more">
+    <h2>More updates</h2>
+    <div class="dk-posts">
+      <a class="dk-post" href="mockup-2-v3-post-1.html">
+        <img src="Images/children-drinking-porridge-cups.jpg" alt="Children sitting on the floor drinking porridge from orange, purple, green and blue cups">
+        <div class="dk-post-b">
+          <div class="dk-date">18 August 2026</div>
+          <h3>Feeding programme, week by week</h3>
+          <p>A short update on what the children ate this month and who helped provide it.</p>
+        </div>
+      </a>
+      <a class="dk-post" href="mockup-2-v3-post-2.html">
+        <img src="Images/children-smiling-classroom-blackboard.jpg" alt="A group of children smiling together in front of the classroom blackboard">
+        <div class="dk-post-b">
+          <div class="dk-date">9 August 2026</div>
+          <h3>Meet the children of Oltukai</h3>
+          <p>Photographs and short stories from the families we work with.</p>
+        </div>
+      </a>
+      <a class="dk-post" href="mockup-2-v3-post-3.html">
+        <img src="Images/children-counting-stones-outdoors.jpg" alt="Children counting with small stones on a concrete slab outdoors">
+        <div class="dk-post-b">
+          <div class="dk-date">27 July 2026</div>
+          <h3>Why we started with early years</h3>
+          <p>Marina explains the thinking behind the project and what comes next.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer class="dk-foot">
+  <strong>Nasaru Child Foundation (NCF)</strong>
+  <p>Oltukai Village, Monduli District, Arusha Region, Tanzania</p>
+  <p><span class="dk-tbc">[registration or legal information to add when available]</span></p>
+  <p class="dk-credit">Created by <a href="https://davakoeswoyo.com" target="_blank" rel="noopener">Dava Koeswoyo</a></p>
+</footer>
+
+</body>
+</html>

@@ -29,8 +29,9 @@
   .dk-hub .dk-sub{margin:0 0 6px;color:#333;font-size:15px;}
   .dk-hub .dk-note{margin:0 0 12px;color:#666;font-size:13px;max-width:74ch;line-height:1.6;}
   .dk-hub .dk-note:last-of-type{margin-bottom:26px;}
-  .dk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  @media(max-width:720px){.dk-grid{grid-template-columns:1fr;}}
+  .dk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:940px){.dk-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.dk-grid{grid-template-columns:1fr;}}
   .dk-card{display:block;text-decoration:none;border-radius:12px;overflow:hidden;}
   .dk-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;}
 
@@ -63,9 +64,9 @@
 
 <div class="dk-hub">
   <h1>Nasaru Child Foundation (NCF) &middot; prototypes</h1>
-  <p class="dk-sub">Marina picked this design and asked to keep its theme and colours. Two versions of it below. The other two prototypes have been dropped.</p>
+  <p class="dk-sub">Marina picked this design and asked to keep its theme and colours. Three versions of it below. The other two prototypes have been dropped.</p>
   <p class="dk-note">Version 2 keeps the same palette and typefaces, and rebuilds the sections, layout, buttons and text around Marina&rsquo;s answers: the real story of how Nasaru started, why children here start school late, the team and board, what volunteers can actually do, and the real figures as they stand today.</p>
-  <p class="dk-note">Photos and the NCF logo are now the organisation&rsquo;s own files rather than borrowed from the old site. Highlighted items are the last few things still needed from Marina.</p>
+  <p class="dk-note">Version 3 is the current one and it uses the copy text sent by Katrice.</p>
 
   <div class="dk-grid">
 
@@ -80,14 +81,25 @@
       </div>
     </a>
 
-    <a class="dk-card dk-w" href="mockup-2-v2.html">
+    <a class="dk-card dk-w dk-old" href="mockup-2-v2.html">
       <img class="dk-shot" src="Images/children-smiling-classroom-blackboard.jpg" alt="Children smiling together in front of the blackboard at the Nasaru learning centre">
       <div class="dk-w-body">
-        <div class="dk-w-crumb">Version 2 <em class="dk-now">current</em></div>
+        <div class="dk-w-crumb">Version 2</div>
         <div class="dk-w-name">Warm Earth, with Marina&rsquo;s answers</div>
         <div class="dk-w-desc">The same design, with everything Marina told us added into it: how Nasaru started, the team and board, the real figures today, the eight volunteer roles, About Us rewritten in her words, NCF&rsquo;s own logo and photos, and a working blog.</div>
         <div class="dk-w-swatch"><span style="background:#faf5ec"></span><span style="background:#b0522d"></span><span style="background:#d99b3f"></span><span style="background:#76101b"></span></div>
         <div class="dk-w-cta">View version 2</div>
+      </div>
+    </a>
+
+    <a class="dk-card dk-w" href="mockup-2-v3.html">
+      <img class="dk-shot" src="Images/children-writing-numbers-classroom.jpg" alt="Two children writing numbers into exercise books at a wooden desk">
+      <div class="dk-w-body">
+        <div class="dk-w-crumb">Version 3 <em class="dk-now">current</em></div>
+        <div class="dk-w-name">Warm Earth, client copy</div>
+        <div class="dk-w-desc">The same design again, carrying the copy Marina sent on 31 August word for word. Adds a Nasaru Today section, and rewrites every heading, paragraph and caption to her text.</div>
+        <div class="dk-w-swatch"><span style="background:#faf5ec"></span><span style="background:#b0522d"></span><span style="background:#d99b3f"></span><span style="background:#76101b"></span></div>
+        <div class="dk-w-cta">View version 3</div>
       </div>
     </a>
 
