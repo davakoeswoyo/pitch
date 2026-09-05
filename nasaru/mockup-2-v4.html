@@ -37,6 +37,17 @@
   .dk-crumb a:hover{opacity:1;color:var(--dk-gold);}
 
   .dk-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 26px;max-width:1120px;margin:0 auto;}
+  /* sticky header. Twenty Twenty-Five does this natively: select the Header
+     template part and set Position to Sticky, no CSS needed on the real build. */
+  header{position:sticky;top:0;z-index:60;background:var(--dk-sand);border-bottom:1px solid var(--dk-line);}
+  /* stop anchor jumps hiding a heading behind the sticky bar */
+  section[id]{scroll-margin-top:100px;}
+  /* below 620 the nav wraps to ~200px tall, a quarter of a phone screen,
+     so it stays static there rather than eating the viewport */
+  @media(max-width:620px){
+    header{position:static;}
+    section[id]{scroll-margin-top:0;}
+  }
   .dk-nav-logo{font-family:var(--dk-serif);font-weight:700;font-size:20px;line-height:1.15;text-decoration:none;color:var(--dk-ink);}
   .dk-nav-logo span{display:block;font-family:var(--dk-sans);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dk-clay);}
   .dk-nav-links{display:flex;align-items:center;gap:20px;list-style:none;font-size:14px;font-weight:500;flex-wrap:wrap;}
