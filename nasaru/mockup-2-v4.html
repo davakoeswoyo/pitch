@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nasaru Child Foundation (NCF) · Version 3 · Client copy, 31 August</title>
+<title>Nasaru Child Foundation (NCF) · Version 4 · Client copy, 5 September</title>
 <!--
   BUILD ROUTE: WordPress standard editor only. No custom CSS.
   Theme: Twenty Twenty-Five. Style variation: warm / earthy palette set in Styles.
@@ -171,12 +171,37 @@
   .dk-lead p:last-child{margin-bottom:0;}
   .dk-lockup{height:150px;width:auto;margin:0 auto 26px;}
 
+  /* board of directors, restored with Marina's photos */
+  .dk-board{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;}
+  .dk-board figure{background:#fff;border:1px solid var(--dk-line);border-radius:8px;overflow:hidden;}
+  .dk-board img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;display:block;}
+  .dk-board .dk-board-none{aspect-ratio:1/1;background:var(--dk-sand-2);border-bottom:1px dashed var(--dk-line);display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-size:12px;font-style:italic;color:var(--dk-ink-2);}
+  .dk-board figcaption{padding:18px 14px 20px;text-align:center;}
+  .dk-board strong{display:block;font-family:var(--dk-serif);font-size:16px;font-weight:600;margin-bottom:5px;}
+  .dk-board span{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-clay);}
+
+  /* vision and mission */
+  .dk-vm{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:940px;margin:0 auto;}
+  .dk-vm > div{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:34px 32px;}
+  .dk-vm h3{font-family:var(--dk-serif);font-size:21px;font-weight:600;margin-bottom:14px;}
+  .dk-vm p{font-size:16px;color:var(--dk-ink-2);margin:0;}
+
+  /* journey, reduced by the client to a headline plus a short list per stage */
+  .dk-jrow{display:grid;grid-template-columns:250px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--dk-line);align-items:baseline;}
+  .dk-jrow:last-child{border-bottom:1px solid var(--dk-line);}
+  .dk-jwhen{font-family:var(--dk-serif);font-size:17px;font-weight:700;color:var(--dk-clay);line-height:1.3;}
+  .dk-jwhat{font-size:16px;color:var(--dk-ink-2);}
+
   @media(max-width:900px){
     .dk-stats{grid-template-columns:1fr 1fr;}
     .dk-lead{grid-template-columns:1fr;gap:24px;}
+    .dk-board{grid-template-columns:1fr 1fr;}
+    .dk-vm{grid-template-columns:1fr;}
+    .dk-jrow{grid-template-columns:1fr;gap:6px;}
   }
   @media(max-width:620px){
     .dk-stats{grid-template-columns:1fr;}
+    .dk-board{grid-template-columns:1fr;}
   }
 
   @media(max-width:900px){
@@ -210,9 +235,9 @@
     <ul class="dk-nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work">Our Work</a></li>
-      <li><a href="#team">Our Team</a></li>
+      <li><a href="#team">Meet Marina</a></li>
       <li><a href="#involved">Get Involved</a></li>
-      <li><a href="mockup-2-v3-blog.html">Updates</a></li>
+      <li><a href="mockup-2-v4-blog.html">Updates</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="dk-btn dk-btn-sm" href="#priority">Donate</a></li>
     </ul>
@@ -221,12 +246,12 @@
 
 <!-- 1. HERO -->
 <section class="dk-hero" id="top">
-  <img class="dk-hero-bg" src="Images/children-smiling-classroom-blackboard.webp" alt="A group of children smiling together in front of the blackboard at the Nasaru learning centre">
+  <img class="dk-hero-bg" src="Images/children-smiling-classroom-blackboard.webp" alt="Children smiling together in front of the blackboard at the Nasaru learning centre">
   <div class="dk-hero-veil"></div>
   <div class="dk-hero-in">
     <div class="dk-hero-eyebrow">Oltukai Village &middot; Monduli &middot; Tanzania</div>
     <h1>Help Us Build a Brighter Future Through Early Childhood Education in the Maasai Community</h1>
-    <p>Empowering Maasai children through quality early childhood education, nutritious meals, and community-led development.</p>
+    <p>Empowering Maasai children through quality early childhood education, nutritious meals and community-led development &mdash; helping every child learn, grow and reach their full potential.</p>
     <div class="dk-btns dk-btns-c">
       <a class="dk-btn" href="#priority">DONATE</a>
       <a class="dk-btn dk-btn-ghost" href="#involved">GET INVOLVED</a>
@@ -234,50 +259,46 @@
   </div>
 </section>
 
-<!-- 2. MISSION / SHORT INTRODUCTION -->
+<!-- 2. ABOUT NASARU -->
 <section class="dk-sec" id="about">
   <div class="dk-wrap dk-narrow dk-center">
-    <div class="dk-eyebrow">About Us</div>
-    <p class="dk-lede">At Nasaru Child Foundation, we believe every child deserves the chance to learn, grow and imagine what their future could hold.</p>
-    <p>Nasaru was founded by Marina Laizer, a member of the local Maasai community, in Oltukai Village, Monduli District, Arusha Region, Tanzania.</p>
-    <p>Marina saw that many children in her community were missing out on education because of barriers such as poverty, long distances to school and limited access to early learning. For some children, this means starting primary school much later, while others may miss out on school altogether.</p>
+    <div class="dk-eyebrow">About Nasaru</div>
+    <p class="dk-lede">Nasaru Child Foundation is a community-led organisation founded by Marina Laizer in Oltukai Village, Monduli District, Arusha Region, Tanzania.</p>
+    <p>Marina saw that many children in her community were missing out on education because of barriers such as poverty, long distances to school and limited access to early learning.</p>
     <p><strong>Nasaru was created to help change this.</strong></p>
-    <p>We provide a safe and welcoming place where children aged approximately two to eight can learn, play, receive a nutritious meal and develop important skills during their early years.</p>
-    <p>Our work also extends beyond the classroom. We work alongside parents, families and community members to strengthen understanding of early childhood education, children&rsquo;s wellbeing and child protection.</p>
-    <p>Nasaru is proudly community-led. By working together, we hope to create lasting change that benefits children, families and the wider community.</p>
+    <p>Today, we provide a safe and welcoming place where children aged approximately two to ten can learn, play, receive a nutritious meal and begin building the skills they need for school and beyond.</p>
+    <p>Working alongside families and the local community, Nasaru is creating more opportunities for children to begin learning from an early age.</p>
   </div>
 </section>
 
-<!-- 2b. NASARU TODAY -->
+<!-- 3. NASARU TODAY -->
 <section class="dk-sec dk-sec-alt" id="today">
-  <div class="dk-wrap dk-narrow dk-center">
-    <div class="dk-eyebrow">Nasaru Today</div>
-    <p class="dk-lede">Nasaru is already making a difference.</p>
-    <p>With the support of our local community, we currently use a community-provided learning space where <strong>15 children</strong> come together with <strong>one volunteer teacher</strong> to learn, play and receive a nutritious daily meal.</p>
-    <p>This space has allowed us to begin our work, but as Nasaru grows, we need a dedicated early childhood learning centre with the facilities, resources and support needed to welcome more children.</p>
-    <p>Beyond the classroom, we are working alongside families and community members to strengthen understanding of the importance of the early years and the difference education can make in a child&rsquo;s life.</p>
-    <p><strong>What exists today is just the beginning of what Nasaru hopes to achieve.</strong></p>
+  <div class="dk-wrap dk-mt">
+    <div>
+      <img src="Images/teacher-writing-letters-on-floor.webp" alt="A teacher writing letters on the floor while children gather around to follow along">
+      <p class="dk-figcap">Learning together in the community provided space Nasaru uses today.</p>
+    </div>
+    <div>
+      <div class="dk-eyebrow">Nasaru Today</div>
+      <p>With the support of our local community, Nasaru currently operates from a community-provided learning space where children come together to learn, play and receive a nutritious daily meal.</p>
+      <p><strong>What exists today is just the beginning.</strong></p>
+    </div>
   </div>
-  <div class="dk-wrap">
+  <div class="dk-wrap" style="margin-top:44px;">
     <div class="dk-stats">
       <div class="dk-stat"><strong>15</strong><span>children enrolled</span></div>
       <div class="dk-stat"><strong>1</strong><span>volunteer teacher</span></div>
       <div class="dk-stat"><strong>Daily</strong><span>porridge for every child who attends</span></div>
-      <div class="dk-stat"><strong>2&ndash;8</strong><span>years old, the ages we serve</span></div>
+      <div class="dk-stat"><strong>2&ndash;10</strong><span>the ages we serve</span></div>
     </div>
   </div>
 </section>
 
-<!-- 3. THE CHALLENGE -->
-<section class="dk-sec" id="challenge">
+<!-- 4. A BRIGHTER FUTURE BEGINS WITH THE OPPORTUNITY TO LEARN -->
+<section class="dk-sec" id="opportunity">
   <div class="dk-wrap dk-mt">
     <div>
-      <img src="Images/children-counting-stones-outdoors.webp" alt="Children gathered around a concrete slab outdoors, arranging small stones to count">
-      <p class="dk-figcap">Counting with stones outside. Classes run wherever there is space.</p>
-    </div>
-    <div>
-      <div class="dk-eyebrow">The challenge</div>
-      <h2>A Brighter Future Begins With the Opportunity to Learn</h2>
+      <h2>A Brighter Future Begins with the Opportunity to Learn</h2>
       <p>For many children in Oltukai and surrounding Maasai communities, accessing education can be difficult.</p>
       <p>Poverty, long distances to school, overcrowded classrooms and limited access to early childhood education can mean some children do not begin primary school until they are eight to ten years old.</p>
       <p>The early years are an important time in a child&rsquo;s development. They are when children begin developing communication and social skills, confidence, curiosity and a readiness to learn.</p>
@@ -285,28 +306,33 @@
       <p>Nasaru is working to address these barriers by bringing early learning closer to home and giving children the chance to begin their education earlier.</p>
       <p><strong>When children have the chance to learn, they have more choices for what their future can become.</strong></p>
     </div>
-  </div>
-</section>
-
-<!-- 4. WHAT WE ARE BUILDING -->
-<section class="dk-sec dk-sec-alt" id="building">
-  <div class="dk-wrap dk-narrow dk-center">
-    <div class="dk-eyebrow">Building a Brighter Future</div>
-    <h2>Building a Brighter Future</h2>
-    <p>Nasaru&rsquo;s vision is to create a dedicated early childhood learning centre in Oltukai Village where more children can begin their education close to home.</p>
-    <p>With the support of donors and the local community, we hope to build permanent, well-equipped classrooms and child-friendly toilets, support teachers trained in early childhood education, and create a sustainable learning environment that can serve children for years to come.</p>
-    <p>But Nasaru is about more than building classrooms. We want to create something that can continue to serve children, families and the wider community for years to come.</p>
-    <p>As Nasaru grows, our goal is to welcome more than <strong>100 children</strong> from Oltukai and surrounding communities while strengthening our child protection and community programs.</p>
-    <p>Our long-term dream is to establish a primary school, allowing children to continue their education within their own community as they grow.</p>
-    <p><strong>From one small learning space, we hope to build something that will benefit children and families for generations to come.</strong></p>
-    <div class="dk-quote">
-      <p>&ldquo;A better foundation builds a better future.&rdquo;</p>
-      <cite>Marina Laizer, Founder</cite>
+    <div>
+      <img src="Images/children-learning-outdoors-goat-herd.webp" alt="Children sitting on open ground for a lesson while a herd of goats passes behind them">
+      <p class="dk-figcap">Lessons happen wherever there is space, on open ground beside the grazing herds.</p>
     </div>
   </div>
 </section>
 
-<!-- 5. OUR WORK -->
+<!-- 5. VISION AND MISSION -->
+<section class="dk-sec dk-sec-alt" id="vision">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Vision &amp; Mission</div>
+    </div>
+    <div class="dk-vm">
+      <div>
+        <h3>Our Vision</h3>
+        <p>A future where every child has access to quality early education, protection and opportunities to reach their full potential.</p>
+      </div>
+      <div>
+        <h3>Our Mission</h3>
+        <p>To empower vulnerable children and underserved communities by providing quality early childhood education, promoting child wellbeing and implementing sustainable community development programs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. OUR WORK -->
 <section class="dk-sec" id="work">
   <div class="dk-wrap">
     <div class="dk-head-c">
@@ -318,171 +344,123 @@
       <div class="dk-card">
         <div class="dk-card-num">01</div>
         <h3>Early Childhood Education</h3>
-        <p>We provide early learning for children aged approximately two to eight, helping prepare them for primary school.</p>
+        <p>Early learning for children aged approximately two to ten, helping prepare them for primary school.</p>
       </div>
       <div class="dk-card">
         <div class="dk-card-num">02</div>
         <h3>Safe Learning Spaces</h3>
-        <p>We provide a welcoming environment for young children while working towards permanent classrooms and child-friendly facilities.</p>
+        <p>A welcoming environment for young children while we work towards permanent classrooms and child-friendly facilities.</p>
       </div>
       <div class="dk-card">
         <div class="dk-card-num">03</div>
         <h3>Daily Porridge Program</h3>
-        <p>Every child who attends Nasaru receives nutritious porridge to support their wellbeing and encourage regular attendance.</p>
+        <p>Nutritious porridge for every child who attends, supporting wellbeing and regular attendance.</p>
       </div>
       <div class="dk-card">
         <div class="dk-card-num">04</div>
         <h3>Working With Families</h3>
-        <p>We work alongside parents, families and local leaders to strengthen understanding of the importance of the early years.</p>
+        <p>Working alongside parents, families and local leaders to strengthen understanding of the importance of the early years.</p>
       </div>
       <div class="dk-card">
         <div class="dk-card-num">05</div>
         <h3>Learning Through Play</h3>
-        <p>Through play, reading, storytelling and creative activities, children develop confidence, curiosity, communication and social skills.</p>
+        <p>Play, reading, storytelling and creative activities that build confidence, curiosity, communication and social skills.</p>
       </div>
       <div class="dk-card">
         <div class="dk-card-num">06</div>
         <h3>Child Protection &amp; Wellbeing</h3>
-        <p>We work with families and the wider community to promote children&rsquo;s safety, wellbeing and protection.</p>
+        <p>Working with families and the wider community to promote children&rsquo;s safety, wellbeing and protection.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6. CURRENT PRIORITY -->
+<!-- 7. WHERE YOUR SUPPORT MATTERS MOST -->
 <section class="dk-sec dk-sec-alt" id="priority">
   <div class="dk-wrap">
     <div class="dk-prio">
       <div>
-        <div class="dk-eyebrow">Our Current Priority</div>
+        <div class="dk-eyebrow">Where Your Support Matters Most</div>
         <h2>Help Us Take the Next Step</h2>
-        <p>Nasaru has started with what we have &mdash; a community-provided learning space, one volunteer teacher and a commitment to the children and families of Oltukai.</p>
+        <p>Nasaru has started with a community-provided learning space, one volunteer teacher and a commitment to the children and families of Oltukai.</p>
         <p><strong>Now, we need your help to give our children more of the resources they need to learn.</strong></p>
-        <p>Funds raised through our current campaign will help strengthen Nasaru&rsquo;s early childhood education program and improve the children&rsquo;s everyday learning environment.</p>
+        <p>Funds raised will strengthen Nasaru&rsquo;s early childhood education program and improve the children&rsquo;s everyday learning environment.</p>
         <p>Donations will help us provide:</p>
         <ul class="dk-prio-list">
           <li><strong>Teaching and learning materials</strong> to support early literacy, numeracy and school readiness</li>
           <li><strong>Books and educational resources</strong> for reading, storytelling and classroom activities</li>
-          <li><strong>Stationery and classroom supplies</strong>, including pencils, crayons, paper, exercise books and other everyday learning materials</li>
+          <li><strong>Stationery and classroom supplies</strong>, including pencils, crayons, paper and exercise books</li>
           <li><strong>Child-sized tables and chairs</strong> to create a more comfortable and appropriate learning environment</li>
           <li><strong>Play and creative learning resources</strong> that encourage children to explore, communicate and learn through play</li>
-          <li><strong>Support for our daily porridge program</strong>, helping children receive a nutritious meal while attending Nasaru</li>
-          <li><strong>Improvements to our learning space and facilities</strong> as we work towards creating a dedicated early childhood learning centre</li>
+          <li><strong>Daily porridge</strong> to support children&rsquo;s wellbeing while attending Nasaru</li>
+          <li><strong>Improvements to the learning space</strong> as we work towards a dedicated early childhood learning centre</li>
         </ul>
-        <p>Nasaru does not yet have established funders, which means every contribution &mdash; large or small &mdash; can make a meaningful difference.</p>
-        <p>We are committed to using donations carefully and transparently and sharing updates with our supporters so they can see how funds have been used and what their generosity has helped provide.</p>
+        <p>Nasaru does not yet have established funders, which means every contribution, large or small, can make a meaningful difference.</p>
+        <p>We are committed to using donations carefully and transparently and sharing updates so supporters can see how funds have been used and what their generosity has helped provide.</p>
       </div>
       <div class="dk-deadline">
-        <span>Our fundraising campaign</span>
-        <strong>Ongoing</strong>
+        <span>Fundraising campaign</span>
+        <strong><span class="dk-tbc">[campaign detail to add]</span></strong>
         <p style="color:rgba(255,255,255,.82);font-size:14px;margin:0 0 18px;"><strong>Your support can help put books in children&rsquo;s hands, provide the materials they need to learn, and give Nasaru the resources to reach more children.</strong></p>
-        <div class="dk-btns dk-btns-c"><a class="dk-btn" href="#contact">Donate on WhyDonate</a></div>
+        <div class="dk-btns dk-btns-c"><a class="dk-btn" href="#contact">DONATE ON WHYDONATE</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. PHOTOS AND STORIES -->
+<!-- 8. LIFE AT NASARU -->
 <section class="dk-sec">
   <div class="dk-wrap">
     <div class="dk-head-c">
       <div class="dk-eyebrow">Life at Nasaru</div>
-      <h2>Life at Nasaru</h2>
     </div>
     <div class="dk-gal">
       <figure>
-        <img src="Images/children-writing-numbers-classroom.webp" alt="Two children writing numbers into exercise books at a long wooden desk">
+        <img src="Images/children-chalk-numbers-floor.webp" alt="Four children sitting on a concrete floor beside numbers and shapes drawn in chalk">
         <figcaption><strong>Learning Together</strong><br>Children practise numbers and early learning skills together, with one volunteer teacher currently supporting fifteen children.</figcaption>
       </figure>
       <figure>
-        <img src="Images/children-drinking-porridge-cups.webp" alt="Children sitting on the floor drinking porridge from orange, purple, green and blue cups">
+        <img src="Images/children-porridge-under-number-chart.webp" alt="Children drinking porridge from coloured cups beneath a handwritten number chart">
         <figcaption><strong>A Nutritious Start to the Day</strong><br>Children receive porridge as part of Nasaru&rsquo;s daily feeding program, supporting their wellbeing and helping them arrive ready to learn.</figcaption>
       </figure>
       <figure>
-        <img src="Images/child-writing-notebook-red-jacket.webp" alt="A young child in a red jacket concentrating while writing in a lined notebook">
+        <img src="Images/child-writing-closeup-desk.webp" alt="A child concentrating closely while writing with a pencil at a wooden desk">
         <figcaption><strong>Every Lesson Is a Step Forward</strong><br>Whether learning at a desk, through play or with the resources available around them, children are building skills, confidence and curiosity every day.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- 8. GET INVOLVED -->
-<section class="dk-sec dk-sec-alt" id="involved">
-  <div class="dk-wrap">
-    <div class="dk-head-c">
-      <div class="dk-eyebrow">Get Involved</div>
-      <h2>Be Part of Nasaru&rsquo;s Future</h2>
-      <p>There are many ways you can help Nasaru grow. Whether you give your time, share your skills, build a partnership or raise funds, your support can help us reach more children in Oltukai.</p>
-      <p>Above all, we welcome people who respect Maasai culture, value community-led change and are willing to work alongside local people.</p>
-    </div>
-    <div class="dk-grid">
-      <div class="dk-card">
-        <div class="dk-card-num">Volunteer</div>
-        <h3>Volunteer &mdash; Share Your Time and Skills</h3>
-        <p>We welcome volunteers who can contribute their experience, knowledge, time or enthusiasm.</p>
-        <p>We are particularly interested in support with:</p>
-        <ul>
-          <li>Early childhood development and education</li>
-          <li>Teaching and learning resources</li>
-          <li>Child protection and safeguarding</li>
-          <li>Strategic planning and organisational development</li>
-          <li>Fundraising and resource mobilisation</li>
-          <li>Marketing, communications and social media</li>
-          <li>Monitoring, evaluation and learning</li>
-          <li>Community engagement and development</li>
-        </ul>
-        <p>You don&rsquo;t need professional expertise to contribute. We also welcome people who are willing to share their time, creativity and ideas.</p>
-      </div>
-      <div class="dk-card">
-        <div class="dk-card-num">Partner</div>
-        <h3>Partner &mdash; Grow With Us</h3>
-        <p>We would love to build long-term partnerships with schools, businesses, NGOs, foundations, education organisations and professionals who share our vision.</p>
-        <p>Partnerships may include expertise, educational resources, materials, funding or ongoing support. We believe the strongest partnerships begin by listening to what the community needs and working together towards shared goals.</p>
-      </div>
-      <div class="dk-card">
-        <div class="dk-card-num">Fundraise</div>
-        <h3>Fundraise &mdash; Help Us Reach More Children</h3>
-        <p>You can support Nasaru by organising a fundraiser through your school, workplace, community group or network, or simply by sharing our story with others.</p>
-        <p>We will share photographs and updates from Nasaru so you and the people supporting your fundraiser can see the difference your contribution is helping to make.</p>
+<!-- 9. BUILDING A BRIGHTER FUTURE -->
+<section class="dk-sec dk-sec-alt" id="building">
+  <div class="dk-wrap dk-mt">
+    <div>
+      <div class="dk-eyebrow">Building a Brighter Future</div>
+      <p>Nasaru&rsquo;s long-term vision is to create a dedicated early childhood learning centre in Oltukai Village where more children can begin their education close to home.</p>
+      <p>With the support of donors and the local community, we hope to build permanent, well-equipped classrooms and child-friendly toilets, support teachers trained in early childhood education, and create a sustainable learning environment that can serve children for years to come.</p>
+      <p>As Nasaru grows, our goal is to welcome more than 100 children from Oltukai and surrounding communities.</p>
+      <p>Our long-term dream is to establish a primary school, allowing children to continue their education within their own community as they grow.</p>
+      <p><strong>From one small learning space, we hope to build something that will benefit children and families for generations to come.</strong></p>
+      <div class="dk-quote">
+        <p>&ldquo;A better foundation builds a better future.&rdquo;</p>
+        <cite>Marina Laizer, Founder</cite>
       </div>
     </div>
-
-    <div style="margin-top:44px;">
-      <form class="dk-form" onsubmit="return false;">
-        <h3>Tell us how you would like to help</h3>
-        <p>Fill this in and Marina will get back to you. There is no commitment in sending it.</p>
-        <div class="dk-fields">
-          <div class="dk-field"><label for="f1-name">Name</label><input id="f1-name" type="text" autocomplete="name"></div>
-          <div class="dk-field"><label for="f1-email">Email</label><input id="f1-email" type="email" autocomplete="email"></div>
-          <div class="dk-field"><label for="f1-phone">Phone or WhatsApp</label><input id="f1-phone" type="tel" autocomplete="tel"></div>
-          <div class="dk-field"><label for="f1-loc">Where are you based</label><input id="f1-loc" type="text"></div>
-          <div class="dk-field"><label for="f1-area">Area of interest</label>
-            <select id="f1-area">
-              <option>Education</option><option>Construction</option><option>Fundraising</option>
-              <option>Social media</option><option>Communications</option><option>Administration</option>
-              <option>General volunteering</option><option>Partnership</option><option>Other</option>
-            </select>
-          </div>
-          <div class="dk-field"><label for="f1-avail">Availability</label><input id="f1-avail" type="text" placeholder="For example: two weeks in January"></div>
-          <div class="dk-field dk-full"><label for="f1-skills">Skills or background</label><input id="f1-skills" type="text"></div>
-          <div class="dk-field dk-full"><label for="f1-msg">Message</label><textarea id="f1-msg"></textarea></div>
-          <div class="dk-field dk-full"><div class="dk-btns"><button class="dk-btn" type="submit">Send</button></div></div>
-        </div>
-      </form>
+    <div>
+      <img src="Images/children-seated-benches-classroom.webp" alt="A row of children sitting on wooden benches in a bare room, the learning space Nasaru uses today">
+      <p class="dk-figcap">Fifteen children on borrowed benches. The reason a permanent centre matters.</p>
     </div>
   </div>
 </section>
 
-<!-- 8b. OUR TEAM -->
+<!-- 10. MEET MARINA AND THE BOARD -->
 <section class="dk-sec" id="team">
   <div class="dk-wrap">
     <div class="dk-head-c">
-      <div class="dk-eyebrow">Our Team</div>
-      <h2>Meet the People Behind Nasaru</h2>
-      <p>Nasaru is built on community, connection and a shared belief in what children can achieve when they are given the chance to learn.</p>
+      <div class="dk-eyebrow">Meet Marina</div>
     </div>
     <div class="dk-lead">
-      <div class="dk-lead-photo"><span class="dk-tbc">[photo of Marina to add]</span></div>
+      <div><img src="Images/marina-laizer-portrait.webp" alt="Marina Laizer, founder of Nasaru Child Foundation, wearing a red Maasai shuka and beaded collar" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;border-radius:8px;display:block;"></div>
       <div>
         <h3>Marina Laizer</h3>
         <div class="dk-role">Founder and Executive Director</div>
@@ -500,99 +478,172 @@
         <p><strong>For Marina, Nasaru is more than an early learning centre. It is a way of investing in her community and creating possibilities for the next generation of Maasai children.</strong></p>
       </div>
     </div>
+    <div class="dk-head-c" style="margin:52px auto 0;">
+      <h2>Meet Our Team</h2>
+      <p>Nasaru is built on community and teamwork. These are the people working alongside Marina to guide the foundation as it grows.</p>
+    </div>
+    <div class="dk-board">
+      <figure>
+        <img src="Images/namayana-loserian-portrait.webp" alt="Namayana Loserian, Treasurer of Nasaru Child Foundation, standing outside a blue painted building">
+        <figcaption><strong>Namayana Loserian</strong><span>Treasurer</span></figcaption>
+      </figure>
+      <figure>
+        <div class="dk-board-none"><span class="dk-tbc">[photo to add]</span></div>
+        <figcaption><strong>Oshumu Mollel</strong><span>Secretary</span></figcaption>
+      </figure>
+      <figure>
+        <div class="dk-board-none"><span class="dk-tbc">[photo to add]</span></div>
+        <figcaption><strong>Nemayan Moinget</strong><span>Board Member</span></figcaption>
+      </figure>
+      <figure>
+        <div class="dk-board-none"><span class="dk-tbc">[photo to add]</span></div>
+        <figcaption><strong>Kerika Laibor</strong><span>Board Member</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- 9. OUR JOURNEY -->
-<section class="dk-sec dk-sec-alt" id="journey">
+<!-- 11. GET INVOLVED -->
+<section class="dk-sec dk-sec-alt" id="involved">
+  <div class="dk-wrap">
+    <div class="dk-head-c">
+      <div class="dk-eyebrow">Get Involved</div>
+      <h2>Be Part of Nasaru&rsquo;s Future</h2>
+      <p>There are many ways you can help Nasaru grow. Whether you give your time, share your skills, build a partnership or raise funds, your support can help us reach more children in Oltukai.</p>
+      <p>Above all, we welcome people who respect Maasai culture, value community-led change and are willing to work alongside local people.</p>
+    </div>
+    <div class="dk-grid">
+      <div class="dk-card">
+        <div class="dk-card-num">Volunteer</div>
+        <h3>Share Your Time and Skills</h3>
+        <p>We welcome volunteers who can contribute their experience, knowledge, time or enthusiasm.</p>
+        <ul>
+          <li>Early childhood development and education</li>
+          <li>Teaching and learning resources</li>
+          <li>Child protection and safeguarding</li>
+          <li>Strategic planning and organisational development</li>
+          <li>Fundraising and resource mobilisation</li>
+          <li>Marketing, communications and social media</li>
+          <li>Monitoring, evaluation and learning</li>
+          <li>Community engagement and development</li>
+        </ul>
+        <p>You don&rsquo;t need professional expertise to contribute. We also welcome people who are willing to share their time, creativity and ideas.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">Partner</div>
+        <h3>Grow With Us</h3>
+        <p>We would love to build long-term partnerships with schools, businesses, NGOs, foundations, education organisations and professionals who share our vision.</p>
+        <p>Partnerships may include expertise, educational resources, materials, funding or ongoing support. We believe the strongest partnerships begin by listening to what the community needs and working together towards shared goals.</p>
+      </div>
+      <div class="dk-card">
+        <div class="dk-card-num">Fundraise</div>
+        <h3>Help Us Reach More Children</h3>
+        <p>You can support Nasaru by organising a fundraiser through your school, workplace, community group or network, or simply by sharing our story with others.</p>
+        <p>We will share photographs and updates from Nasaru so you and the people supporting your fundraiser can see the difference your contribution is helping to make.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;">
+      <form class="dk-form" onsubmit="return false;">
+        <h3>Tell Us How You Would Like to Help</h3>
+        <p>Fill in the form and tell us how you would like to get involved.</p>
+        <div class="dk-fields">
+          <div class="dk-field"><label for="f4-name">Name</label><input id="f4-name" type="text" autocomplete="name"></div>
+          <div class="dk-field"><label for="f4-email">Email</label><input id="f4-email" type="email" autocomplete="email"></div>
+          <div class="dk-field"><label for="f4-phone">Phone / WhatsApp</label><input id="f4-phone" type="tel" autocomplete="tel"></div>
+          <div class="dk-field"><label for="f4-loc">Location</label><input id="f4-loc" type="text"></div>
+          <div class="dk-field"><label for="f4-area">Area of interest</label>
+            <select id="f4-area">
+              <option>Early childhood development and education</option><option>Teaching and learning resources</option>
+              <option>Child protection and safeguarding</option><option>Strategic planning</option>
+              <option>Fundraising and resource mobilisation</option><option>Marketing, communications and social media</option>
+              <option>Monitoring, evaluation and learning</option><option>Community engagement</option>
+              <option>Partnership</option><option>Other</option>
+            </select>
+          </div>
+          <div class="dk-field"><label for="f4-avail">Availability</label><input id="f4-avail" type="text"></div>
+          <div class="dk-field dk-full"><label for="f4-skills">Skills / background</label><input id="f4-skills" type="text"></div>
+          <div class="dk-field dk-full"><label for="f4-msg">Message</label><textarea id="f4-msg"></textarea></div>
+          <div class="dk-field dk-full"><div class="dk-btns"><button class="dk-btn" type="submit">Send</button></div></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 12. OUR JOURNEY -->
+<section class="dk-sec" id="journey">
   <div class="dk-wrap">
     <div class="dk-head-c">
       <div class="dk-eyebrow">Our Journey</div>
       <h2>From a Vision to a Growing Community</h2>
-      <p>Nasaru is at the beginning of an exciting journey. What started as a vision to give more children access to early education is now growing into something that can create lasting opportunities for children and families in Oltukai.</p>
     </div>
     <div class="dk-time">
-      <div class="dk-time-row">
-        <div class="dk-time-when">2026 &middot; Our Beginning</div>
-        <div class="dk-time-what">
-          <h3>Nasaru Child Foundation is established</h3>
-          <p>Inspired by her experiences in Oltukai and her background in early childhood education, Marina turns her vision into action and establishes Nasaru Child Foundation. Classes begin in a community-provided learning space with 15 children and one volunteer teacher, creating the first foundations for Nasaru&rsquo;s future.</p>
-        </div>
+      <div class="dk-jrow">
+        <div class="dk-jwhen">2026 &mdash; Nasaru Begins</div>
+        <div class="dk-jwhat">15 children &middot; One volunteer teacher &middot; Community-provided learning space</div>
       </div>
-      <div class="dk-time-row">
-        <div class="dk-time-when">2026 &middot; Growing Our Support</div>
-        <div class="dk-time-what">
-          <h3>Our first fundraising campaign begins</h3>
-          <p>Nasaru introduces its daily porridge program, providing a nutritious meal for every child who attends. Our first fundraising campaign is launched to help improve the learning environment, provide teaching and learning materials, classroom furniture and stationery, and continue growing our programs.</p>
-        </div>
+      <div class="dk-jrow">
+        <div class="dk-jwhen">Today &mdash; Growing Our Support</div>
+        <div class="dk-jwhat">Daily porridge &middot; Teaching and learning resources &middot; Fundraising</div>
       </div>
-      <div class="dk-time-row">
-        <div class="dk-time-when">2026&ndash;2027 &middot; Our Next Steps</div>
-        <div class="dk-time-what">
-          <h3>Creating more opportunities to learn</h3>
-          <p>Our next stage is focused on strengthening our early childhood education program, improving learning facilities and resources, and building the support Nasaru needs to welcome more children.</p>
-        </div>
+      <div class="dk-jrow">
+        <div class="dk-jwhen">Next &mdash; Building Our Learning Centre</div>
+        <div class="dk-jwhat">Better facilities &middot; More resources &middot; More teachers &middot; More children</div>
       </div>
-      <div class="dk-time-row">
-        <div class="dk-time-when">Our Future</div>
-        <div class="dk-time-what">
-          <h3>A place where more than 100 children can learn and grow</h3>
-          <p>Our vision is to create permanent, well-equipped learning facilities and eventually welcome more than 100 children from Oltukai and surrounding communities. As Nasaru grows, we hope to train and support more teachers, strengthen child protection and community programs, and continue working alongside families to make education more accessible.</p>
-          <p>Our long-term dream is to establish a primary school where children can continue their education in a safe and supportive environment close to home.</p>
-          <p><strong>What began with 15 children is the first step towards creating educational opportunities for generations to come.</strong></p>
-        </div>
+      <div class="dk-jrow">
+        <div class="dk-jwhen">Our Future &mdash; 100+ Children</div>
+        <div class="dk-jwhat">Permanent learning facilities &middot; Stronger community programs &middot; A future primary school</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 10. UPDATES -->
-<section class="dk-sec" id="updates">
+<!-- 13. FOLLOW OUR JOURNEY -->
+<section class="dk-sec dk-sec-alt" id="updates">
   <div class="dk-wrap">
     <div class="dk-head-c">
       <div class="dk-eyebrow">Follow Our Journey</div>
-      <h2>Follow Our Journey</h2>
-      <p>We want everyone who supports Nasaru to feel connected to the children, the community and the progress we are making. Marina shares regular updates from Oltukai, giving you a glimpse into everyday life at Nasaru and showing how your support is helping us grow.</p>
+      <p>Marina shares regular updates from Oltukai, giving supporters a glimpse into everyday life at Nasaru and the progress being made.</p>
     </div>
     <div class="dk-grid">
-      <a class="dk-post" href="mockup-2-v3-post-1.html">
-        <img src="Images/children-drinking-porridge-cups.webp" alt="Children sitting on the floor drinking porridge from coloured cups">
+      <article class="dk-post">
+        <img src="Images/children-porridge-outdoors-palms.webp" alt="Children sitting outdoors with cups of porridge, palm trees behind them">
         <div class="dk-post-b">
           <div class="dk-date">Latest post</div>
           <h3>Feeding Program &mdash; Week by Week</h3>
-          <p>See our daily porridge program in action and follow how your support helps us provide a nutritious meal for every child who attends.</p>
+          <p>See our daily porridge program in action and how it supports the children who attend.</p>
         </div>
-      </a>
-      <a class="dk-post" href="mockup-2-v3-post-2.html">
-        <img src="Images/children-counting-stones-outdoors.webp" alt="Children counting with small stones on a concrete slab outdoors">
+      </article>
+      <article class="dk-post">
+        <img src="Images/children-circle-game-blue-building.webp" alt="Children holding hands in a circle outside a pale blue building">
         <div class="dk-post-b">
           <div class="dk-date">Post</div>
           <h3>Learning at Nasaru</h3>
-          <p>Follow the children as they learn through numbers, reading, play and everyday activities &mdash; often making creative use of the simple resources available around them.</p>
+          <p>Follow everyday learning through numbers, reading, play and creative activities.</p>
         </div>
-      </a>
-      <a class="dk-post" href="mockup-2-v3-post-3.html">
-        <img src="Images/children-smiling-classroom-blackboard.webp" alt="A group of children smiling together in front of the classroom blackboard">
+      </article>
+      <article class="dk-post">
+        <img src="Images/children-kneeling-chalk-floor.webp" alt="Children kneeling and crouching on a concrete floor around faint chalk marks during a lesson">
         <div class="dk-post-b">
           <div class="dk-date">Post</div>
           <h3>Why We Started With the Early Years</h3>
-          <p>Hear directly from Marina about why she created Nasaru, why early childhood education matters to her community and her hopes for the children and the future of the foundation.</p>
+          <p>Hear directly from Marina about why she created Nasaru and her hopes for the children and the future of the foundation.</p>
         </div>
-      </a>
+      </article>
     </div>
-    <p class="dk-center" style="max-width:760px;margin:32px auto 0;"><strong>Every donation, partnership and act of support becomes part of Nasaru&rsquo;s journey. Through our updates, you can see the difference we are creating together.</strong></p>
-    <div class="dk-btns dk-btns-c" style="margin-top:26px;"><a class="dk-btn dk-btn-line" href="mockup-2-v3-blog.html">Read all updates</a></div>
+    <div class="dk-btns dk-btns-c" style="margin-top:34px;"><a class="dk-btn dk-btn-line" href="mockup-2-v4-blog.html">READ ALL UPDATES</a></div>
   </div>
 </section>
 
-<!-- 11. CONTACT -->
-<section class="dk-sec dk-sec-alt" id="contact">
+<!-- 14. TALK TO MARINA DIRECTLY -->
+<section class="dk-sec" id="contact">
   <div class="dk-wrap">
     <img class="dk-lockup" src="Images/ncf-logo.png" alt="Nasaru Child Foundation (NCF). Learn, grow, succeed.">
     <div class="dk-head-c">
-      <div class="dk-eyebrow">Contact Us</div>
+      <div class="dk-eyebrow">Contact</div>
       <h2>Talk to Marina Directly</h2>
-      <p>Whether you would like to volunteer, partner with Nasaru, make a donation or simply learn more about our work, Marina would love to hear from you.</p>
+      <p>Whether you would like to volunteer, partner with Nasaru, make a donation or simply learn more about our work, we would love to hear from you.</p>
       <p>When you contact Nasaru, you&rsquo;ll be speaking directly with the person leading the work in Oltukai.</p>
     </div>
     <div class="dk-contact">
@@ -609,6 +660,7 @@
         <span class="dk-val">Oltukai Village, Monduli District, Arusha Region, Tanzania</span>
       </div>
     </div>
+    <div class="dk-btns dk-btns-c" style="margin-top:34px;"><a class="dk-btn" href="#priority">DONATE</a></div>
   </div>
 </section>
 
