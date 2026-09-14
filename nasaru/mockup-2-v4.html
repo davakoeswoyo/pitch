@@ -183,13 +183,14 @@
   .dk-lockup{height:150px;width:auto;margin:0 auto 26px;}
 
   /* board of directors, restored with Marina's photos */
-  .dk-board{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;}
-  .dk-board figure{background:#fff;border:1px solid var(--dk-line);border-radius:8px;overflow:hidden;}
-  .dk-board img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;display:block;}
-  .dk-board .dk-board-none{aspect-ratio:1/1;background:var(--dk-sand-2);border-bottom:1px dashed var(--dk-line);display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-size:12px;font-style:italic;color:var(--dk-ink-2);}
-  .dk-board figcaption{padding:18px 14px 20px;text-align:center;}
-  .dk-board strong{display:block;font-family:var(--dk-serif);font-size:16px;font-weight:600;margin-bottom:5px;}
-  .dk-board span{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-clay);}
+  .dk-board{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px;}
+  .dk-member{background:#fff;border:1px solid var(--dk-line);border-radius:8px;padding:26px;text-align:left;}
+  .dk-member-who{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;margin-bottom:18px;}
+  .dk-member img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 20%;border-radius:8px;display:block;}
+  .dk-member h3{font-family:var(--dk-serif);font-size:19px;font-weight:700;line-height:1.25;margin-bottom:4px;}
+  .dk-member .dk-role{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dk-clay);}
+  .dk-member p{font-size:15px;color:var(--dk-ink-2);margin-bottom:12px;}
+  .dk-member p:last-child{margin-bottom:0;}
 
   /* vision and mission */
   .dk-vm{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:940px;margin:0 auto;}
@@ -206,13 +207,14 @@
   @media(max-width:900px){
     .dk-stats{grid-template-columns:1fr 1fr;}
     .dk-lead{grid-template-columns:1fr;gap:24px;}
-    .dk-board{grid-template-columns:1fr 1fr;}
+    .dk-board{grid-template-columns:1fr;}
     .dk-vm{grid-template-columns:1fr;}
     .dk-jrow{grid-template-columns:1fr;gap:6px;}
   }
   @media(max-width:620px){
     .dk-stats{grid-template-columns:1fr;}
-    .dk-board{grid-template-columns:1fr;}
+    .dk-member{padding:20px;}
+    .dk-member-who{grid-template-columns:96px 1fr;gap:16px;}
   }
 
   @media(max-width:900px){
@@ -494,22 +496,49 @@
       <p>Nasaru is built on community and teamwork. These are the people working alongside Marina to guide the foundation as it grows.</p>
     </div>
     <div class="dk-board">
-      <figure>
-        <img src="Images/namayana-loserian-portrait.webp" alt="Namayana Loserian, Treasurer of Nasaru Child Foundation, standing outside a blue painted building">
-        <figcaption><strong>Namayana Loserian</strong><span>Treasurer</span></figcaption>
-      </figure>
-      <figure>
-        <div class="dk-board-none"><span class="dk-tbc">[photo to add]</span></div>
-        <figcaption><strong>Oshumu Mollel</strong><span>Secretary</span></figcaption>
-      </figure>
-      <figure>
-        <div class="dk-board-none"><span class="dk-tbc">[photo to add]</span></div>
-        <figcaption><strong>Nemayan Moinget</strong><span>Board Member</span></figcaption>
-      </figure>
-      <figure>
-        <div class="dk-board-none"><span class="dk-tbc">[photo to add]</span></div>
-        <figcaption><strong>Kerika Laibor</strong><span>Board Member</span></figcaption>
-      </figure>
+      <div class="dk-member">
+        <div class="dk-member-who">
+          <img src="Images/oshumu-mollel-portrait.webp" alt="Oshumu Mwasuni Mollel, Secretary of Nasaru Child Foundation, wearing a blue Maasai shuka" style="object-position:center top;">
+          <div>
+            <h3>Oshumu Mwasuni Mollel</h3>
+            <div class="dk-role">Secretary</div>
+          </div>
+        </div>
+        <p>The Secretary supports the organisation with coordination, communication and proper documentation. He helps organise Board meetings, prepare and maintain minutes, keep important organisational records and communicate decisions among Board members.</p>
+        <p>He also supports the coordination of activities and helps ensure that important information is properly recorded and shared. Through this role, he contributes to keeping NCF organised and ensuring that the Board can effectively follow up on decisions and commitments.</p>
+      </div>
+      <div class="dk-member">
+        <div class="dk-member-who">
+          <img src="Images/namayana-loserian-portrait.webp" alt="Namayana Loserian Mepukori, Treasurer of Nasaru Child Foundation, standing outside a blue painted building">
+          <div>
+            <h3>Namayana Loserian Mepukori</h3>
+            <div class="dk-role">Treasurer</div>
+          </div>
+        </div>
+        <p>The Treasurer is responsible for supporting strong financial accountability within the organisation. She helps the Board understand and oversee how NCF&rsquo;s financial resources are planned, managed and used.</p>
+        <p>Her responsibilities include supporting the preparation of budgets, maintaining financial records, monitoring expenditures and helping ensure that funds and other resources are used responsibly and for their intended purposes.</p>
+        <p>She contributes to financial transparency and accountability, helping build trust among the community, partners, donors and other supporters of NCF.</p>
+      </div>
+      <div class="dk-member">
+        <div class="dk-member-who">
+          <img src="Images/nemayan-moinget-portrait.webp" alt="Nemayan Moinget, Board Member of Nasaru Child Foundation, smiling outdoors in a blue dress and red checked shuka">
+          <div>
+            <h3>Nemayan Moinget</h3>
+            <div class="dk-role">Board Member</div>
+          </div>
+        </div>
+        <p>She contributes to planning, decision-making and community engagement. She brings community perspectives and supports initiatives that respond to the needs of children and families.</p>
+      </div>
+      <div class="dk-member">
+        <div class="dk-member-who">
+          <img src="Images/kerika-laibor-portrait.webp" alt="Kerika Mkaine Laibor, Board Member of Nasaru Child Foundation, wearing a red Maasai shuka and holding a walking stick" style="object-position:center top;">
+          <div>
+            <h3>Kerika Mkaine Laibor</h3>
+            <div class="dk-role">Board Member</div>
+          </div>
+        </div>
+        <p>He supports planning, decision-making and community engagement. He contributes practical ideas and helps strengthen NCF&rsquo;s connection with the community it serves.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -678,7 +707,7 @@
 <footer class="dk-foot">
   <strong>Nasaru Child Foundation (NCF)</strong>
   <p>Oltukai Village, Monduli District, Arusha Region, Tanzania</p>
-  <p><span class="dk-tbc">[registration or legal information to add when available]</span></p>
+  <p>Registration No. 00NGO/R/9901</p>
   <p class="dk-credit">Created by <a href="https://davakoeswoyo.com" target="_blank" rel="noopener">Dava Koeswoyo</a></p>
 </footer>
 
