@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascend Marketing · Homepage ontwerpen</title>
+<!--
+  HUB PAGE — deliberately unstyled.
+  No house style of its own. Each card carries ONLY the style of the design it links to.
+  Card styles are scoped with their own prefix.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* --- Minimal neutral hub structure, no house style --- */
+  body{background:#ffffff;color:#000000;margin:24px;padding-top:36px;font-family:system-ui,-apple-system,sans-serif;}
+
+  /* Preview breadcrumb back to the pitch index. Not part of any design. */
+  .dk-preview-breadcrumb{position:fixed;top:0;left:0;right:0;z-index:120;height:36px;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 42px;background:#1c1a17;border-bottom:1px solid rgba(250,249,247,.12);color:rgba(250,249,247,.58);font-size:.62rem;font-weight:500;letter-spacing:1.5px;line-height:1;text-transform:uppercase;}
+  .dk-preview-breadcrumb-path{display:inline-flex;align-items:center;color:rgba(250,249,247,.7);}
+  .dk-preview-breadcrumb a{color:inherit;text-decoration:none;transition:color .2s;}
+  .dk-preview-breadcrumb-separator{padding:0 2px;color:rgba(250,249,247,.34);}
+  .dk-preview-breadcrumb a:hover{color:#faf9f7;}
+
+  .dk-hub{max-width:1140px;margin:0 auto;}
+  .dk-hub h1{font-size:22px;font-weight:normal;margin:0 0 4px;}
+  .dk-hub .dk-sub{margin:0 0 6px;color:#333;font-size:15px;max-width:74ch;line-height:1.6;}
+  .dk-hub .dk-note{margin:0 0 12px;color:#666;font-size:13px;max-width:74ch;line-height:1.6;}
+  .dk-hub .dk-note:last-of-type{margin-bottom:26px;}
+  .dk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+  @media(max-width:980px){.dk-grid{grid-template-columns:1fr;max-width:560px;}}
+  .dk-card{display:flex;flex-direction:column;text-decoration:none;border-radius:14px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.1,1),box-shadow .35s;}
+  .dk-card:hover{transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(0,0,0,.45);}
+  .dk-card-media{position:relative;aspect-ratio:16/10;overflow:hidden;}
+  .dk-card-body{flex:1;display:flex;flex-direction:column;padding:24px 26px 28px;}
+  .dk-card-crumb{font-family:"Open Sans",system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;}
+  .dk-card-name{font-family:"Gilda Display",Georgia,serif;font-size:28px;line-height:1.1;margin:10px 0 10px;}
+  .dk-card-desc{font-family:"Open Sans",system-ui,sans-serif;font-size:14px;line-height:1.6;}
+  .dk-card-swatch{display:flex;gap:6px;margin:18px 0 18px;}
+  .dk-card-swatch span{width:22px;height:22px;border-radius:50%;}
+  .dk-card-cta{margin-top:auto;align-self:flex-start;font-family:"Open Sans",system-ui,sans-serif;font-size:13px;font-weight:600;padding:11px 20px;border-radius:100px;}
+
+  /* ===== Card 1 · Zwart Editorial (scoped: .dk-c1) ===== */
+  .dk-c1{background:#000;color:#fff;border:1px solid #000;}
+  .dk-c1 .dk-card-media img{width:100%;height:100%;object-fit:cover;object-position:70% 40%;transition:transform 6s ease;}
+  .dk-c1:hover .dk-card-media img{transform:scale(1.08);}
+  .dk-c1 .dk-card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.1) 70%);}
+  .dk-c1-word{position:absolute;left:22px;bottom:18px;z-index:1;font-family:"Gilda Display",Georgia,serif;font-size:52px;line-height:1;color:#fff;}
+  .dk-c1 .dk-card-crumb{color:#7b7b7b;}
+  .dk-c1 .dk-card-desc{color:rgba(255,255,255,.66);}
+  .dk-c1 .dk-card-swatch span{border:1px solid rgba(255,255,255,.25);}
+  .dk-c1 .dk-card-cta{background:#fff;color:#000;}
+
+  /* ===== Card 2 · Helder Overzicht (scoped: .dk-c2) ===== */
+  .dk-c2{background:#f4f4f4;color:#0d0d0d;border:1px solid #e4e4e4;}
+  .dk-c2 .dk-card-media{box-sizing:border-box;padding:18px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:8px;}
+  .dk-c2-tile{background:#fff;border:1px solid #e4e4e4;border-radius:10px;overflow:hidden;position:relative;}
+  .dk-c2-tile img{width:100%;height:100%;object-fit:cover;}
+  .dk-c2-wide{grid-column:span 2;padding:10px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;align-content:center;}
+  .dk-c2-wide i{height:16px;border-radius:4px;background:#f4f4f4;}
+  .dk-c2-wide i:nth-child(3n+1){background:#000;}
+  .dk-c2-tall{grid-row:span 2;background:#000;border-color:#000;padding:8px;}
+  .dk-c2-tall img{border-radius:8px;}
+  .dk-c2-dark{background:#000;border-color:#000;display:flex;align-items:flex-end;gap:3px;padding:10px;}
+  .dk-c2-dark i{flex:1;background:rgba(255,255,255,.3);border-radius:2px;}
+  .dk-c2 .dk-card-crumb{color:#7b7b7b;}
+  .dk-c2 .dk-card-desc{color:#555;}
+  .dk-c2 .dk-card-swatch span{border:1px solid #cfcfcf;}
+  .dk-c2 .dk-card-cta{background:#000;color:#fff;}
+
+  /* ===== Card 3 · Content in Beweging (scoped: .dk-c3) ===== */
+  .dk-c3{background:#0e0e0e;color:#fff;border:1px solid #1d1d1d;}
+  .dk-c3 .dk-card-media{perspective:900px;background:radial-gradient(closest-side,rgba(255,255,255,.12),transparent) 50% 0/120% 90% no-repeat,#000;}
+  .dk-c3-strip{position:absolute;left:-12%;top:14%;display:flex;gap:10px;transform:rotateX(14deg) rotateZ(-4deg);transition:transform .8s cubic-bezier(.2,.7,.1,1);}
+  .dk-c3:hover .dk-c3-strip{transform:rotateX(14deg) rotateZ(-4deg) translateX(-40px);}
+  .dk-c3-strip img{width:92px;aspect-ratio:9/16;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.14);}
+  .dk-c3 .dk-card-crumb{color:#7b7b7b;}
+  .dk-c3 .dk-card-desc{color:rgba(255,255,255,.64);}
+  .dk-c3 .dk-card-swatch span{border:1px solid rgba(255,255,255,.25);}
+  .dk-c3 .dk-card-cta{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);}
+
+  .dk-credit{max-width:1140px;margin:36px auto 0;padding-top:22px;border-top:1px solid #e6e6e6;font-size:13px;color:#666;text-align:center;}
+  .dk-credit a{color:#111;text-decoration:none;border-bottom:1px solid #cccccc;}
+  .dk-credit a:hover{border-bottom-color:#111111;}
+
+  @media (prefers-reduced-motion:reduce){.dk-card,.dk-card *{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<div class="dk-preview-breadcrumb" aria-label="Preview breadcrumb">
+  <span>&larr; Back to</span>
+  <span class="dk-preview-breadcrumb-path">
+    <a href="https://davakoeswoyo.github.io/">davakoeswoyo</a><span class="dk-preview-breadcrumb-separator">/</span><a href="https://davakoeswoyo.github.io/pitch/">pitch</a>
+  </span>
+</div>
+
+<div class="dk-hub">
+  <h1>Ascend Marketing &middot; homepage ontwerpen</h1>
+  <p class="dk-sub">Drie richtingen voor een nieuwe homepage, allemaal in de huidige huisstijl: zwart en wit, serif koppen, Open Sans en de adelaar. Elk ontwerp laat meteen alle diensten zien en brengt beweging in de site.</p>
+  <p class="dk-note">Cijfers, klantlogo's, reviews, team en contactgegevens komen van de huidige site. Zodra de nieuwe cijfers, logo's, paginastructuur en koppelingen binnen zijn, gaan ze er direct in. Het menu volgt nu de huidige structuur: Diensten met de drie dienstpagina's eronder.</p>
+  <p class="dk-note">De koppen staan in Gilda Display, een gratis letter die dicht bij The Seasons ligt.</p>
+
+  <div class="dk-grid">
+
+    <a class="dk-card dk-c1" href="mockup-1.html">
+      <div class="dk-card-media">
+        <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/08/AscendHomeHero2.jpg?w=800&amp;ssl=1" alt="Zwart wit foto van een zeearend">
+        <span class="dk-c1-word">ASCEND</span>
+      </div>
+      <div class="dk-card-body">
+        <div class="dk-card-crumb">Ontwerp 1</div>
+        <div class="dk-card-name">Zwart Editorial</div>
+        <div class="dk-card-desc">Filmisch en premium. De adelaar vult het scherm, ASCEND rijst letter voor letter op en onderin staan meteen alle zes diensten. Verder tellers die echt tellen, een versleepbare reel, een werkwijze die meeloopt met het scrollen en reviews die voorbij glijden.</div>
+        <div class="dk-card-swatch"><span style="background:#000"></span><span style="background:#fff"></span><span style="background:#7b7b7b"></span><span style="background:#141414"></span></div>
+        <div class="dk-card-cta">Bekijk ontwerp 1 &rarr;</div>
+      </div>
+    </a>
+
+    <a class="dk-card dk-c2" href="mockup-2.html">
+      <div class="dk-card-media" aria-hidden="true">
+        <div class="dk-c2-tile dk-c2-wide"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="dk-c2-tile dk-c2-tall"><img src="https://i.ytimg.com/vi/KJjUTbyC1RE/oardefault.jpg" alt=""></div>
+        <div class="dk-c2-tile"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/920BD2FD-B4CD-48DB-9810-86277AD7A033-822x1024.jpeg?w=240&amp;ssl=1" alt=""></div>
+        <div class="dk-c2-tile"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/2.jpeg?w=240&amp;ssl=1" alt=""></div>
+        <div class="dk-c2-tile dk-c2-dark"><i style="height:30%"></i><i style="height:45%"></i><i style="height:40%"></i><i style="height:62%"></i><i style="height:80%"></i></div>
+        <div class="dk-c2-tile"></div>
+      </div>
+      <div class="dk-card-body">
+        <div class="dk-card-crumb">Ontwerp 2</div>
+        <div class="dk-card-name">Helder Overzicht</div>
+        <div class="dk-card-desc">Licht en overzichtelijk. De hero is de dienstenlijst: zes tegels die elk laten zien wat de dienst doet. Een contentkalender die zich vult, een reel die speelt, een camera die scherpstelt en een website die zichzelf bouwt.</div>
+        <div class="dk-card-swatch"><span style="background:#f4f4f4"></span><span style="background:#fff"></span><span style="background:#000"></span><span style="background:#dddddd"></span></div>
+        <div class="dk-card-cta">Bekijk ontwerp 2 &rarr;</div>
+      </div>
+    </a>
+
+    <a class="dk-card dk-c3" href="mockup-3.html">
+      <div class="dk-card-media" aria-hidden="true">
+        <div class="dk-c3-strip">
+          <img src="https://i.ytimg.com/vi/Mt7XzbFdga8/oardefault.jpg" alt="">
+          <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_9289-e1773223350726-768x1024.jpeg?w=200&amp;ssl=1" alt="">
+          <img src="https://i.ytimg.com/vi/znQoBV37BQA/oardefault.jpg" alt="">
+          <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_8717-edited-3-768x1024.jpeg?w=200&amp;ssl=1" alt="">
+          <img src="https://i.ytimg.com/vi/YW4t0LKWGg4/oardefault.jpg" alt="">
+        </div>
+      </div>
+      <div class="dk-card-body">
+        <div class="dk-card-crumb">Ontwerp 3</div>
+        <div class="dk-card-name">Content in Beweging</div>
+        <div class="dk-card-desc">Het werk voorop. Een kop die elke dienst noemt en de bijbehorende knop laat oplichten, een bewegende filmstrip van echte reels en een telefoon die per dienst van scherm wisselt tijdens het scrollen.</div>
+        <div class="dk-card-swatch"><span style="background:#000"></span><span style="background:#0e0e0e"></span><span style="background:#fff"></span><span style="background:#7b7b7b"></span></div>
+        <div class="dk-card-cta">Bekijk ontwerp 3 &rarr;</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<p class="dk-credit">Created by <a href="https://davakoeswoyo.com" target="_blank" rel="noopener">Dava Koeswoyo</a></p>
+
+</body>
+</html>

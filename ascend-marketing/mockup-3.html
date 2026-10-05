@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascend Marketing · Ontwerp 3 · Content in Beweging</title>
+<!--
+  ONTWERP 3 · CONTENT IN BEWEGING
+  Brand kept from ascendmarketing.nl: black and white only (#000, #fff, #333, #7b7b7b, #ddd, #f4f4f4),
+  serif display headings, Open Sans body, the eagle, the logo.
+  Gilda Display stands in for The Seasons (the live site loads a Fontspring demo file).
+  Idea: lead with the work. A rotating headline names each service and lights up its pill, a tilted
+  film strip of real shorts and photos runs under the hero, and a sticky phone changes screen for
+  every service as you scroll.
+  Motion: word rotator, film strip, counters, logo marquee, scroll driven phone, drawing timeline,
+  auto advancing review slider, giant CTA marquee, video lightbox. Respects prefers-reduced-motion.
+  Numbers, reviews, clients, team and contact details are the live site's own. Nothing invented.
+  Figures and logos live in the data lists at the top of the script, ready for the client's update.
+  Images are hotlinked from ascendmarketing.nl (Jetpack CDN) and YouTube thumbnails.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dk-black:#000; --dk-coal:#0e0e0e; --dk-coal-2:#161616; --dk-grey-4:#333; --dk-grey-3:#7b7b7b; --dk-grey-2:#ddd; --dk-grey-1:#f4f4f4; --dk-white:#fff;
+    --dk-line:rgba(255,255,255,.12); --dk-line-2:rgba(255,255,255,.24); --dk-mute:rgba(255,255,255,.64);
+    --dk-serif:"Gilda Display","The Seasons",Georgia,serif; --dk-sans:"Open Sans",system-ui,sans-serif;
+    --dk-ease:cubic-bezier(.2,.7,.1,1); --dk-gutter:clamp(18px,3.6vw,48px); --dk-max:1280px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--dk-black);color:var(--dk-white);font-family:var(--dk-sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--dk-white);outline-offset:3px;}
+  .dk-wrap{max-width:var(--dk-max);margin:0 auto;padding:0 var(--dk-gutter);}
+  .dk-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  section[id]{scroll-margin-top:84px;}
+
+  .dk-crumb{height:36px;display:flex;align-items:center;background:var(--dk-white);color:var(--dk-black);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;}
+  .dk-crumb a{padding:0 var(--dk-gutter);opacity:.7;transition:opacity .2s;}
+  .dk-crumb a:hover{opacity:1;}
+
+  /* ===== header ===== */
+  .dk-header{position:sticky;top:0;z-index:80;background:rgba(0,0,0,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--dk-line);}
+  .dk-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;height:72px;}
+  .dk-nav-logo{display:block;height:40px;overflow:hidden;justify-self:start;}
+  .dk-nav-logo img{height:100px;width:auto;margin-top:-30px;}
+  .dk-nav-links{display:flex;align-items:center;gap:6px;list-style:none;font-size:14px;}
+  .dk-nav-links > li{position:relative;}
+  .dk-nav-links > li > a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:100px;color:var(--dk-mute);transition:color .2s,background .2s;}
+  .dk-nav-links > li > a:hover{color:var(--dk-white);background:rgba(255,255,255,.07);}
+  .dk-nav-links svg{width:10px;height:10px;fill:none;stroke:currentColor;transition:transform .3s;}
+  .dk-sub{position:absolute;top:calc(100% + 10px);left:50%;min-width:290px;list-style:none;padding:8px;background:var(--dk-coal-2);border:1px solid var(--dk-line-2);border-radius:18px;box-shadow:0 24px 50px -20px rgba(0,0,0,.8);opacity:0;visibility:hidden;transform:translate(-50%,-6px);transition:opacity .25s,transform .25s,visibility .25s;}
+  .dk-sub::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px;}
+  .dk-sub a{display:block;padding:11px 14px;border-radius:12px;font-size:14px;color:var(--dk-mute);transition:background .2s,color .2s;}
+  .dk-sub a:hover{background:rgba(255,255,255,.07);color:var(--dk-white);}
+  .dk-sub a small{display:block;font-size:12px;color:var(--dk-grey-3);}
+  .dk-has-sub:hover .dk-sub,.dk-has-sub:focus-within .dk-sub{opacity:1;visibility:visible;transform:translate(-50%,0);}
+  .dk-has-sub:hover > a svg,.dk-has-sub:focus-within > a svg{transform:rotate(180deg);}
+  .dk-nav-end{justify-self:end;display:flex;align-items:center;gap:10px;}
+  .dk-nav-toggle{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--dk-line-2);align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+  .dk-nav-toggle span{display:block;width:18px;height:1.5px;background:var(--dk-white);transition:transform .3s;}
+  .dk-nav-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.25px) rotate(45deg);}
+  .dk-nav-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.25px) rotate(-45deg);}
+
+  /* buttons */
+  .dk-btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;border-radius:100px;font-size:14px;font-weight:600;transition:transform .3s var(--dk-ease),background .3s,color .3s,border-color .3s;}
+  .dk-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;transition:transform .3s var(--dk-ease);}
+  .dk-btn:hover svg{transform:translateX(3px);}
+  .dk-btn-light{background:var(--dk-white);color:var(--dk-black);}
+  .dk-btn-light:hover{background:var(--dk-grey-2);}
+  .dk-btn-ghost{border:1px solid var(--dk-line-2);}
+  .dk-btn-ghost:hover{border-color:var(--dk-white);background:rgba(255,255,255,.06);}
+  .dk-btn-sm{height:42px;padding:0 18px;font-size:13px;}
+
+  /* ===== hero ===== */
+  .dk-hero{position:relative;padding:clamp(40px,6vw,80px) 0 0;text-align:center;overflow:hidden;}
+  .dk-hero::before{content:"";position:absolute;left:50%;top:-30%;width:120vw;height:80%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,255,255,.1),transparent);pointer-events:none;}
+  .dk-pill-top{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 8px;border:1px solid var(--dk-line-2);border-radius:100px;font-size:13px;color:var(--dk-mute);opacity:0;animation:dk-up .8s var(--dk-ease) .1s both;}
+  .dk-pill-top b{background:var(--dk-white);color:var(--dk-black);border-radius:100px;padding:2px 9px;font-size:12px;}
+  .dk-stars{display:inline-flex;gap:2px;}
+  .dk-stars svg{width:12px;height:12px;fill:var(--dk-white);}
+  .dk-h1{font-family:var(--dk-serif);font-weight:400;font-size:clamp(44px,7.2vw,104px);line-height:1.02;letter-spacing:-.01em;margin:24px auto 0;opacity:0;animation:dk-up 1s var(--dk-ease) .2s both;}
+  .dk-rotator{position:relative;display:inline-block;height:1.08em;vertical-align:bottom;overflow:hidden;transition:width .6s var(--dk-ease);color:var(--dk-grey-2);}
+  .dk-rotator span{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(105%);opacity:0;transition:transform .7s var(--dk-ease),opacity .5s;}
+  .dk-rotator span.is-in{transform:none;opacity:1;}
+  .dk-rotator span.is-out{transform:translateY(-105%);opacity:0;}
+  .dk-rotator::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:2px;background:var(--dk-white);transform-origin:left;animation:dk-underline 2.8s linear infinite;}
+  .dk-hero-sub{max-width:600px;margin:24px auto 0;color:var(--dk-mute);font-size:17px;opacity:0;animation:dk-up .9s var(--dk-ease) .35s both;}
+  .dk-services-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;list-style:none;max-width:900px;margin:30px auto 0;}
+  .dk-services-pills li{opacity:0;animation:dk-up .7s var(--dk-ease) both;animation-delay:calc(.45s + var(--i) * .06s);}
+  .dk-services-pills a{display:inline-flex;align-items:center;gap:9px;padding:10px 18px 10px 12px;border:1px solid var(--dk-line-2);border-radius:100px;font-size:14px;color:var(--dk-mute);transition:background .45s var(--dk-ease),color .45s,border-color .45s,transform .45s var(--dk-ease);}
+  .dk-services-pills a svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;}
+  .dk-services-pills a:hover,.dk-services-pills a.is-hot{background:var(--dk-white);color:var(--dk-black);border-color:var(--dk-white);}
+  .dk-services-pills a.is-hot{transform:translateY(-2px);}
+  .dk-hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px;opacity:0;animation:dk-up .9s var(--dk-ease) .8s both;}
+
+  /* film strip */
+  .dk-film{position:relative;margin-top:clamp(50px,6vw,80px);height:clamp(300px,34vw,470px);perspective:1400px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
+  .dk-film-plane{position:absolute;left:-10%;right:-10%;top:0;transform:rotateX(16deg) rotateZ(-3deg);transform-origin:50% 0;}
+  .dk-film-track{display:flex;gap:16px;width:max-content;animation:dk-marquee 70s linear infinite;}
+  .dk-film:hover .dk-film-track{animation-play-state:paused;}
+  .dk-film-card{position:relative;flex:none;width:clamp(170px,17vw,240px);aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:var(--dk-coal-2);border:1px solid var(--dk-line);}
+  .dk-film-card img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--dk-ease);}
+  .dk-film-card:hover img{transform:scale(1.06);}
+  .dk-film-card button{position:absolute;inset:0;display:grid;place-items:center;}
+  .dk-film-card button span{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;transition:transform .35s var(--dk-ease),background .3s;}
+  .dk-film-card button svg{width:16px;height:16px;margin-left:3px;fill:var(--dk-white);}
+  .dk-film-card button:hover span{transform:scale(1.1);background:var(--dk-white);}
+  .dk-film-card button:hover svg{fill:var(--dk-black);}
+  .dk-film-tag{position:absolute;left:12px;top:12px;font-size:10px;font-weight:700;letter-spacing:.14em;padding:4px 9px;border-radius:100px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+  .dk-film-shade{position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(0deg,var(--dk-black),transparent);pointer-events:none;}
+
+  /* ===== stats ===== */
+  .dk-stats{border-top:1px solid var(--dk-line);border-bottom:1px solid var(--dk-line);position:relative;z-index:2;background:var(--dk-black);}
+  .dk-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  .dk-stat{padding:40px 20px;display:flex;align-items:baseline;justify-content:center;gap:14px;}
+  .dk-stat + .dk-stat{border-left:1px solid var(--dk-line);}
+  .dk-stat-num{font-family:var(--dk-serif);font-size:clamp(36px,4.2vw,58px);line-height:1;font-variant-numeric:tabular-nums;}
+  .dk-stat-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dk-grey-3);}
+
+  /* ===== logos ===== */
+  .dk-logos{padding:36px 0;border-bottom:1px solid var(--dk-line);}
+  .dk-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);}
+  .dk-marquee-track{display:flex;width:max-content;animation:dk-marquee var(--dk-speed,44s) linear infinite;}
+  .dk-marquee:hover .dk-marquee-track{animation-play-state:paused;}
+  .dk-logo{flex:none;height:64px;margin:0 30px;display:flex;align-items:center;opacity:.72;transition:opacity .3s;}
+  .dk-logo:hover{opacity:1;}
+  .dk-logo-crop{flex:none;overflow:hidden;}
+  .dk-logo img{max-width:none;filter:grayscale(1) invert(1);mix-blend-mode:screen;}
+
+  /* ===== generic ===== */
+  .dk-section{padding:clamp(80px,10vw,140px) 0;}
+  .dk-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dk-grey-3);margin-bottom:18px;}
+  .dk-kicker::before{content:"";width:8px;height:8px;border:1px solid currentColor;border-radius:50%;}
+  .dk-h2{font-family:var(--dk-serif);font-weight:400;font-size:clamp(38px,5vw,70px);line-height:1.02;}
+  .dk-h2 span{color:var(--dk-grey-3);}
+  .dk-reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--dk-ease),transform .9s var(--dk-ease);transition-delay:var(--d,0s);}
+  .dk-reveal.is-in{opacity:1;transform:none;}
+
+  /* ===== services scrollytelling ===== */
+  .dk-story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);margin-top:60px;}
+  .dk-story-stage{position:sticky;top:110px;height:calc(100vh - 150px);max-height:680px;display:grid;place-items:center;}
+  .dk-device{position:relative;height:100%;aspect-ratio:9/18.5;max-width:100%;border-radius:44px;border:9px solid #1d1d1d;background:#0a0a0a;box-shadow:0 0 0 1px var(--dk-line-2),0 40px 80px -30px rgba(0,0,0,.9),0 0 120px -30px rgba(255,255,255,.12);overflow:hidden;}
+  .dk-device::before{content:"";position:absolute;top:10px;left:50%;width:86px;height:24px;border-radius:20px;background:#000;transform:translateX(-50%);z-index:5;}
+  .dk-screen{position:absolute;inset:0;opacity:0;transform:scale(1.04);transition:opacity .7s var(--dk-ease),transform .9s var(--dk-ease);}
+  .dk-screen.is-on{opacity:1;transform:none;}
+  .dk-screen > img{width:100%;height:100%;object-fit:cover;}
+  .dk-screen-top{position:absolute;left:0;right:0;top:0;padding:46px 16px 12px;background:linear-gradient(180deg,rgba(0,0,0,.75),transparent);font-size:12px;font-weight:600;display:flex;justify-content:space-between;z-index:2;}
+  /* screen 1: profile grid */
+  .dk-feed{position:absolute;inset:0;background:var(--dk-black);padding:48px 0 0;display:flex;flex-direction:column;}
+  .dk-feed-head{display:flex;align-items:center;gap:14px;padding:0 14px 12px;}
+  .dk-feed-avatar{width:54px;height:54px;border-radius:50%;background:var(--dk-white);color:var(--dk-black);display:grid;place-items:center;flex:none;font-family:var(--dk-serif);font-size:26px;box-shadow:0 0 0 2px var(--dk-black),0 0 0 3px var(--dk-white);}
+  .dk-feed-stats{display:flex;gap:14px;font-size:10px;color:var(--dk-mute);text-align:center;}
+  .dk-feed-stats b{display:block;color:var(--dk-white);font-size:13px;}
+  .dk-feed-name{padding:0 14px 12px;font-size:11px;line-height:1.4;color:var(--dk-mute);}
+  .dk-feed-name b{color:var(--dk-white);display:block;}
+  .dk-feed-grid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;align-content:start;}
+  .dk-feed-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;}
+  .dk-screen.is-on .dk-feed-grid img{animation:dk-pop-in .6s var(--dk-ease) both;animation-delay:calc(var(--i) * .06s);}
+  /* screen 2: reel */
+  .dk-reel-bar{position:absolute;left:14px;right:14px;top:44px;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden;z-index:3;}
+  .dk-reel-bar i{position:absolute;inset:0;background:var(--dk-white);transform-origin:left;animation:dk-progress 7s linear infinite;}
+  .dk-reel-side{position:absolute;right:12px;bottom:70px;display:flex;flex-direction:column;gap:16px;z-index:3;}
+  .dk-reel-side svg{width:26px;height:26px;fill:var(--dk-white);filter:drop-shadow(0 1px 3px rgba(0,0,0,.6));}
+  .dk-reel-cap{position:absolute;left:14px;right:60px;bottom:26px;font-size:12px;line-height:1.4;z-index:3;text-shadow:0 1px 3px rgba(0,0,0,.7);}
+  /* screen 4: focus */
+  .dk-focus{position:absolute;inset:26% 18%;border:1px solid rgba(255,255,255,.0);}
+  .dk-focus b{position:absolute;width:22px;height:22px;border:2px solid var(--dk-white);}
+  .dk-focus b:nth-child(1){top:0;left:0;border-right:0;border-bottom:0;}
+  .dk-focus b:nth-child(2){top:0;right:0;border-left:0;border-bottom:0;}
+  .dk-focus b:nth-child(3){bottom:0;left:0;border-right:0;border-top:0;}
+  .dk-focus b:nth-child(4){bottom:0;right:0;border-left:0;border-top:0;}
+  .dk-screen.is-on .dk-focus{animation:dk-focus 1.4s var(--dk-ease) both;}
+  .dk-shutter{position:absolute;left:50%;bottom:26px;width:58px;height:58px;border-radius:50%;border:3px solid var(--dk-white);transform:translateX(-50%);}
+  .dk-shutter::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--dk-white);}
+  /* screen 5: sponsored post */
+  .dk-ad{position:absolute;inset:0;background:var(--dk-white);color:var(--dk-black);padding-top:48px;display:flex;flex-direction:column;}
+  .dk-ad-head{display:flex;align-items:center;gap:10px;padding:0 12px 10px;font-size:12px;}
+  .dk-ad-head i{width:30px;height:30px;border-radius:50%;background:var(--dk-black);flex:none;}
+  .dk-ad-head span{display:block;font-size:10px;color:var(--dk-grey-3);}
+  .dk-ad img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .dk-ad-cta{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:var(--dk-grey-1);font-size:12px;font-weight:600;}
+  .dk-ad-cta span{background:var(--dk-black);color:var(--dk-white);border-radius:6px;padding:5px 10px;font-size:11px;}
+  .dk-ad-meter{padding:12px;display:grid;gap:8px;font-size:10px;color:var(--dk-grey-3);}
+  .dk-ad-meter div{height:6px;border-radius:3px;background:var(--dk-grey-2);overflow:hidden;}
+  .dk-ad-meter div i{display:block;height:100%;width:var(--w);background:var(--dk-black);transform-origin:left;}
+  .dk-screen.is-on .dk-ad-meter i{animation:dk-grow 1.4s var(--dk-ease) both;animation-delay:calc(.3s + var(--i) * .2s);}
+  /* screen 6: website */
+  .dk-site{position:absolute;inset:0;background:var(--dk-white);color:var(--dk-black);padding-top:44px;display:flex;flex-direction:column;}
+  .dk-site-nav{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-bottom:1px solid #eee;font-size:10px;font-weight:700;letter-spacing:.1em;}
+  .dk-site-nav i{width:16px;height:10px;border-top:2px solid #000;border-bottom:2px solid #000;}
+  .dk-site-hero{position:relative;margin:10px;border-radius:12px;overflow:hidden;height:40%;}
+  .dk-site-hero img{width:100%;height:100%;object-fit:cover;object-position:75% 40%;}
+  .dk-site-hero b{position:absolute;left:12px;bottom:10px;color:var(--dk-white);font-family:var(--dk-serif);font-weight:400;font-size:30px;line-height:1;}
+  .dk-site-rows{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 10px;}
+  .dk-site-rows span{height:54px;border-radius:10px;background:var(--dk-grey-1);}
+  .dk-screen.is-on .dk-site-rows span{animation:dk-pop-in .6s var(--dk-ease) both;animation-delay:calc(.2s + var(--i) * .1s);}
+  .dk-site-badges{display:flex;gap:6px;flex-wrap:wrap;padding:12px 10px;}
+  .dk-site-badges em{font-style:normal;font-size:10px;font-weight:700;padding:4px 9px;border-radius:100px;background:var(--dk-black);color:var(--dk-white);}
+
+  .dk-chapters{list-style:none;}
+  .dk-chapter{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0;opacity:.28;transition:opacity .6s var(--dk-ease);}
+  .dk-chapter.is-active{opacity:1;}
+  .dk-chapter-num{font-size:12px;letter-spacing:.2em;color:var(--dk-grey-3);}
+  .dk-chapter h3{font-family:var(--dk-serif);font-weight:400;font-size:clamp(34px,3.8vw,54px);line-height:1.05;margin:12px 0 16px;}
+  .dk-chapter p{color:var(--dk-mute);max-width:470px;}
+  .dk-chapter ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:20px;}
+  .dk-chapter ul li{font-size:12px;padding:5px 12px;border:1px solid var(--dk-line-2);border-radius:100px;}
+  .dk-chapter a{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:14px;font-weight:600;border-bottom:1px solid var(--dk-line-2);padding-bottom:4px;align-self:flex-start;transition:border-color .3s;}
+  .dk-chapter a:hover{border-color:var(--dk-white);}
+  .dk-chapter-vis{display:none;}
+
+  /* ===== timeline ===== */
+  .dk-timeline{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:18px;list-style:none;margin-top:60px;}
+  .dk-timeline::before,.dk-timeline::after{content:"";position:absolute;left:0;right:0;top:21px;height:1px;background:var(--dk-line-2);}
+  .dk-timeline::after{background:var(--dk-white);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .2s linear;}
+  .dk-tl-dot{position:relative;z-index:1;width:43px;height:43px;border-radius:50%;border:1px solid var(--dk-line-2);background:var(--dk-black);display:grid;place-items:center;font-size:13px;transition:background .5s,color .5s,border-color .5s;}
+  .dk-tl.is-on .dk-tl-dot{background:var(--dk-white);color:var(--dk-black);border-color:var(--dk-white);}
+  .dk-tl h3{font-family:var(--dk-serif);font-weight:400;font-size:21px;line-height:1.2;margin:20px 0 8px;}
+  .dk-tl p{font-size:14px;color:var(--dk-mute);}
+
+  /* ===== review slider ===== */
+  .dk-quote{position:relative;border:1px solid var(--dk-line);border-radius:28px;padding:clamp(34px,6vw,80px);background:radial-gradient(120% 120% at 0% 0%,rgba(255,255,255,.07),transparent 50%),var(--dk-coal);overflow:hidden;}
+  .dk-quote-mark{position:absolute;right:clamp(20px,5vw,60px);top:-.15em;font-family:var(--dk-serif);font-size:clamp(180px,22vw,320px);line-height:1;color:rgba(255,255,255,.05);pointer-events:none;}
+  .dk-quote-slides{position:relative;min-height:220px;}
+  .dk-quote-slide{position:absolute;inset:0;opacity:0;transform:translateY(16px);transition:opacity .7s var(--dk-ease),transform .7s var(--dk-ease);pointer-events:none;}
+  .dk-quote-slide.is-on{opacity:1;transform:none;position:relative;pointer-events:auto;}
+  .dk-quote-slide p{font-family:var(--dk-serif);font-size:clamp(24px,2.8vw,38px);line-height:1.3;max-width:26ch;}
+  .dk-quote-who{display:flex;align-items:center;gap:12px;margin-top:28px;font-size:14px;}
+  .dk-quote-who span span{color:var(--dk-grey-3);}
+  .dk-avatar{width:40px;height:40px;border-radius:50%;background:var(--dk-white);color:var(--dk-black);display:grid;place-items:center;font-size:13px;font-weight:700;flex:none;}
+  .dk-quote-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--dk-line);}
+  .dk-quote-dots{display:flex;gap:6px;}
+  .dk-quote-dots button{position:relative;width:34px;height:3px;border-radius:3px;background:var(--dk-line-2);overflow:hidden;}
+  .dk-quote-dots button i{position:absolute;inset:0;background:var(--dk-white);transform-origin:left;transform:scaleX(0);}
+  .dk-quote-dots button.is-done i{transform:none;}
+  .dk-quote-dots button.is-on i{animation:dk-progress var(--dk-slide,6s) linear forwards;}
+  .dk-quote-score{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--dk-mute);}
+  .dk-quote-score b{font-family:var(--dk-serif);font-weight:400;font-size:34px;color:var(--dk-white);line-height:1;}
+
+  /* ===== about ===== */
+  .dk-about{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center;}
+  .dk-about-photos{position:relative;aspect-ratio:1/1;}
+  .dk-about-photos img{position:absolute;border-radius:18px;object-fit:cover;box-shadow:0 30px 60px -30px rgba(0,0,0,.9);}
+  .dk-about-photos img:nth-child(1){left:0;top:0;width:68%;height:78%;}
+  .dk-about-photos img:nth-child(2){right:0;bottom:0;width:48%;height:58%;border:6px solid var(--dk-black);transform:translateY(var(--y,0));}
+  .dk-about p{color:var(--dk-mute);margin-top:18px;}
+  .dk-team{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:34px;list-style:none;background:var(--dk-line);border:1px solid var(--dk-line);border-radius:16px;overflow:hidden;}
+  .dk-team li{background:var(--dk-black);padding:16px 18px;}
+  .dk-team b{display:block;font-family:var(--dk-serif);font-weight:400;font-size:20px;}
+  .dk-team span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dk-grey-3);}
+
+  /* ===== CTA ===== */
+  .dk-cta{position:relative;padding:clamp(80px,10vw,140px) 0;overflow:hidden;border-top:1px solid var(--dk-line);}
+  .dk-cta-marquee{font-family:var(--dk-serif);font-size:clamp(90px,16vw,240px);line-height:1;white-space:nowrap;}
+  .dk-cta-marquee .dk-marquee-track{gap:.35em;}
+  .dk-cta-marquee span{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);}
+  .dk-cta-marquee span:nth-child(even){color:var(--dk-white);-webkit-text-stroke:0;}
+  .dk-cta-box{position:relative;z-index:2;max-width:620px;margin:clamp(-60px,-4vw,-30px) auto 0;text-align:center;padding:clamp(28px,4vw,46px);border-radius:26px;background:rgba(10,10,10,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--dk-line-2);}
+  .dk-cta-box h2{font-family:var(--dk-serif);font-weight:400;font-size:clamp(32px,3.6vw,48px);line-height:1.05;}
+  .dk-cta-box p{color:var(--dk-mute);margin:14px 0 24px;}
+
+  /* ===== footer ===== */
+  .dk-footer{padding:70px 0 34px;border-top:1px solid var(--dk-line);}
+  .dk-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px;}
+  .dk-footer-logo{display:block;height:48px;overflow:hidden;margin-bottom:14px;}
+  .dk-footer-logo img{height:120px;width:auto;margin-top:-36px;}
+  .dk-footer h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dk-grey-3);margin-bottom:14px;font-weight:600;}
+  .dk-footer ul{list-style:none;display:grid;gap:8px;font-size:14px;color:var(--dk-mute);}
+  .dk-footer a:hover{color:var(--dk-white);}
+  .dk-footer-note{font-size:14px;color:var(--dk-mute);max-width:300px;}
+  .dk-footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:54px;padding-top:22px;border-top:1px solid var(--dk-line);font-size:12px;color:var(--dk-grey-3);}
+
+  /* ===== lightbox ===== */
+  .dk-modal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:rgba(0,0,0,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
+  .dk-modal.is-open{opacity:1;visibility:visible;}
+  .dk-modal-frame{position:relative;height:min(86vh,760px);aspect-ratio:9/16;max-width:92vw;border-radius:22px;overflow:hidden;background:#111;transform:scale(.94);transition:transform .45s var(--dk-ease);}
+  .dk-modal.is-open .dk-modal-frame{transform:none;}
+  .dk-modal iframe{width:100%;height:100%;border:0;}
+  .dk-modal-close{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;background:var(--dk-white);color:var(--dk-black);display:grid;place-items:center;}
+  .dk-modal-close svg{width:16px;height:16px;stroke:currentColor;fill:none;}
+
+  /* ===== keyframes ===== */
+  @keyframes dk-up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+  @keyframes dk-underline{0%{transform:scaleX(0);}80%{transform:scaleX(1);opacity:1;}100%{transform:scaleX(1);opacity:0;}}
+  @keyframes dk-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @keyframes dk-progress{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  @keyframes dk-pop-in{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:none;}}
+  @keyframes dk-focus{0%{inset:12% 6%;opacity:.3;}100%{inset:26% 18%;opacity:1;}}
+  @keyframes dk-grow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+
+  /* ===== responsive ===== */
+  @media (max-width:1000px){
+    .dk-nav{grid-template-columns:auto 1fr;}
+    .dk-nav-links{position:fixed;top:108px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--dk-gutter) 24px;background:var(--dk-black);border-bottom:1px solid var(--dk-line);font-size:17px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s,transform .25s,visibility .25s;max-height:calc(100vh - 108px);overflow:auto;}
+    .dk-nav-links.is-open{opacity:1;visibility:visible;transform:none;}
+    .dk-nav-links > li{border-bottom:1px solid var(--dk-line);}
+    .dk-nav-links > li > a{padding:14px 0;border-radius:0;display:flex;}
+    .dk-nav-links > li > a:hover{background:none;}
+    .dk-nav-links > li > a svg{display:none;}
+    .dk-sub{position:static;opacity:1;visibility:visible;transform:none;min-width:0;background:none;border:0;box-shadow:none;padding:0 0 10px 12px;}
+    .dk-sub a{padding:8px 0;font-size:15px;}
+    .dk-sub a small{display:none;}
+    .dk-has-sub:hover .dk-sub,.dk-has-sub:focus-within .dk-sub{transform:none;}
+    .dk-nav-toggle{display:flex;}
+    .dk-stats-grid{grid-template-columns:repeat(2,1fr);}
+    .dk-stat:nth-child(3){border-left:0;}
+    .dk-stat:nth-child(n+3){border-top:1px solid var(--dk-line);}
+    .dk-stat{flex-direction:column;align-items:center;gap:6px;padding:28px 12px;}
+    .dk-story{grid-template-columns:1fr;margin-top:30px;}
+    .dk-story-stage{display:none;}
+    .dk-chapter{min-height:0;opacity:1;padding:34px 0;border-top:1px solid var(--dk-line);}
+    .dk-chapter-vis{display:block;margin-top:22px;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:360px;}
+    .dk-chapter-vis img{width:100%;height:100%;object-fit:cover;}
+    .dk-timeline{grid-template-columns:1fr 1fr 1fr;row-gap:36px;}
+    .dk-timeline::before,.dk-timeline::after{display:none;}
+    .dk-about{grid-template-columns:1fr;}
+    .dk-footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .dk-nav{height:62px;}
+    .dk-nav-logo{height:34px;}
+    .dk-nav-logo img{height:86px;margin-top:-26px;}
+    .dk-nav-links{top:98px;max-height:calc(100vh - 98px);}
+    .dk-nav-end .dk-btn{display:none;}
+    .dk-h1{margin-top:18px;}
+    .dk-hide-sm{display:none;}
+    .dk-hero-sub{font-size:15px;margin-top:18px;}
+    .dk-services-pills{gap:6px;margin-top:22px;}
+    .dk-services-pills a{padding:8px 13px 8px 10px;font-size:13px;}
+    .dk-services-pills a svg{width:16px;height:16px;}
+    .dk-hero-actions{margin-top:22px;}
+    .dk-film{margin-top:40px;height:280px;}
+    .dk-film-card{width:150px;}
+    .dk-timeline{grid-template-columns:1fr 1fr;}
+    .dk-team{grid-template-columns:1fr;}
+    .dk-footer-grid{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation:none !important;transition-duration:.01ms !important;}
+    .dk-pill-top,.dk-h1,.dk-hero-sub,.dk-services-pills li,.dk-hero-actions,.dk-reveal{opacity:1;transform:none;}
+    .dk-film-track,.dk-marquee-track{flex-wrap:nowrap;}
+    .dk-chapter{opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="dk-crumb"><a href="index.html">&larr; Terug naar alle ontwerpen</a></div>
+
+<header class="dk-header" id="top">
+  <nav class="dk-nav dk-wrap" aria-label="Hoofdmenu">
+    <a class="dk-nav-logo" href="#top"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/Logo-Clean-edited-1.png?fit=347%2C195&amp;ssl=1" alt="Ascend Marketing" width="347" height="195"></a>
+    <ul class="dk-nav-links" id="dk-menu">
+      <li class="dk-has-sub">
+        <a href="#diensten">Diensten <svg viewBox="0 0 10 10" stroke-width="1.5"><path d="M1 3l4 4 4-4"/></svg></a>
+        <ul class="dk-sub">
+          <li><a href="https://ascendmarketing.nl/services/social-media-management-en-content-creatie/">Social media management en content creatie<small>Short form video, fotografie, planning</small></a></li>
+          <li><a href="https://ascendmarketing.nl/services/meta-adverteren/">Meta advertenties<small>Facebook en Instagram campagnes</small></a></li>
+          <li><a href="https://ascendmarketing.nl/services/webdesign-en-ontwikkeling/">Webdesign en ontwikkeling<small>Snelle websites die converteren</small></a></li>
+        </ul>
+      </li>
+      <li><a href="#werk">Werk</a></li>
+      <li><a href="#werkwijze">Werkwijze</a></li>
+      <li><a href="#over-ons">Over ons</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="dk-nav-end">
+      <a class="dk-btn dk-btn-light dk-btn-sm" href="#contact">Plan een kennismaking</a>
+      <button class="dk-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="dk-menu"><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="dk-hero" id="werk">
+    <div class="dk-wrap">
+      <span class="dk-pill-top"><b>5,0</b><span class="dk-stars" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg></span>15 Google reviews<span class="dk-hide-sm"> · 30+ merken</span></span>
+      <h1 class="dk-h1">
+        <span class="dk-sr">Til je merk hoger met social media management, short form video, content creatie, merkfotografie, Meta advertenties en een website.</span>
+        <span aria-hidden="true">Til je merk hoger met<br><span class="dk-rotator" data-dk-rotator><span class="is-in">short form video</span><span>social media</span><span>content creatie</span><span>merkfotografie</span><span>Meta advertenties</span><span>een nieuwe website</span></span></span>
+      </h1>
+      <p class="dk-hero-sub">Van strategie en scripts tot contentdag, montage, campagnes en je website. Jij runt je bedrijf, wij zorgen dat de juiste mensen het zien.</p>
+      <ul class="dk-services-pills" aria-label="Alle diensten">
+        <li style="--i:0"><a href="#dienst-2" data-dk-pill="0"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 9l4 3-4 3z"/></svg>Short form video</a></li>
+        <li style="--i:1"><a href="#dienst-1" data-dk-pill="1"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>Social media management</a></li>
+        <li style="--i:2"><a href="#dienst-3" data-dk-pill="2"><svg viewBox="0 0 24 24"><path d="M4 20l4.5-4.5M14 4l6 6-9 9H5v-6z"/></svg>Content creatie</a></li>
+        <li style="--i:3"><a href="#dienst-4" data-dk-pill="3"><svg viewBox="0 0 24 24"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg>Merkfotografie</a></li>
+        <li style="--i:4"><a href="#dienst-5" data-dk-pill="4"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16v-4M11 16V8M16 16v-6M20 5l-5 4-4-2-5 4"/></svg>Meta advertenties</a></li>
+        <li style="--i:5"><a href="#dienst-6" data-dk-pill="5"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M6 6.5h.01M9 6.5h.01"/></svg>Webdesign en ontwikkeling</a></li>
+      </ul>
+      <div class="dk-hero-actions">
+        <a class="dk-btn dk-btn-light" href="#contact">Plan een kennismaking <svg viewBox="0 0 16 16" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        <a class="dk-btn dk-btn-ghost" href="#diensten">Zo werken we</a>
+      </div>
+    </div>
+
+    <div class="dk-film" aria-label="Werk van Ascend">
+      <div class="dk-film-plane"><div class="dk-film-track" data-dk-film></div></div>
+      <div class="dk-film-shade"></div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="dk-stats" aria-label="Resultaten">
+    <div class="dk-stats-grid dk-wrap">
+      <div class="dk-stat"><span class="dk-stat-num" data-count="950" data-suffix="K+">0</span><span class="dk-stat-label">Views</span></div>
+      <div class="dk-stat"><span class="dk-stat-num" data-count="10" data-suffix="K+">0</span><span class="dk-stat-label">Likes</span></div>
+      <div class="dk-stat"><span class="dk-stat-num" data-count="30" data-suffix="+">0</span><span class="dk-stat-label">Tevreden klanten</span></div>
+      <div class="dk-stat"><span class="dk-stat-num" data-count="5" data-decimals="1">0</span><span class="dk-stat-label">Op Google</span></div>
+    </div>
+  </section>
+
+  <!-- ===== LOGOS ===== -->
+  <section class="dk-logos" aria-label="Merken die ons vertrouwen">
+    <div class="dk-marquee" style="--dk-speed:46s"><div class="dk-marquee-track" data-dk-logos></div></div>
+  </section>
+
+  <!-- ===== SERVICES: sticky phone ===== -->
+  <section class="dk-section" id="diensten">
+    <div class="dk-wrap">
+      <p class="dk-kicker dk-reveal">Diensten</p>
+      <h2 class="dk-h2 dk-reveal" style="--d:.06s">Eén team.<br><span>Zes disciplines.</span></h2>
+
+      <div class="dk-story">
+        <div class="dk-story-stage" aria-hidden="true">
+          <div class="dk-device">
+            <!-- 1 social -->
+            <div class="dk-screen is-on" data-screen="0">
+              <div class="dk-feed">
+                <div class="dk-feed-head">
+                  <span class="dk-feed-avatar">J</span>
+                  <div class="dk-feed-stats"><span><b>Posts</b>Planning</span><span><b>Reels</b>Wekelijks</span><span><b>Stories</b>Dagelijks</span></div>
+                </div>
+                <p class="dk-feed-name"><b>jouwmerk</b>Consistent zichtbaar, elke week.</p>
+                <div class="dk-feed-grid">
+                  <img style="--i:0" src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/920BD2FD-B4CD-48DB-9810-86277AD7A033-822x1024.jpeg?w=240&amp;ssl=1" alt="">
+                  <img style="--i:1" src="https://i.ytimg.com/vi/Mt7XzbFdga8/oardefault.jpg" alt="">
+                  <img style="--i:2" src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_9289-e1773223350726-768x1024.jpeg?w=240&amp;ssl=1" alt="">
+                  <img style="--i:3" src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_8717-edited-3-768x1024.jpeg?w=240&amp;ssl=1" alt="">
+                  <img style="--i:4" src="https://i.ytimg.com/vi/znQoBV37BQA/oardefault.jpg" alt="">
+                  <img style="--i:5" src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/Cream-Simple-Inspiring-Quote-LinkedIn-Post-Instagram-bericht-45-4.png?w=240&amp;ssl=1" alt="">
+                  <img style="--i:6" src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/2.jpeg?w=240&amp;ssl=1" alt="">
+                  <img style="--i:7" src="https://i.ytimg.com/vi/YW4t0LKWGg4/oardefault.jpg" alt="">
+                  <img style="--i:8" src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_4711.jpg?w=240&amp;ssl=1" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- 2 short video -->
+            <div class="dk-screen" data-screen="1">
+              <img src="https://i.ytimg.com/vi/KJjUTbyC1RE/oardefault.jpg" alt="">
+              <div class="dk-reel-bar"><i></i></div>
+              <div class="dk-reel-side">
+                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.1C.8 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3 1.7-1.8 3.2-3 5.3-3 3.7 0 5.9 3.9 4.3 7.4C19.5 16.4 12 21 12 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M3 11L21 3l-6 18-3-8z"/></svg>
+              </div>
+              <p class="dk-reel-cap"><b>@ascendmarketing.group</b><br>Hook, script, opname en montage.</p>
+            </div>
+            <!-- 3 content -->
+            <div class="dk-screen" data-screen="2">
+              <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/2.jpeg?w=600&amp;ssl=1" alt="">
+              <div class="dk-screen-top"><span>Contentdag</span><span>09:00 tot 17:00</span></div>
+            </div>
+            <!-- 4 photo -->
+            <div class="dk-screen" data-screen="3">
+              <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/Cream-Simple-Inspiring-Quote-LinkedIn-Post-Instagram-bericht-45-4.png?w=600&amp;ssl=1" alt="">
+              <div class="dk-focus"><b></b><b></b><b></b><b></b></div>
+              <span class="dk-shutter"></span>
+            </div>
+            <!-- 5 ads -->
+            <div class="dk-screen" data-screen="4">
+              <div class="dk-ad">
+                <div class="dk-ad-head"><i></i><div><b>Jouw merk</b><span>Gesponsord</span></div></div>
+                <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_9289-e1773223350726-768x1024.jpeg?w=600&amp;ssl=1" alt="">
+                <div class="dk-ad-cta">Reserveer vandaag nog<span>Meer info</span></div>
+                <div class="dk-ad-meter">
+                  Bereik<div><i style="--w:88%;--i:0"></i></div>
+                  Klikken<div><i style="--w:64%;--i:1"></i></div>
+                  Conversies<div><i style="--w:42%;--i:2"></i></div>
+                </div>
+              </div>
+            </div>
+            <!-- 6 web -->
+            <div class="dk-screen" data-screen="5">
+              <div class="dk-site">
+                <div class="dk-site-nav">JOUW MERK<i></i></div>
+                <div class="dk-site-hero"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/08/AscendHomeHero2.jpg?w=600&amp;ssl=1" alt=""><b>Welkom.</b></div>
+                <div class="dk-site-rows"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span></div>
+                <div class="dk-site-badges"><em>Mobiel</em><em>SEO klaar</em><em>Razendsnel</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ol class="dk-chapters">
+          <li class="dk-chapter" id="dienst-1" data-chapter="0">
+            <span class="dk-chapter-num">01 · Social media management</span>
+            <h3>Je kanalen, volledig uit handen.</h3>
+            <p>Strategie, contentplanning, posten, bijschriften en hashtags. Wij houden Instagram, Facebook, TikTok en LinkedIn consistent en professioneel, zodat jij je op je bedrijf kunt richten.</p>
+            <ul><li>Instagram</li><li>Facebook</li><li>TikTok</li><li>LinkedIn</li></ul>
+            <a href="https://ascendmarketing.nl/services/social-media-management-en-content-creatie/">Meer over social media <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+            <div class="dk-chapter-vis"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_4759.jpg?w=600&amp;ssl=1" alt="Laptop met het Ascend logo in een café" loading="lazy"></div>
+          </li>
+          <li class="dk-chapter" id="dienst-2" data-chapter="1">
+            <span class="dk-chapter-num">02 · Short form video</span>
+            <h3>Video's die de scroll stoppen.</h3>
+            <p>Reels, TikToks en Shorts met een sterke hook in de eerste seconden. Wij bedenken het format, schrijven het script, filmen en monteren.</p>
+            <ul><li>Hooks en scripts</li><li>Opname</li><li>Montage</li></ul>
+            <a href="#werk">Bekijk video's <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+            <div class="dk-chapter-vis"><img src="https://i.ytimg.com/vi/KJjUTbyC1RE/oardefault.jpg" alt="Still uit een short form video" loading="lazy"></div>
+          </li>
+          <li class="dk-chapter" id="dienst-3" data-chapter="2">
+            <span class="dk-chapter-num">03 · Content creatie</span>
+            <h3>Eén contentdag. Een maand aan content.</h3>
+            <p>Foto's, korte video's, grafisch ontwerp en teksten die aanspreken. We plannen een dag, schieten alles in één keer en zetten het daarna voor je klaar.</p>
+            <ul><li>Contentdag</li><li>Grafisch ontwerp</li><li>Copywriting</li></ul>
+            <div class="dk-chapter-vis"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/2.jpeg?w=600&amp;ssl=1" alt="Camera, laptop en tablet klaar voor een contentdag" loading="lazy"></div>
+          </li>
+          <li class="dk-chapter" id="dienst-4" data-chapter="3">
+            <span class="dk-chapter-num">04 · Merkfotografie</span>
+            <h3>Beeld dat laat zien wie je bent.</h3>
+            <p>Je product, je team, je plek. Scherpe beelden in jouw stijl, klaar voor je socials, je website en je advertenties.</p>
+            <ul><li>Product</li><li>Locatie</li><li>Team</li></ul>
+            <div class="dk-chapter-vis"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/Cream-Simple-Inspiring-Quote-LinkedIn-Post-Instagram-bericht-45-4.png?w=600&amp;ssl=1" alt="Cappuccino naast een laptop op een donkere tafel" loading="lazy"></div>
+          </li>
+          <li class="dk-chapter" id="dienst-5" data-chapter="4">
+            <span class="dk-chapter-num">05 · Meta advertenties</span>
+            <h3>Gezien door de juiste mensen.</h3>
+            <p>Campagnes op Facebook en Instagram die je doelgroep op het juiste moment bereiken. Wij testen varianten, meten alles en sturen continu bij, zodat elke euro rendement oplevert.</p>
+            <ul><li>Doelgroepanalyse</li><li>Advertenties</li><li>Optimalisatie</li></ul>
+            <a href="https://ascendmarketing.nl/services/meta-adverteren/">Meer over Meta advertenties <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+            <div class="dk-chapter-vis"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_9289-e1773223350726-768x1024.jpeg?w=600&amp;ssl=1" alt="Pancakes met fruit bij Flex Kitchen" loading="lazy"></div>
+          </li>
+          <li class="dk-chapter" id="dienst-6" data-chapter="5">
+            <span class="dk-chapter-num">06 · Webdesign en ontwikkeling</span>
+            <h3>Een website die klanten maakt.</h3>
+            <p>Stijlvol, snel en gebouwd rond jouw doelen. Mobiel geoptimaliseerd, SEO klaar vanaf dag één en na de lancering blijven we je ondersteunen.</p>
+            <ul><li>Design</li><li>Ontwikkeling</li><li>SEO</li><li>Ondersteuning</li></ul>
+            <a href="https://ascendmarketing.nl/services/webdesign-en-ontwikkeling/">Meer over websites <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+            <div class="dk-chapter-vis"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_4711.jpg?w=600&amp;ssl=1" alt="Aan het werk op een laptop in een café" loading="lazy"></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="dk-section" id="werkwijze" style="padding-top:0">
+    <div class="dk-wrap">
+      <p class="dk-kicker dk-reveal">Werkwijze</p>
+      <h2 class="dk-h2 dk-reveal" style="--d:.06s">Van eerste gesprek<br><span>tot eerste resultaat.</span></h2>
+      <ol class="dk-timeline" data-dk-timeline>
+        <li class="dk-tl"><span class="dk-tl-dot">1</span><h3>Kennismaking en kickoff</h3><p>Jouw merk, doelen en doelgroep in kaart.</p></li>
+        <li class="dk-tl"><span class="dk-tl-dot">2</span><h3>Deep dive en analyse</h3><p>Markt, concurrentie en wat nu online werkt.</p></li>
+        <li class="dk-tl"><span class="dk-tl-dot">3</span><h3>Concepten en scripts</h3><p>Ideeën en scripts die passen bij je merk.</p></li>
+        <li class="dk-tl"><span class="dk-tl-dot">4</span><h3>Contentdag</h3><p>Alle foto's en video's op één dag.</p></li>
+        <li class="dk-tl"><span class="dk-tl-dot">5</span><h3>Editing en planning</h3><p>Montage, teksten en hashtags ingepland.</p></li>
+        <li class="dk-tl"><span class="dk-tl-dot">6</span><h3>Publicatie en optimalisatie</h3><p>Live, gemeten en continu bijgestuurd.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="dk-section" id="reviews" style="padding-top:0">
+    <div class="dk-wrap">
+      <div class="dk-quote dk-reveal">
+        <span class="dk-quote-mark" aria-hidden="true">&ldquo;</span>
+        <p class="dk-kicker">Reviews</p>
+        <div class="dk-quote-slides" data-dk-quotes aria-live="polite"></div>
+        <div class="dk-quote-foot">
+          <div class="dk-quote-dots" data-dk-dots></div>
+          <div class="dk-quote-score"><b>5,0</b><span class="dk-stars" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 5.8 6.3.7-4.7 4.3 1.3 6.2L10 14.9 4.4 18l1.3-6.2L1 7.5l6.3-.7z"/></svg></span>15 reviews op Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="dk-section" id="over-ons" style="padding-top:0">
+    <div class="dk-wrap dk-about">
+      <div class="dk-about-photos dk-reveal">
+        <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/Dani-Taking-Photo-Black-And-White.jpg?w=800&amp;ssl=1" alt="Dani Mohamad met een camera voor zijn gezicht, in zwart wit" loading="lazy">
+        <img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/IMG_4759.jpg?w=600&amp;ssl=1" alt="Laptop met het Ascend logo in een café" loading="lazy" data-dk-parallax>
+      </div>
+      <div>
+        <p class="dk-kicker dk-reveal">Over ons</p>
+        <h2 class="dk-h2 dk-reveal" style="--d:.06s">Opgericht in 2024.<br><span>Van Bali naar Sneek.</span></h2>
+        <p class="dk-reveal" style="--d:.12s">Dani Mohamad richtte Ascend Marketing op na jaren ondernemen en een studie Commerciële Economie. Het idee ontstond op Bali; het doel is helder: uitgroeien tot een van de toonaangevende marketingbureaus van Nederland.</p>
+        <p class="dk-reveal" style="--d:.18s">Een klein, internationaal team dat creativiteit, strategie en snelheid combineert, voor merken die verder willen.</p>
+        <ul class="dk-team dk-reveal" style="--d:.24s">
+          <li><b>Dani Mohamad</b><span>Founder</span></li>
+          <li><b>Sidney Veltkamp</b><span>Partner</span></li>
+          <li><b>Dava Koeswoyo</b><span>Website developer</span></li>
+          <li><b>Laila Mohamad</b><span>Graphic designer</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="dk-cta" id="contact">
+    <div class="dk-cta-marquee dk-marquee" style="--dk-speed:34s" aria-hidden="true">
+      <div class="dk-marquee-track"><span>Rise above</span><span>with Ascend</span><span>Rise above</span><span>with Ascend</span><span>Rise above</span><span>with Ascend</span><span>Rise above</span><span>with Ascend</span></div>
+    </div>
+    <div class="dk-wrap">
+      <div class="dk-cta-box dk-reveal">
+        <h2>Let us take care of your socials.</h2>
+        <p>Vertel ons waar je merk nu staat en waar je naartoe wilt. We reageren meestal nog dezelfde werkdag.</p>
+        <div class="dk-hero-actions" style="margin-top:0;opacity:1;animation:none">
+          <a class="dk-btn dk-btn-light" href="https://ascendmarketing.nl/contact/">Plan een kennismaking <svg viewBox="0 0 16 16" stroke-width="1.6"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <a class="dk-btn dk-btn-ghost" href="tel:+31641880444">+31 6 41880444</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dk-footer">
+  <div class="dk-wrap">
+    <div class="dk-footer-grid">
+      <div>
+        <a class="dk-footer-logo" href="#top"><img src="https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/2025/09/Logo-Clean-edited-1.png?fit=347%2C195&amp;ssl=1" alt="Ascend Marketing" loading="lazy"></a>
+        <p class="dk-footer-note">Social media, content, advertenties en websites voor merken die hoger willen.</p>
+      </div>
+      <div>
+        <h4>Diensten</h4>
+        <ul>
+          <li><a href="https://ascendmarketing.nl/services/social-media-management-en-content-creatie/">Social media en content</a></li>
+          <li><a href="https://ascendmarketing.nl/services/meta-adverteren/">Meta advertenties</a></li>
+          <li><a href="https://ascendmarketing.nl/services/webdesign-en-ontwikkeling/">Webdesign en ontwikkeling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Waterpeil 6, 8608 DA Sneek</li>
+          <li><a href="tel:+31641880444">+31 6 41880444</a></li>
+          <li><a href="mailto:info@ascendmarketing.nl">info@ascendmarketing.nl</a></li>
+          <li>KVK 93158874</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Volg ons</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/ascendmarketing.group/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/ascendmarketing.group/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://nl.linkedin.com/company/ascendmarketing-group" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="dk-footer-bottom"><span>&copy; 2026 Ascend Marketing</span><span>Rise above with Ascend</span></div>
+  </div>
+</footer>
+
+<div class="dk-modal" role="dialog" aria-modal="true" aria-label="Video" data-dk-modal>
+  <div class="dk-modal-frame" data-dk-modal-frame></div>
+  <button class="dk-modal-close" aria-label="Sluiten" data-dk-close><svg viewBox="0 0 16 16" stroke-width="1.8"><path d="M2 2l12 12M14 2L2 14"/></svg></button>
+</div>
+
+<script>
+(() => {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- data: the live site's clients, work and reviews. Swap in the client's update here. ---------- */
+  const U = "https://ascendmarketing.nl/wp-content/uploads/";
+  const CDN = "https://i0.wp.com/ascendmarketing.nl/wp-content/uploads/";
+  /* [file, name, natural w, natural h, artwork x, y, w, h] measured from the files */
+  const logos = [
+    ["2025/09/laia-logo-spa.png","laïa spa",500,500,15,78,475,352],
+    ["2025/09/EduCapture-logo.jpg","EduCapture",850,150,12,23,823,106],
+    ["2025/09/Slabbekoorn-Media-logo.png","Slabbekoorn Media",500,500,0,19,500,462],
+    ["2025/09/Flex-Kitchen-and-Living-logo.jpg","Flex Kitchen and Living",500,500,17,171,471,117],
+    ["2025/09/Enerkorp-logo.webp","Enerkorp",1024,287,1,6,1017,281],
+    ["2025/09/laia-logo-cafe-and-spa.png","laïa café en spa",500,500,15,78,475,352],
+    ["2025/09/Upsurging-logo.png","Upsurging",500,500,0,213,497,79],
+    ["2026/03/PalmBoost-Marketing-New-Logo.png.webp","PalmBoost Marketing",500,500,23,124,453,252],
+    ["2026/03/Huys-Grootsandt-Logo.png.webp","Huys Grootsandt",447,559,62,203,331,150],
+    ["2026/03/Lift-Your-Potential-Logo.png.webp","Lift Your Potential",447,559,46,180,365,193],
+    ["2026/03/Oh-My-Fade-Logo.png.webp","Oh My Fade",1536,485,53,56,1432,413],
+    ["2026/03/ideal-fastener-logo.webp","Ideal Fastener",150,150,5,5,140,140],
+    ["2026/03/My_Dental_Logo.webp","My Dental",1000,336,59,98,882,137],
+    ["2026/03/logo_156x120.webp","MixFix",156,120,16,38,124,44]
+  ];
+  const logoHTML = ([p,a,W,H,x,y,w,h], area = 6000, maxH = 56, maxW = 170) => {
+    const k = Math.min(Math.sqrt(area / (w * h)), maxH / h, maxW / w);
+    const r = n => (n * k).toFixed(1) + "px";
+    return `<span class="dk-logo"><span class="dk-logo-crop" style="width:${r(w)};height:${r(h)}"><img src="${U+p}" alt="${a}" loading="lazy" style="width:${r(W)};height:${r(H)};margin:-${r(y)} 0 0 -${r(x)}"></span></span>`;
+  };
+  /* film strip: YouTube shorts ("yt") and photos ("img") */
+  const film = [
+    ["yt","Mt7XzbFdga8"],["img","2025/09/Cream-Simple-Inspiring-Quote-LinkedIn-Post-Instagram-bericht-45-4.png","Merkfotografie"],
+    ["yt","KJjUTbyC1RE"],["img","2025/09/IMG_9289-e1773223350726-768x1024.jpeg","Food content"],
+    ["yt","znQoBV37BQA"],["img","2025/09/IMG_8717-edited-3-768x1024.jpeg","Interieur"],
+    ["yt","YW4t0LKWGg4"],["img","2025/09/920BD2FD-B4CD-48DB-9810-86277AD7A033-822x1024.jpeg","Productfoto"],
+    ["img","2025/09/2.jpeg","Contentdag"]
+  ];
+  const reviews = [
+    ["Davy Pulkerman","Echt heel blij mee. Schieten zeer hoogwaardige content die ook echt converteert. Absolute aanrader."],
+    ["Martijn Huisma","Dani heeft me geholpen met advertenties en social media, en ik merk dat dit echt verschil maakt voor mijn bedrijf."],
+    ["Brian Bruggenkamp","De website ziet er professioneel uit, werkt snel en is gebruiksvriendelijk."],
+    ["Stefan Westhof","Het team is professioneel, snel in de communicatie en denkt écht mee met wat je nodig hebt. Aanrader!"],
+    ["Jurgen de Jong","Professioneel en enthousiast, met een frisse blik op marketing en communicatie. Iemand die het vak verstaat."],
+    ["Daniel ten Cate","Ze denken echt met je mee, geven duidelijke adviezen en leveren resultaten."]
+  ];
+  const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const initials = n => n.split(" ").filter(w => /^[A-Z]/.test(w)).map(w => w[0]).slice(0,2).join("");
+  const play = '<svg viewBox="0 0 20 20"><path d="M4 2l14 8-14 8z"/></svg>';
+
+  document.querySelectorAll("[data-dk-logos]").forEach(t => {
+    const set = logos.map(l => logoHTML(l)).join("");
+    t.innerHTML = set + `<span style="display:contents" aria-hidden="true">${set.replace(/alt="[^"]*"/g,'alt=""')}</span>`;
+  });
+  const filmTrack = document.querySelector("[data-dk-film]");
+  const filmSet = film.map(([type, id, label]) => type === "yt"
+    ? `<div class="dk-film-card"><img src="https://i.ytimg.com/vi/${id}/oardefault.jpg" alt="Short form video"><span class="dk-film-tag">REEL</span><button data-yt="${id}" aria-label="Speel video af"><span>${play}</span></button></div>`
+    : `<div class="dk-film-card"><img src="${CDN+id}?w=480&ssl=1" alt="${label}"><span class="dk-film-tag">${label.toUpperCase()}</span></div>`).join("");
+  filmTrack.innerHTML = filmSet + `<span style="display:contents" aria-hidden="true">${filmSet.replace(/alt="[^"]*"/g,'alt=""').replace(/<button /g,'<button tabindex="-1" ')}</span>`;
+
+  /* ---------- mobile menu ---------- */
+  const toggle = document.querySelector(".dk-nav-toggle");
+  const menu = document.getElementById("dk-menu");
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") !== "true";
+    toggle.setAttribute("aria-expanded", open);
+    menu.classList.toggle("is-open", open);
+  });
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    toggle.setAttribute("aria-expanded", "false");
+    menu.classList.remove("is-open");
+  }));
+
+  /* ---------- rotating headline, synced with the service pills ---------- */
+  const rot = document.querySelector("[data-dk-rotator]");
+  const words = [...rot.children];
+  const pills = [...document.querySelectorAll("[data-dk-pill]")];
+  let w = 0;
+  const fit = () => { rot.style.width = words[w].offsetWidth + "px"; };
+  const setWord = i => {
+    words.forEach((el, j) => { el.classList.toggle("is-in", j === i); el.classList.toggle("is-out", j === w && j !== i); });
+    pills.forEach((p, j) => p.classList.toggle("is-hot", j === i));
+    w = i; fit();
+    setTimeout(() => words.forEach((el, j) => { if (j !== w) el.classList.remove("is-out"); }), 700);
+  };
+  document.fonts.ready.then(() => { fit(); pills[0].classList.add("is-hot"); });
+  window.addEventListener("resize", fit);
+  if (!reduce) setInterval(() => setWord((w + 1) % words.length), 2800);
+
+  /* ---------- reveal ---------- */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:"0px 0px -30px 0px"});
+  document.querySelectorAll(".dk-reveal").forEach(el => io.observe(el));
+
+  /* ---------- counters ---------- */
+  const fmt = (v, dec) => dec ? v.toFixed(dec).replace(".", ",") : Math.round(v).toString();
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, to = +el.dataset.count, dec = +(el.dataset.decimals || 0), suf = el.dataset.suffix || "";
+      cio.unobserve(el);
+      if (reduce) { el.textContent = fmt(to, dec) + suf; return; }
+      const t0 = performance.now(), dur = 1700;
+      const tick = now => {
+        const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = fmt(to * eased, dec) + suf;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, {threshold:.5});
+  document.querySelectorAll("[data-count]").forEach(el => cio.observe(el));
+
+  /* ---------- sticky phone follows the active chapter; timeline draws; parallax ---------- */
+  const chapters = [...document.querySelectorAll("[data-chapter]")];
+  const screens = [...document.querySelectorAll("[data-screen]")];
+  const tl = document.querySelector("[data-dk-timeline]");
+  const tlItems = [...tl.children];
+  const para = document.querySelector("[data-dk-parallax]");
+  let activeChapter = -1;
+  const onScroll = () => {
+    const vh = window.innerHeight;
+    let a = 0;
+    chapters.forEach((c, i) => { if (c.getBoundingClientRect().top < vh * .55) a = i; });
+    if (a !== activeChapter) {
+      activeChapter = a;
+      chapters.forEach((c, i) => c.classList.toggle("is-active", i === a));
+      screens.forEach((s, i) => s.classList.toggle("is-on", i === a));
+    }
+    const r = tl.getBoundingClientRect();
+    const p = Math.min(Math.max((vh * .8 - r.top) / (r.height + vh * .3), 0), 1);
+    tl.style.setProperty("--p", p.toFixed(3));
+    tlItems.forEach((li, i) => li.classList.toggle("is-on", p >= i / (tlItems.length - 1) - .001));
+    if (!reduce) {
+      const pr = para.getBoundingClientRect();
+      para.style.setProperty("--y", ((pr.top + pr.height / 2 - vh / 2) * -0.12).toFixed(1) + "px");
+    }
+  };
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  /* ---------- review slider ---------- */
+  const qWrap = document.querySelector("[data-dk-quotes]");
+  const dots = document.querySelector("[data-dk-dots]");
+  qWrap.innerHTML = reviews.map(([n,q], i) => `<figure class="dk-quote-slide${i ? "" : " is-on"}"><p>&ldquo;${esc(q)}&rdquo;</p><figcaption class="dk-quote-who"><span class="dk-avatar">${initials(n)}</span><span><b>${n}</b><br><span>Google review</span></span></figcaption></figure>`).join("");
+  dots.innerHTML = reviews.map((_, i) => `<button aria-label="Review ${i + 1}"${i ? "" : ' class="is-on"'}><i></i></button>`).join("");
+  const slides = [...qWrap.children], dotBtns = [...dots.children];
+  const SLIDE_MS = 6000;
+  dots.style.setProperty("--dk-slide", SLIDE_MS + "ms");
+  let q = 0, qTimer = null;
+  const goQuote = i => {
+    q = i;
+    slides.forEach((s, j) => s.classList.toggle("is-on", j === i));
+    dotBtns.forEach((d, j) => { d.classList.remove("is-on"); d.classList.toggle("is-done", j < i); });
+    void dots.offsetWidth; dotBtns[i].classList.add("is-on");
+  };
+  const runQuotes = () => { clearInterval(qTimer); if (!reduce) qTimer = setInterval(() => goQuote((q + 1) % slides.length), SLIDE_MS); };
+  dotBtns.forEach((d, i) => d.addEventListener("click", () => { goQuote(i); runQuotes(); }));
+  runQuotes();
+
+  /* ---------- video lightbox ---------- */
+  const modal = document.querySelector("[data-dk-modal]");
+  const frame = document.querySelector("[data-dk-modal-frame]");
+  let lastFocus = null;
+  const closeModal = () => { modal.classList.remove("is-open"); setTimeout(() => { frame.innerHTML = ""; }, 350); if (lastFocus) lastFocus.focus(); };
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-yt]");
+    if (b) {
+      lastFocus = b;
+      frame.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&playsinline=1&rel=0&modestbranding=1" title="Short form video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      modal.classList.add("is-open");
+      modal.querySelector("[data-dk-close]").focus();
+    }
+    if (e.target === modal || e.target.closest("[data-dk-close]")) closeModal();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal(); });
+})();
+</script>
+</body>
+</html>
