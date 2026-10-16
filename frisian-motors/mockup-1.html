@@ -12,6 +12,8 @@
 :root{
   --dk-green:#3d9b47;
   --dk-green-dark:#2f7c37;
+  --dk-green-text:#2d7734;
+  --dk-green-bright:#56cf63;
   --dk-green-wash:#f2f8f3;
   --dk-ink:#111416;
   --dk-ink-soft:#5a6470;
@@ -37,6 +39,12 @@ h1,h2,h3,h4{font-family:var(--dk-head);font-weight:700;line-height:1.14;margin:0
 p{margin:0 0 1.05em}
 p:last-child{margin-bottom:0}
 .dk-wrap{width:100%;max-width:var(--dk-wrap);margin:0 auto;padding:0 24px}
+.dk-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+/* keyboard focus */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--dk-green-bright,#56cf63);outline-offset:3px;border-radius:2px;
+}
+
 
 /* ---------- buttons ---------- */
 .dk-btn{
@@ -110,7 +118,7 @@ p:last-child{margin-bottom:0}
 .dk-sec-head{max-width:62ch;margin-bottom:46px}
 .dk-sec-head .dk-kicker{
   font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--dk-green);margin-bottom:14px;
+  color:var(--dk-green-text);margin-bottom:14px;
 }
 .dk-sec-head h2{font-size:clamp(30px,3.6vw,44px)}
 .dk-sec-head p{margin-top:18px;color:var(--dk-ink-soft);font-size:17px}
@@ -149,7 +157,7 @@ p:last-child{margin-bottom:0}
 .dk-card-body h3{font-size:20px;margin-bottom:10px}
 .dk-card-body p{color:var(--dk-ink-soft);font-size:15px;flex:1}
 .dk-card-link{
-  margin-top:18px;font-weight:700;font-size:14px;color:var(--dk-green);
+  margin-top:18px;font-weight:700;font-size:14px;color:var(--dk-green-text);
   text-decoration:none;display:inline-flex;align-items:center;gap:7px;
 }
 .dk-card-link:hover{gap:11px}
@@ -233,6 +241,8 @@ p:last-child{margin-bottom:0}
   .dk-strip-grid{grid-template-columns:1fr}
   .dk-strip-cell{border-right:0}
   .dk-foot-top{grid-template-columns:1fr}
+  .dk-foot ul{gap:2px}
+  .dk-foot li a{display:inline-block;padding:7px 0}
   .dk-news-form{flex-direction:column}
   .dk-news-form input{min-width:0;width:100%}
   .dk-foot-bot{flex-direction:column;gap:8px}
@@ -467,7 +477,7 @@ p:last-child{margin-bottom:0}
         <p>Blijf op de hoogte van de innovaties van Frisian Motors.</p>
       </div>
       <form class="dk-news-form" onsubmit="return false">
-        <label for="dk-mail" class="dk-sr" style="position:absolute;left:-9999px">E-mail</label>
+        <label for="dk-mail" class="dk-sr-only">E-mail</label>
         <input id="dk-mail" type="email" placeholder="E-mailadres" autocomplete="email">
         <button class="dk-btn dk-btn-primary" type="submit">Aanmelden</button>
       </form>

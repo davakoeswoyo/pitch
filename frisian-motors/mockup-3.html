@@ -35,6 +35,11 @@ h1,h2,h3,h4{font-family:var(--dk-head);font-weight:700;line-height:1.06;margin:0
 p{margin:0 0 1.05em}
 p:last-child{margin-bottom:0}
 .dk-wrap{width:100%;max-width:var(--dk-wrap);margin:0 auto;padding:0 26px}
+/* keyboard focus */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--dk-green-bright,#56cf63);outline-offset:3px;border-radius:2px;
+}
+
 .dk-label{
   font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
   color:var(--dk-green-bright);display:flex;align-items:center;gap:12px;margin-bottom:20px;
@@ -160,7 +165,7 @@ p:last-child{margin-bottom:0}
 .dk-build article:hover{border-color:var(--dk-green);transform:translateY(-4px)}
 .dk-build img{width:100%;height:190px;object-fit:cover}
 .dk-build-body{padding:26px}
-.dk-build-body h4{font-size:19px;margin-bottom:9px}
+.dk-build-body h3{font-size:19px;margin-bottom:9px}
 .dk-build-body p{font-size:14.5px;color:var(--dk-mute);margin-bottom:16px}
 .dk-build-body a{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-green-bright);text-decoration:none}
 .dk-build-body a:hover{text-decoration:underline}
@@ -184,7 +189,7 @@ p:last-child{margin-bottom:0}
 /* ---------- footer ---------- */
 .dk-foot{background:var(--dk-void);border-top:1px solid var(--dk-line);color:var(--dk-mute);font-size:14px}
 .dk-foot-top{padding:68px 0 46px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:42px}
-.dk-foot h4{color:#fff;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.dk-foot h3{color:#fff;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
 .dk-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .dk-foot a{color:var(--dk-mute);text-decoration:none}
 .dk-foot a:hover{color:var(--dk-green-bright)}
@@ -232,6 +237,8 @@ p:last-child{margin-bottom:0}
   .dk-num{border-right:0}
   .dk-day{padding:28px}
   .dk-foot-top{grid-template-columns:1fr}
+  .dk-foot ul{gap:2px}
+  .dk-foot li a{display:inline-block;padding:7px 0}
   .dk-foot-bot{flex-direction:column;gap:8px}
   .dk-bar .dk-wrap{height:66px;gap:10px}
   .dk-bar-name{font-size:15px}
@@ -368,7 +375,7 @@ p:last-child{margin-bottom:0}
       <article>
         <img src="Images/accessoire-terreinband.webp" alt="Leffert terreinband voor de FM-50" width="800" height="900" loading="lazy">
         <div class="dk-build-body">
-          <h4>Terreinbanden</h4>
+          <h3>Terreinbanden</h3>
           <p>Set van vier stuks, vervangbaar en uit voorraad leverbaar via de webshop.</p>
           <a href="#">Bestellen</a>
         </div>
@@ -376,7 +383,7 @@ p:last-child{margin-bottom:0}
       <article>
         <img src="Images/fm-50-aan-het-werk.webp" alt="Leffert FM-50 met gesloten cabine" width="1024" height="769" loading="lazy">
         <div class="dk-build-body">
-          <h4>Cabine</h4>
+          <h3>Cabine</h3>
           <p>Winddicht of verwarmd, zodat het voertuig het hele jaar door inzetbaar blijft.</p>
           <a href="#">Meer informatie</a>
         </div>
@@ -384,7 +391,7 @@ p:last-child{margin-bottom:0}
       <article>
         <img src="Images/fm-50-transportmiddel.webp" alt="Leffert FM-50 als elektrisch transportmiddel" width="497" height="339" loading="lazy">
         <div class="dk-build-body">
-          <h4>Laadbak en maatwerk</h4>
+          <h3>Laadbak en maatwerk</h3>
           <p>Verlengd, geheel gesloten of volledig naar uw werkzaamheden opgebouwd.</p>
           <a href="#">Meer informatie</a>
         </div>
@@ -445,7 +452,7 @@ p:last-child{margin-bottom:0}
         <p class="dk-foot-tag">Frisian Motors, rechargeable and unstoppable.</p>
       </div>
       <div>
-        <h4>Modellen</h4>
+        <h3>Modellen</h3>
         <ul>
           <li><a href="#">FM-40 Transporter</a></li>
           <li><a href="#">FM-50 Transporter</a></li>
@@ -457,7 +464,7 @@ p:last-child{margin-bottom:0}
         </ul>
       </div>
       <div>
-        <h4>Klantenservice</h4>
+        <h3>Klantenservice</h3>
         <ul>
           <li><a href="#">Betaling</a></li>
           <li><a href="#">Verzenden en retourneren</a></li>
@@ -468,7 +475,7 @@ p:last-child{margin-bottom:0}
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li>Frisian Motors B.V.<br>Leidijk 1B<br>9243 WH Bakkeveen</li>
           <li><a href="tel:+31512767100">+31 (0)512 767 100</a></li>

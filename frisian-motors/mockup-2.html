@@ -12,6 +12,7 @@
 :root{
   --dk-green:#3d9b47;
   --dk-green-bright:#4cc059;
+  --dk-green-text:#2d7734;
   --dk-black:#0c0e10;
   --dk-char:#17191c;
   --dk-ink:#15181a;
@@ -35,9 +36,14 @@ h1,h2,h3,h4{font-family:var(--dk-head);font-weight:700;line-height:1.1;margin:0;
 p{margin:0 0 1.05em}
 p:last-child{margin-bottom:0}
 .dk-wrap{width:100%;max-width:var(--dk-wrap);margin:0 auto;padding:0 28px}
+/* keyboard focus */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--dk-green-bright,#56cf63);outline-offset:3px;border-radius:2px;
+}
+
 .dk-label{
   font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--dk-green);display:block;margin-bottom:16px;
+  color:var(--dk-green-text);display:block;margin-bottom:16px;
 }
 
 /* ---------- buttons ---------- */
@@ -160,9 +166,9 @@ p:last-child{margin-bottom:0}
 .dk-acc article{background:#fff;padding:0}
 .dk-acc img{width:100%;height:170px;object-fit:cover}
 .dk-acc-body{padding:22px}
-.dk-acc-body h4{font-size:17px;margin-bottom:8px}
+.dk-acc-body h3{font-size:17px;margin-bottom:8px}
 .dk-acc-body p{font-size:13.5px;color:var(--dk-mute);margin-bottom:14px}
-.dk-acc-body a{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dk-green);text-decoration:none}
+.dk-acc-body a{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dk-green-text);text-decoration:none}
 .dk-acc-body a:hover{text-decoration:underline}
 
 /* gallery */
@@ -182,7 +188,7 @@ p:last-child{margin-bottom:0}
 /* ---------- footer ---------- */
 .dk-foot{background:var(--dk-char);color:rgba(255,255,255,.66);font-size:14px}
 .dk-foot-top{padding:62px 0 44px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:42px}
-.dk-foot h4{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
+.dk-foot h3{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px}
 .dk-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
 .dk-foot a{color:rgba(255,255,255,.66);text-decoration:none}
 .dk-foot a:hover{color:var(--dk-green-bright)}
@@ -232,6 +238,8 @@ p:last-child{margin-bottom:0}
   .dk-hero-specs{grid-template-columns:1fr}
   .dk-hero-specs div+div{padding-left:0;border-left:0;border-top:1px solid var(--dk-line-dark)}
   .dk-foot-top{grid-template-columns:1fr}
+  .dk-foot ul{gap:2px}
+  .dk-foot li a{display:inline-block;padding:7px 0}
   .dk-foot-bot{flex-direction:column;gap:7px}
 }
 </style>
@@ -402,7 +410,7 @@ p:last-child{margin-bottom:0}
           <article>
             <img src="Images/accessoire-terreinband.webp" alt="Leffert terreinband voor de FM-50" width="800" height="900" loading="lazy">
             <div class="dk-acc-body">
-              <h4>Terreinbanden</h4>
+              <h3>Terreinbanden</h3>
               <p>Leffert terreinbanden, set van vier stuks. Vervangbaar en uit voorraad leverbaar.</p>
               <a href="#">Bestellen</a>
             </div>
@@ -410,7 +418,7 @@ p:last-child{margin-bottom:0}
           <article>
             <img src="Images/fm-50-aan-het-werk.webp" alt="Leffert FM-50 met gesloten cabine" width="1024" height="769" loading="lazy">
             <div class="dk-acc-body">
-              <h4>Cabine</h4>
+              <h3>Cabine</h3>
               <p>Wilt u er graag warmpjes bij zitten? De cabine van de Leffert kan winddicht gemaakt worden.</p>
               <a href="#">Meer informatie</a>
             </div>
@@ -418,7 +426,7 @@ p:last-child{margin-bottom:0}
           <article>
             <img src="Images/fm-50-transportmiddel.webp" alt="Leffert FM-50 als elektrisch transportmiddel" width="497" height="339" loading="lazy">
             <div class="dk-acc-body">
-              <h4>Maatwerk</h4>
+              <h3>Maatwerk</h3>
               <p>Veel aspecten van het voertuig kunnen aangepast worden aan uw werkzaamheden.</p>
               <a href="#">Meer informatie</a>
             </div>
@@ -487,7 +495,7 @@ p:last-child{margin-bottom:0}
         <p class="dk-foot-tag">Frisian Motors, rechargeable and unstoppable.</p>
       </div>
       <div>
-        <h4>Modellen</h4>
+        <h3>Modellen</h3>
         <ul>
           <li><a href="#">FM-40 Transporter</a></li>
           <li><a href="#">FM-50 Transporter</a></li>
@@ -499,7 +507,7 @@ p:last-child{margin-bottom:0}
         </ul>
       </div>
       <div>
-        <h4>Klantenservice</h4>
+        <h3>Klantenservice</h3>
         <ul>
           <li><a href="#">Betaling</a></li>
           <li><a href="#">Verzenden en retourneren</a></li>
@@ -510,7 +518,7 @@ p:last-child{margin-bottom:0}
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li>Frisian Motors B.V.<br>Leidijk 1B<br>9243 WH Bakkeveen</li>
           <li><a href="tel:+31512767100">+31 (0)512 767 100</a></li>
