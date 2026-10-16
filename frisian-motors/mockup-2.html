@@ -103,20 +103,27 @@ p:last-child{margin-bottom:0}
 /* ---------- main two column ---------- */
 .dk-main{display:grid;grid-template-columns:minmax(0,1fr) 352px;gap:76px;padding:78px 0 90px;align-items:start}
 
-/* sticky rail */
-.dk-rail{position:sticky;top:148px;border:1px solid var(--dk-line)}
-.dk-rail-img{background:var(--dk-paper-alt);padding:16px}
-.dk-rail-img img{width:100%;height:auto}
-.dk-rail-body{padding:24px}
+/* sticky rail — fits the viewport, photo absorbs the leftover height */
+.dk-rail{
+  position:sticky;top:148px;border:1px solid var(--dk-line);
+  display:flex;flex-direction:column;
+  max-height:calc(100vh - 172px);overflow-y:auto;
+}
+.dk-rail-img{
+  background:var(--dk-paper-alt);padding:12px;box-sizing:border-box;
+  flex:0 0 auto;height:clamp(130px,calc(100vh - 720px),230px);
+}
+.dk-rail-img img{width:100%;height:100%;max-width:none;object-fit:contain}
+.dk-rail-body{padding:22px;flex:0 0 auto}
 .dk-rail-body h3{font-size:19px;margin-bottom:4px}
-.dk-rail-sub{font-size:13px;color:var(--dk-mute);margin-bottom:20px}
-.dk-rail-list{display:grid;gap:0;margin-bottom:22px}
-.dk-rail-list div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--dk-line);font-size:14px}
+.dk-rail-sub{font-size:13px;color:var(--dk-mute);margin-bottom:16px}
+.dk-rail-list{display:grid;gap:0;margin-bottom:18px}
+.dk-rail-list div{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--dk-line);font-size:14px}
 .dk-rail-list div:first-child{border-top:1px solid var(--dk-line)}
 .dk-rail-list span{color:var(--dk-mute)}
 .dk-rail-list b{font-weight:700}
 .dk-rail-cta{display:grid;gap:9px}
-.dk-rail-note{margin-top:18px;font-size:12.5px;color:var(--dk-mute);line-height:1.6}
+.dk-rail-note{margin-top:14px;font-size:12.5px;color:var(--dk-mute);line-height:1.55}
 
 /* content column */
 .dk-block{padding-bottom:66px;margin-bottom:66px;border-bottom:1px solid var(--dk-line)}
@@ -190,9 +197,20 @@ p:last-child{margin-bottom:0}
 }
 .dk-ribbon:hover{background:var(--dk-green);border-color:var(--dk-green)}
 
+/* short viewports: give the rail its height back before the photo has to vanish */
+@media(min-width:1101px) and (max-height:830px){
+  .dk-rail-img{height:clamp(96px,calc(100vh - 640px),170px);padding:10px}
+  .dk-rail-body{padding:18px}
+  .dk-rail-list div{padding:8px 0}
+  .dk-rail-cta .dk-btn{padding:12px 20px}
+  .dk-rail-note{display:none}
+}
+
 @media(max-width:1100px){
   .dk-main{grid-template-columns:1fr;gap:54px}
-  .dk-rail{position:static;max-width:460px}
+  .dk-rail{position:static;max-width:460px;max-height:none;overflow:visible}
+  .dk-rail-img{height:auto;padding:16px}
+  .dk-rail-img img{width:100%;height:auto;max-width:100%}
 }
 @media(max-width:900px){
   .dk-nav{display:none}
