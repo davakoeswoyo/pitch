@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frisian Motors · Modelpagina ontwerpen</title>
+<!--
+  HUB PAGE — deliberately unstyled.
+  No house style of its own. Each card carries ONLY the style of the design it links to.
+  Card styles are scoped with their own prefix.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* --- Minimal neutral hub structure, no house style --- */
+  body{background:#ffffff;color:#000000;margin:24px;padding-top:36px;font-family:system-ui,-apple-system,sans-serif;}
+
+  /* Preview breadcrumb back to the pitch index. Not part of any design. */
+  .dk-preview-breadcrumb{position:fixed;top:0;left:0;right:0;z-index:120;height:36px;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 42px;background:#0c0e10;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.58);font-size:.62rem;font-weight:500;letter-spacing:1.5px;line-height:1;text-transform:uppercase;}
+  .dk-preview-breadcrumb-path{display:inline-flex;align-items:center;color:rgba(255,255,255,.7);}
+  .dk-preview-breadcrumb a{color:inherit;text-decoration:none;transition:color .2s;}
+  .dk-preview-breadcrumb-separator{padding:0 2px;color:rgba(255,255,255,.34);}
+  .dk-preview-breadcrumb a:hover{color:#ffffff;}
+
+  .dk-hub{max-width:1140px;margin:0 auto;}
+  .dk-hub h1{font-size:22px;font-weight:normal;margin:0 0 4px;}
+  .dk-hub .dk-sub{margin:0 0 6px;color:#333;font-size:15px;max-width:74ch;line-height:1.6;}
+  .dk-hub .dk-note{margin:0 0 12px;color:#666;font-size:13px;max-width:74ch;line-height:1.6;}
+  .dk-hub .dk-note:last-of-type{margin-bottom:26px;}
+  .dk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+  @media(max-width:980px){.dk-grid{grid-template-columns:1fr;max-width:560px;}}
+  .dk-card{display:flex;flex-direction:column;text-decoration:none;border-radius:14px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.1,1),box-shadow .35s;}
+  .dk-card:hover{transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(0,0,0,.45);}
+  .dk-card-media{position:relative;aspect-ratio:16/10;overflow:hidden;}
+  .dk-card-body{flex:1;display:flex;flex-direction:column;padding:24px 26px 28px;}
+  .dk-card-crumb{font-family:"Open Sans",system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;}
+  .dk-card-name{font-family:"Cabin",system-ui,sans-serif;font-weight:700;font-size:28px;line-height:1.1;letter-spacing:-.02em;margin:10px 0 10px;}
+  .dk-card-desc{font-family:"Open Sans",system-ui,sans-serif;font-size:14px;line-height:1.6;}
+  .dk-card-swatch{display:flex;gap:6px;margin:18px 0 18px;}
+  .dk-card-swatch span{width:22px;height:22px;border-radius:50%;}
+  .dk-card-cta{margin-top:auto;align-self:flex-start;font-family:"Open Sans",system-ui,sans-serif;font-size:13px;font-weight:600;padding:11px 20px;border-radius:100px;}
+
+  /* ===== Card 1 · Verfijnd (scoped: .dk-c1) ===== */
+  .dk-c1{background:#ffffff;color:#111416;border:1px solid #e3e7ea;}
+  .dk-c1 .dk-card-media img{width:100%;height:100%;object-fit:cover;object-position:center 62%;transition:transform 6s ease;}
+  .dk-c1:hover .dk-card-media img{transform:scale(1.07);}
+  .dk-c1 .dk-card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,13,15,.5),rgba(10,13,15,.1) 45%,rgba(10,13,15,.82));}
+  .dk-c1-word{position:absolute;left:20px;bottom:40px;z-index:1;font-family:"Cabin",sans-serif;font-weight:700;font-size:34px;line-height:1;color:#fff;letter-spacing:-.02em;}
+  .dk-c1-strip{position:absolute;left:0;right:0;bottom:0;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);background:#111416;}
+  .dk-c1-strip i{font-style:normal;font-family:"Cabin",sans-serif;font-weight:700;font-size:11px;color:#fff;text-align:center;padding:7px 2px;border-right:1px solid rgba(255,255,255,.14);}
+  .dk-c1-strip i:last-child{border-right:0;color:#3d9b47;}
+  .dk-c1 .dk-card-crumb{color:#3d9b47;}
+  .dk-c1 .dk-card-desc{color:#5a6470;}
+  .dk-c1 .dk-card-swatch span{border:1px solid #e3e7ea;}
+  .dk-c1 .dk-card-cta{background:#3d9b47;color:#fff;}
+
+  /* ===== Card 2 · Twee Kolommen (scoped: .dk-c2) ===== */
+  .dk-c2{background:#ffffff;color:#15181a;border:1px solid #dfe3e6;border-radius:0;}
+  .dk-c2 .dk-card-media{display:grid;grid-template-columns:1fr 1.05fr;background:#0c0e10;}
+  .dk-c2-panel{padding:16px 14px;display:flex;flex-direction:column;justify-content:center;}
+  .dk-c2-panel b{font-family:"Cabin",sans-serif;font-weight:700;font-size:21px;color:#fff;line-height:1;letter-spacing:-.02em;}
+  .dk-c2-panel u{text-decoration:none;font-family:"Cabin",sans-serif;font-size:11px;color:#4cc059;margin-top:5px;display:block;}
+  .dk-c2-panel div{display:grid;grid-template-columns:repeat(3,1fr);margin-top:12px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);}
+  .dk-c2-panel div i{font-style:normal;font-family:"Cabin",sans-serif;font-weight:700;font-size:13px;color:#fff;padding:8px 0;text-align:center;border-right:1px solid rgba(255,255,255,.14);}
+  .dk-c2-panel div i:last-child{border-right:0;}
+  .dk-c2-panel s{text-decoration:none;display:inline-block;margin-top:12px;background:#3d9b47;color:#fff;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;align-self:flex-start;}
+  .dk-c2-shot{position:relative;overflow:hidden;}
+  .dk-c2-shot img{width:100%;height:100%;object-fit:cover;}
+  .dk-c2-shot span{position:absolute;left:0;bottom:0;background:#3d9b47;color:#fff;font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 9px;}
+  .dk-c2 .dk-card-crumb{color:#6b7681;}
+  .dk-c2 .dk-card-desc{color:#6b7681;}
+  .dk-c2 .dk-card-swatch span{border:1px solid #dfe3e6;border-radius:0;}
+  .dk-c2 .dk-card-cta{background:#15181a;color:#fff;border-radius:0;}
+
+  /* ===== Card 3 · Donker Spec Sheet (scoped: .dk-c3) ===== */
+  .dk-c3{background:#07090a;color:#e9edef;border:1px solid #14181b;}
+  .dk-c3 .dk-card-media{background:radial-gradient(closest-side,rgba(61,155,71,.3),transparent 70%) 50% 58%/85% 80% no-repeat,#07090a;display:grid;place-items:center;padding:14px 18px 0;}
+  .dk-c3-stack{text-align:center;width:100%;}
+  .dk-c3-stack b{display:block;font-family:"Cabin",sans-serif;font-weight:700;font-size:44px;line-height:.9;color:#fff;letter-spacing:-.045em;text-transform:uppercase;}
+  .dk-c3-stack b em{font-style:normal;color:#56cf63;}
+  .dk-c3-stack img{width:82%;margin:-4px auto 0;filter:drop-shadow(0 18px 22px rgba(0,0,0,.8));}
+  .dk-c3 .dk-card-crumb{color:#56cf63;}
+  .dk-c3 .dk-card-desc{color:#8e9aa3;}
+  .dk-c3 .dk-card-swatch span{border:1px solid rgba(255,255,255,.2);}
+  .dk-c3 .dk-card-cta{background:#3d9b47;color:#fff;}
+
+  .dk-credit{max-width:1140px;margin:36px auto 0;padding-top:22px;border-top:1px solid #e6e6e6;font-size:13px;color:#666;text-align:center;}
+  .dk-credit a{color:#111;text-decoration:none;border-bottom:1px solid #cccccc;}
+  .dk-credit a:hover{border-bottom-color:#111111;}
+
+  @media (prefers-reduced-motion:reduce){.dk-card,.dk-card *{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<div class="dk-preview-breadcrumb" aria-label="Preview breadcrumb">
+  <span>&larr; Back to</span>
+  <span class="dk-preview-breadcrumb-path">
+    <a href="https://davakoeswoyo.github.io/">davakoeswoyo</a><span class="dk-preview-breadcrumb-separator">/</span><a href="https://davakoeswoyo.github.io/pitch/">pitch</a>
+  </span>
+</div>
+
+<div class="dk-hub">
+  <h1>Frisian Motors &middot; modelpagina ontwerpen</h1>
+  <p class="dk-sub">Drie richtingen voor de modelpagina's, uitgewerkt op de Leffert FM-50. Alle drie blijven binnen de huisstijl: het groen van Frisian Motors, Cabin voor de koppen, Open Sans voor de tekst en de eigen foto's van het voertuig.</p>
+  <p class="dk-note">Elk ontwerp is één voorbeeldpagina. De overige modellen volgen hetzelfde stramien zodra de richting gekozen is. Teksten, specificaties en foto's komen van de huidige site, aangevuld met een volledige specificatietabel die er nu nog niet is.</p>
+  <p class="dk-note">Alle drie lossen dezelfde drie dingen op die op de huidige modelpagina's misgaan: er staat geen H1 op de pagina, de configuratorknop wijst bij ieder model naar de FM-50, en de specificaties blijven steken op zeven marketingpunten zonder tabel.</p>
+
+  <div class="dk-grid">
+
+    <a class="dk-card dk-c1" href="mockup-1.html">
+      <div class="dk-card-media">
+        <img src="Images/fm-50-hero-forest.webp" alt="Leffert FM-50 op een bospad">
+        <span class="dk-c1-word">Leffert FM-50</span>
+        <span class="dk-c1-strip" aria-hidden="true"><i>55 km/u</i><i>60 tot 80 km</i><i>8 uur</i><i>Kenteken</i></span>
+      </div>
+      <div class="dk-card-body">
+        <div class="dk-card-crumb">Ontwerp 1</div>
+        <div class="dk-card-name">Verfijnd</div>
+        <div class="dk-card-desc">De huidige pagina, maar dan af. Dezelfde opbouw en hetzelfde gevoel, nu met een echte kop, een specificatiestrook onder de hero, een volledige technische tabel en secties die netjes op elkaar aansluiten. De veiligste keuze: herkenbaar voor bestaande bezoekers.</div>
+        <div class="dk-card-swatch"><span style="background:#3d9b47"></span><span style="background:#ffffff"></span><span style="background:#111416"></span><span style="background:#f6f8f9"></span></div>
+        <div class="dk-card-cta">Bekijk ontwerp 1 &rarr;</div>
+      </div>
+    </a>
+
+    <a class="dk-card dk-c2" href="mockup-2.html">
+      <div class="dk-card-media" aria-hidden="true">
+        <div class="dk-c2-panel">
+          <b>FM-50</b>
+          <u>Geruisloos en milieuvriendelijk</u>
+          <div><i>55</i><i>80</i><i>8u</i></div>
+          <s>Gratis proefrit</s>
+        </div>
+        <div class="dk-c2-shot">
+          <img src="Images/fm-50-aan-het-werk.webp" alt="">
+          <span>Met kenteken</span>
+        </div>
+      </div>
+      <div class="dk-card-body">
+        <div class="dk-card-crumb">Ontwerp 2</div>
+        <div class="dk-card-name">Twee Kolommen</div>
+        <div class="dk-card-desc">Een andere indeling. De hero splitst in een zwart informatiepaneel en een foto, en daaronder scrollt de inhoud langs een vaste kolom met de specificaties en de proefritknop altijd in beeld. Met tabbladen voor recreatie, gemeenten, agrarisch en zorg.</div>
+        <div class="dk-card-swatch"><span style="background:#0c0e10"></span><span style="background:#3d9b47"></span><span style="background:#ffffff"></span><span style="background:#f4f6f7"></span></div>
+        <div class="dk-card-cta">Bekijk ontwerp 2 &rarr;</div>
+      </div>
+    </a>
+
+    <a class="dk-card dk-c3" href="mockup-3.html">
+      <div class="dk-card-media" aria-hidden="true">
+        <div class="dk-c3-stack">
+          <b>FM<em>-</em>50</b>
+          <img src="Images/fm-50-studio-white.webp" alt="">
+        </div>
+      </div>
+      <div class="dk-card-body">
+        <div class="dk-card-crumb">Ontwerp 3</div>
+        <div class="dk-card-name">Donker Spec Sheet</div>
+        <div class="dk-card-desc">Het voertuig als held. Een donkere pagina waarin het groen echt opvalt, de modelnaam schermvullend staat en de cijfers meetellen tijdens het scrollen. Met een accubalk die een werkdag uitbeeldt, een schuivende galerij en een actiebalk die onderin meeloopt.</div>
+        <div class="dk-card-swatch"><span style="background:#07090a"></span><span style="background:#56cf63"></span><span style="background:#3d9b47"></span><span style="background:#8e9aa3"></span></div>
+        <div class="dk-card-cta">Bekijk ontwerp 3 &rarr;</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<p class="dk-credit">Created by <a href="https://davakoeswoyo.com" target="_blank" rel="noopener">Dava Koeswoyo</a></p>
+
+</body>
+</html>

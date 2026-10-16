@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leffert FM-50 Transporter · Frisian Motors</title>
+<meta name="description" content="De Leffert FM-50 van Frisian Motors is een robuust en compact 100% elektrisch werkvoertuig voor professioneel terreinvervoer. Vraag een gratis proefrit aan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dk-green:#3d9b47;
+  --dk-green-bright:#56cf63;
+  --dk-void:#07090a;
+  --dk-deep:#0d1012;
+  --dk-raise:#14181b;
+  --dk-line:rgba(255,255,255,.1);
+  --dk-line-2:rgba(255,255,255,.18);
+  --dk-text:#e9edef;
+  --dk-mute:#8e9aa3;
+  --dk-head:"Cabin",system-ui,sans-serif;
+  --dk-body:"Open Sans",system-ui,sans-serif;
+  --dk-wrap:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--dk-void);color:var(--dk-text);
+  font-family:var(--dk-body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  padding-bottom:0;
+}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--dk-head);font-weight:700;line-height:1.06;margin:0;letter-spacing:-.025em}
+p{margin:0 0 1.05em}
+p:last-child{margin-bottom:0}
+.dk-wrap{width:100%;max-width:var(--dk-wrap);margin:0 auto;padding:0 26px}
+.dk-label{
+  font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--dk-green-bright);display:flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.dk-label::before{content:"";width:26px;height:1px;background:var(--dk-green)}
+
+/* reveal */
+.dk-rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.dk-rv.dk-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.dk-rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- buttons ---------- */
+.dk-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.65em;
+  font-family:var(--dk-body);font-weight:700;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;
+  padding:17px 30px;border:1px solid transparent;border-radius:3px;text-decoration:none;cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s,box-shadow .2s;
+}
+.dk-btn-fill{background:var(--dk-green);color:#fff;border-color:var(--dk-green);box-shadow:0 0 0 0 rgba(86,207,99,.4)}
+.dk-btn-fill:hover{background:var(--dk-green-bright);border-color:var(--dk-green-bright);box-shadow:0 0 26px -4px rgba(86,207,99,.55)}
+.dk-btn-wire{background:transparent;color:var(--dk-text);border-color:var(--dk-line-2)}
+.dk-btn-wire:hover{border-color:var(--dk-text);background:rgba(255,255,255,.06)}
+.dk-btn-sm{padding:12px 20px;font-size:12px}
+
+/* ---------- header ---------- */
+.dk-head{position:fixed;top:0;left:0;right:0;z-index:70;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.dk-head.dk-stuck{background:rgba(7,9,10,.88);backdrop-filter:blur(14px);border-color:var(--dk-line)}
+.dk-head .dk-wrap{display:flex;align-items:center;gap:30px;height:76px}
+.dk-head img{height:42px;width:auto}
+.dk-nav{display:flex;gap:30px;margin-left:auto;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.dk-nav a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
+.dk-nav a:hover,.dk-nav a.dk-on{color:var(--dk-green-bright)}
+.dk-burger{display:none;margin-left:auto;background:none;border:0;color:#fff;font:inherit;font-weight:700;cursor:pointer;padding:10px}
+
+/* ---------- hero ---------- */
+.dk-hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:104px 0 54px}
+.dk-hero-bg{position:absolute;inset:0}
+.dk-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:grayscale(.65) brightness(.26) blur(3px);transform:scale(1.04)}
+.dk-hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(105% 80% at 50% 56%,rgba(7,9,10,.42) 0%,rgba(7,9,10,.88) 52%,var(--dk-void) 92%);
+}
+.dk-hero-in{position:relative;z-index:3;width:100%;text-align:center}
+.dk-hero h1{
+  font-size:clamp(48px,8.6vw,122px);line-height:.88;letter-spacing:-.045em;color:#fff;
+  text-transform:uppercase;
+}
+.dk-hero h1 em{font-style:normal;color:var(--dk-green-bright)}
+.dk-hero-kick{
+  font-size:12px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--dk-green-bright);margin-bottom:26px;
+}
+.dk-hero-sub{
+  font-family:var(--dk-head);font-size:clamp(18px,2.1vw,26px);font-weight:500;
+  color:rgba(255,255,255,.84);margin:22px auto 0;max-width:30ch;letter-spacing:-.01em;
+}
+.dk-hero-vehicle{margin:6px auto 2px;max-width:760px;position:relative}
+.dk-hero-vehicle img{width:auto;max-width:100%;max-height:min(42vh,400px);margin:0 auto;filter:drop-shadow(0 46px 56px rgba(0,0,0,.75))}
+.dk-hero-vehicle::before{
+  content:"";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
+  width:86%;height:70%;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(61,155,71,.3),transparent 72%);
+  filter:blur(26px);z-index:-1;
+}
+.dk-hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}
+
+/* ---------- big spec numbers ---------- */
+.dk-nums{background:var(--dk-deep);border-top:1px solid var(--dk-line);border-bottom:1px solid var(--dk-line)}
+.dk-nums-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.dk-num{padding:54px 26px;text-align:center;border-right:1px solid var(--dk-line)}
+.dk-num:last-child{border-right:0}
+.dk-num b{
+  display:block;font-family:var(--dk-head);font-size:clamp(42px,5vw,66px);font-weight:700;
+  line-height:1;color:#fff;letter-spacing:-.04em;
+}
+.dk-num b i{font-style:normal;font-size:.32em;color:var(--dk-green-bright);margin-left:6px;letter-spacing:0}
+.dk-num span{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dk-mute);margin-top:14px;font-weight:700}
+
+/* ---------- sections ---------- */
+.dk-sec{padding:120px 0}
+.dk-sec-head{max-width:58ch;margin-bottom:56px}
+.dk-sec-head h2{font-size:clamp(32px,4.4vw,56px)}
+.dk-sec-head p{margin-top:22px;color:var(--dk-mute);font-size:17.5px}
+
+.dk-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.dk-split p{color:var(--dk-mute)}
+.dk-split-media{position:relative}
+.dk-split-media img{border-radius:4px}
+.dk-split-media::after{
+  content:"";position:absolute;inset:0;border:1px solid var(--dk-line);border-radius:4px;pointer-events:none;
+}
+
+/* sector list */
+.dk-sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--dk-line);border:1px solid var(--dk-line);border-radius:4px;overflow:hidden}
+.dk-sector{background:var(--dk-deep);padding:34px 28px;transition:background .25s}
+.dk-sector:hover{background:var(--dk-raise)}
+.dk-sector b{display:block;font-family:var(--dk-head);font-size:19px;color:#fff;margin-bottom:8px}
+.dk-sector span{font-size:14.5px;color:var(--dk-mute);line-height:1.65}
+
+/* ---------- day timeline ---------- */
+.dk-day{background:var(--dk-deep);border:1px solid var(--dk-line);border-radius:4px;padding:44px}
+.dk-day-track{position:relative;height:5px;background:rgba(255,255,255,.1);border-radius:99px;margin:46px 0 14px}
+.dk-day-fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--dk-green),var(--dk-green-bright));border-radius:99px;transition:width 1.6s cubic-bezier(.2,.7,.3,1)}
+.dk-in .dk-day-fill{width:76%}
+.dk-day-marks{display:flex;justify-content:space-between;font-size:12px;color:var(--dk-mute);letter-spacing:.06em}
+.dk-day-legend{display:flex;flex-wrap:wrap;gap:26px;margin-top:30px;font-size:14px;color:var(--dk-mute)}
+.dk-day-legend b{color:#fff;font-weight:700}
+
+/* ---------- gallery rail ---------- */
+.dk-rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px}
+.dk-rail::-webkit-scrollbar{height:5px}
+.dk-rail::-webkit-scrollbar-thumb{background:var(--dk-line-2);border-radius:99px}
+.dk-rail figure{margin:0;flex:0 0 min(520px,78vw);scroll-snap-align:start}
+.dk-rail img{width:100%;height:330px;object-fit:cover;border-radius:4px}
+.dk-rail figcaption{margin-top:14px;font-size:13.5px;color:var(--dk-mute);letter-spacing:.02em}
+
+/* ---------- build strip ---------- */
+.dk-build{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dk-build article{
+  background:var(--dk-deep);border:1px solid var(--dk-line);border-radius:4px;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.dk-build article:hover{border-color:var(--dk-green);transform:translateY(-4px)}
+.dk-build img{width:100%;height:190px;object-fit:cover}
+.dk-build-body{padding:26px}
+.dk-build-body h4{font-size:19px;margin-bottom:9px}
+.dk-build-body p{font-size:14.5px;color:var(--dk-mute);margin-bottom:16px}
+.dk-build-body a{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dk-green-bright);text-decoration:none}
+.dk-build-body a:hover{text-decoration:underline}
+
+/* ---------- spec sheet ---------- */
+.dk-sheet{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.dk-sheet-row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--dk-line);font-size:15px}
+.dk-sheet-row span{color:var(--dk-mute)}
+.dk-sheet-row b{font-weight:700;color:#fff;text-align:right}
+
+/* ---------- closing CTA ---------- */
+.dk-close{position:relative;overflow:hidden;text-align:center;padding:130px 0}
+.dk-close-bg{position:absolute;inset:0}
+.dk-close-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.4) brightness(.32)}
+.dk-close-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 80% at 50% 50%,rgba(7,9,10,.3),var(--dk-void) 82%)}
+.dk-close-in{position:relative;z-index:2}
+.dk-close h2{font-size:clamp(34px,5.4vw,66px);color:#fff;max-width:18ch;margin:0 auto}
+.dk-close p{color:var(--dk-mute);margin:24px auto 36px;max-width:50ch;font-size:17px}
+.dk-close-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* ---------- footer ---------- */
+.dk-foot{background:var(--dk-void);border-top:1px solid var(--dk-line);color:var(--dk-mute);font-size:14px}
+.dk-foot-top{padding:68px 0 46px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:42px}
+.dk-foot h4{color:#fff;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px}
+.dk-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.dk-foot a{color:var(--dk-mute);text-decoration:none}
+.dk-foot a:hover{color:var(--dk-green-bright)}
+.dk-foot img{height:56px;width:auto;margin-bottom:18px}
+.dk-foot-tag{font-style:italic;color:rgba(255,255,255,.34)}
+.dk-foot-bot{border-top:1px solid var(--dk-line);padding:22px 0 104px;display:flex;justify-content:space-between;gap:18px;font-size:12.5px;color:rgba(255,255,255,.34)}
+
+/* ---------- sticky action bar ---------- */
+.dk-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  background:rgba(13,16,18,.93);backdrop-filter:blur(14px);border-top:1px solid var(--dk-line);
+  transform:translateY(110%);transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.dk-bar.dk-up{transform:none}
+.dk-bar .dk-wrap{display:flex;align-items:center;gap:20px;height:72px}
+.dk-bar-name{font-family:var(--dk-head);font-weight:700;font-size:17px;color:#fff}
+.dk-bar-spec{font-size:13px;color:var(--dk-mute);margin-left:auto}
+.dk-bar-cta{display:flex;gap:9px}
+
+.dk-ribbon{
+  position:fixed;left:16px;bottom:88px;z-index:90;background:rgba(7,9,10,.94);color:#fff;
+  border:1px solid var(--dk-line-2);padding:9px 15px;border-radius:999px;font-size:12.5px;font-weight:600;
+  text-decoration:none;backdrop-filter:blur(6px);
+}
+.dk-ribbon:hover{background:var(--dk-green);border-color:var(--dk-green)}
+
+@media(max-width:980px){
+  .dk-nav{display:none}
+  .dk-burger{display:block}
+  .dk-nums-grid{grid-template-columns:1fr 1fr}
+  .dk-num{border-bottom:1px solid var(--dk-line)}
+  .dk-num:nth-child(2){border-right:0}
+  .dk-split{grid-template-columns:1fr;gap:40px}
+  .dk-sectors,.dk-build{grid-template-columns:1fr}
+  .dk-sheet{grid-template-columns:1fr;gap:0}
+  .dk-foot-top{grid-template-columns:1fr 1fr}
+  .dk-bar-spec{display:none}
+}
+@media(max-width:600px){
+  .dk-sec{padding:78px 0}
+  .dk-hero{min-height:auto;padding:104px 0 46px}
+  .dk-hero-vehicle{margin-top:14px}
+  .dk-hero-vehicle img{max-height:34vh}
+  .dk-nums-grid{grid-template-columns:1fr}
+  .dk-num{border-right:0}
+  .dk-day{padding:28px}
+  .dk-foot-top{grid-template-columns:1fr}
+  .dk-foot-bot{flex-direction:column;gap:8px}
+  .dk-bar .dk-wrap{height:66px;gap:10px}
+  .dk-bar-name{font-size:15px}
+  .dk-bar-cta{margin-left:auto}
+  .dk-rail img{height:230px}
+}
+</style>
+</head>
+<body>
+
+<header class="dk-head" id="dk-header">
+  <div class="dk-wrap">
+    <a href="#" aria-label="Frisian Motors"><img src="Images/frisian-motors-logo.webp" alt="Frisian Motors" width="33" height="42"></a>
+    <nav class="dk-nav">
+      <a href="#" class="dk-on">Modellen</a>
+      <a href="#dk-specs">Specificaties</a>
+      <a href="#dk-bouw">Uitvoering</a>
+      <a href="#dk-galerij">Galerij</a>
+      <a href="#dk-proefrit">Proefrit</a>
+    </nav>
+    <button class="dk-burger" aria-label="Menu">Menu</button>
+  </div>
+</header>
+
+<section class="dk-hero">
+  <div class="dk-hero-bg"><img src="Images/fm-50-hero-forest.webp" alt="" width="1500" height="1125" fetchpriority="high"></div>
+  <div class="dk-hero-in">
+    <div class="dk-wrap">
+      <div class="dk-hero-kick">Leffert serie · 100% elektrisch</div>
+      <h1>FM<em>-</em>50</h1>
+      <p class="dk-hero-sub">Geruisloos en milieuvriendelijk. Het werkpaard dat niemand hoort aankomen.</p>
+      <div class="dk-hero-vehicle">
+        <img src="Images/fm-50-studio-white.webp" alt="Leffert FM-50 Transporter in driekwart aanzicht" width="1310" height="924">
+      </div>
+      <div class="dk-hero-cta">
+        <a class="dk-btn dk-btn-fill" href="#dk-proefrit">Gratis proefrit</a>
+        <a class="dk-btn dk-btn-wire" href="#dk-specs">Specificaties</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dk-nums">
+  <div class="dk-wrap">
+    <div class="dk-nums-grid">
+      <div class="dk-num"><b data-count="55">0</b><span>km per uur</span></div>
+      <div class="dk-num"><b data-count="80">0</b><span>km actieradius</span></div>
+      <div class="dk-num"><b data-count="8">0<i>uur</i></b><span>volledig geladen</span></div>
+      <div class="dk-num"><b data-count="3">0</b><span>maal langer dan lood</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec">
+  <div class="dk-wrap">
+    <div class="dk-split dk-rv">
+      <div>
+        <span class="dk-label">Het voertuig</span>
+        <h2 style="font-size:clamp(30px,4vw,50px)">Compact genoeg voor het pad, sterk genoeg voor de dag</h2>
+        <p style="margin-top:24px">De Leffert FM-50 van Frisian Motors is een robuust en compact elektrisch werkvoertuig dat speciaal is ontwikkeld voor professioneel terreinvervoer. Deze 100% elektrische transporter combineert wendbaarheid, kracht en functionaliteit in één duurzame oplossing.</p>
+        <p>Stil rijden en emissievrij werken zorgen voor minimale belasting van de omgeving en maximaal comfort voor gebruikers. Dankzij de praktische laadbak en sterke elektrische aandrijving is het voertuig ideaal voor onderhoudswerkzaamheden, groenbeheer, technische dienst en logistieke ondersteuning.</p>
+      </div>
+      <div class="dk-split-media">
+        <img src="Images/fm-50-laadbak-portret.webp" alt="Medewerker in veiligheidshesje laadt gereedschap in de laadbak van de Leffert FM-50" width="683" height="1024" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec" style="padding-top:0">
+  <div class="dk-wrap">
+    <div class="dk-sec-head dk-rv">
+      <span class="dk-label">Inzet</span>
+      <h2>Zes sectoren, één voertuig</h2>
+      <p>De FM-50 is bij uitstek geschikt voor organisaties met een groot terrein en een lange werkdag.</p>
+    </div>
+    <div class="dk-sectors dk-rv">
+      <div class="dk-sector"><b>Campings</b><span>Stil langs de kampeerplaatsen, ook om zeven uur in de ochtend.</span></div>
+      <div class="dk-sector"><b>Recreatieparken</b><span>De hele dag heen en weer, zonder uitstoot tussen de gasten.</span></div>
+      <div class="dk-sector"><b>Vakantieparken</b><span>Laadbak voor linnen, gereedschap en afval in één rit.</span></div>
+      <div class="dk-sector"><b>Zorginstellingen</b><span>Rustig over het terrein, met een winddichte cabine in de winter.</span></div>
+      <div class="dk-sector"><b>Agrarische bedrijven</b><span>Op het erf en in het land, zonder de trekker te starten.</span></div>
+      <div class="dk-sector"><b>Gemeentelijke diensten</b><span>Groenbeheer binnen de bebouwde kom en in milieuzones.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec" style="padding-top:0">
+  <div class="dk-wrap">
+    <div class="dk-day dk-rv">
+      <span class="dk-label">Een dag in het veld</span>
+      <h2 style="font-size:clamp(26px,3.2vw,38px)">Eén lading, een volledige werkdag</h2>
+      <p style="margin-top:18px;color:var(--dk-mute);max-width:62ch">Met een actieradius van 60 tot 80 kilometer rijdt de FM-50 een normale werkdag uit en staat hij 's nachts weer vol aan de lader. Acht uur op het lichtnet, vier uur met de snellader.</p>
+      <div class="dk-day-track"><span class="dk-day-fill"></span></div>
+      <div class="dk-day-marks">
+        <span>07:00 start</span><span>12:00 pauze</span><span>17:00 einde dienst</span><span>80 km</span>
+      </div>
+      <div class="dk-day-legend">
+        <span><b>Lithium accu</b> met wisseltechniek</span>
+        <span><b>8 uur</b> volledig geladen op het lichtnet</span>
+        <span><b>4 uur</b> optioneel met snellader</span>
+        <span><b>3 maal</b> langer mee dan een loodaccu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec" style="padding-top:0" id="dk-galerij">
+  <div class="dk-wrap">
+    <div class="dk-sec-head dk-rv">
+      <span class="dk-label">Galerij</span>
+      <h2>In het veld</h2>
+    </div>
+  </div>
+  <div class="dk-wrap">
+    <div class="dk-rail dk-rv">
+      <figure><img src="Images/fm-50-hero-forest.webp" alt="Leffert FM-50 op een bospad in het buitengebied" width="1500" height="1125" loading="lazy"><figcaption>Op het bospad, standaard terreinbanden</figcaption></figure>
+      <figure><img src="Images/fm-50-aan-het-werk.webp" alt="Leffert FM-50 met gesloten cabine op een bosterrein" width="1024" height="769" loading="lazy"><figcaption>Uitvoering met gesloten cabine</figcaption></figure>
+      <figure><img src="Images/fm-50-buitenterrein.webp" alt="Leffert FM-50 geparkeerd op een nat bosterrein" width="1024" height="768" loading="lazy"><figcaption>Tweezitter met open laadbak</figcaption></figure>
+      <figure><img src="Images/fm-50-op-strand.webp" alt="Leffert FM-50 met aanhanger op het strand" width="497" height="339" loading="lazy"><figcaption>Met aanhanger op het strand</figcaption></figure>
+      <figure><img src="Images/fm-50-transportmiddel.webp" alt="Leffert FM-50 als elektrisch transportmiddel" width="497" height="339" loading="lazy"><figcaption>Dagelijks transport op eigen terrein</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec" style="padding-top:0" id="dk-bouw">
+  <div class="dk-wrap">
+    <div class="dk-sec-head dk-rv">
+      <span class="dk-label">Uitvoering</span>
+      <h2>Zelf samenstellen</h2>
+      <p>Afhankelijk van de gebruikswensen kan het voertuig niet alleen technisch, maar ook qua uiterlijk geheel naar wens worden samengesteld. Zelfs een uitvoering als verlengde vierzitter behoort tot de mogelijkheden.</p>
+    </div>
+    <div class="dk-build dk-rv">
+      <article>
+        <img src="Images/accessoire-terreinband.webp" alt="Leffert terreinband voor de FM-50" width="800" height="900" loading="lazy">
+        <div class="dk-build-body">
+          <h4>Terreinbanden</h4>
+          <p>Set van vier stuks, vervangbaar en uit voorraad leverbaar via de webshop.</p>
+          <a href="#">Bestellen</a>
+        </div>
+      </article>
+      <article>
+        <img src="Images/fm-50-aan-het-werk.webp" alt="Leffert FM-50 met gesloten cabine" width="1024" height="769" loading="lazy">
+        <div class="dk-build-body">
+          <h4>Cabine</h4>
+          <p>Winddicht of verwarmd, zodat het voertuig het hele jaar door inzetbaar blijft.</p>
+          <a href="#">Meer informatie</a>
+        </div>
+      </article>
+      <article>
+        <img src="Images/fm-50-transportmiddel.webp" alt="Leffert FM-50 als elektrisch transportmiddel" width="497" height="339" loading="lazy">
+        <div class="dk-build-body">
+          <h4>Laadbak en maatwerk</h4>
+          <p>Verlengd, geheel gesloten of volledig naar uw werkzaamheden opgebouwd.</p>
+          <a href="#">Meer informatie</a>
+        </div>
+      </article>
+    </div>
+    <div class="dk-close-cta" style="justify-content:flex-start;margin-top:40px">
+      <a class="dk-btn dk-btn-fill" href="#">Open de configurator</a>
+      <a class="dk-btn dk-btn-wire" href="#">Download de brochure</a>
+    </div>
+  </div>
+</section>
+
+<section class="dk-sec" style="padding-top:0" id="dk-specs">
+  <div class="dk-wrap">
+    <div class="dk-sec-head dk-rv">
+      <span class="dk-label">Specificaties</span>
+      <h2>Technische gegevens</h2>
+      <p>De kerngegevens van de standaarduitvoering. Afwijkende uitvoeringen en maatwerk zijn in overleg mogelijk.</p>
+    </div>
+    <div class="dk-sheet dk-rv">
+      <div>
+        <div class="dk-sheet-row"><span>Aandrijving</span><b>100% elektrisch, 2WD</b></div>
+        <div class="dk-sheet-row"><span>Topsnelheid</span><b>55 km/uur</b></div>
+        <div class="dk-sheet-row"><span>Actieradius</span><b>60 tot 80 kilometer</b></div>
+        <div class="dk-sheet-row"><span>Accu</span><b>Lithium, wisselbaar</b></div>
+        <div class="dk-sheet-row"><span>Laadtijd</span><b>8 uur, 4 uur optioneel</b></div>
+      </div>
+      <div>
+        <div class="dk-sheet-row"><span>Laden</span><b>Externe acculader, lichtnet</b></div>
+        <div class="dk-sheet-row"><span>Kenteken</span><b>Standaard geleverd</b></div>
+        <div class="dk-sheet-row"><span>Zitplaatsen</span><b>2, vierzitter optioneel</b></div>
+        <div class="dk-sheet-row"><span>Laadbak</span><b>Standaard, verlengd of gesloten</b></div>
+        <div class="dk-sheet-row"><span>Subsidie</span><b>Mogelijk voor zakelijke gebruikers</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dk-close" id="dk-proefrit">
+  <div class="dk-close-bg"><img src="Images/fm-50-buitenterrein.webp" alt="" width="1024" height="768" loading="lazy"></div>
+  <div class="dk-close-in">
+    <div class="dk-wrap">
+      <h2>Benieuwd hoe de Leffert rijdt?</h2>
+      <p>Wij komen bij u op het terrein, of u komt naar Bakkeveen. De proefrit is gratis en geheel vrijblijvend.</p>
+      <div class="dk-close-cta">
+        <a class="dk-btn dk-btn-fill" href="#">Vraag een proefrit aan</a>
+        <a class="dk-btn dk-btn-wire" href="tel:+31512767100">+31 (0)512 767 100</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dk-foot">
+  <div class="dk-wrap">
+    <div class="dk-foot-top">
+      <div>
+        <img src="Images/frisian-motors-logo.webp" alt="Frisian Motors" width="44" height="56">
+        <p class="dk-foot-tag">Frisian Motors, rechargeable and unstoppable.</p>
+      </div>
+      <div>
+        <h4>Modellen</h4>
+        <ul>
+          <li><a href="#">FM-40 Transporter</a></li>
+          <li><a href="#">FM-50 Transporter</a></li>
+          <li><a href="#">FM-55 Transporter</a></li>
+          <li><a href="#">FM-80 Transporter</a></li>
+          <li><a href="#">FM-90 4WD</a></li>
+          <li><a href="#">FM-100 4WD</a></li>
+          <li><a href="#">Volmer FM-240</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Klantenservice</h4>
+        <ul>
+          <li><a href="#">Betaling</a></li>
+          <li><a href="#">Verzenden en retourneren</a></li>
+          <li><a href="#">Garantie</a></li>
+          <li><a href="#">Veelgestelde vragen</a></li>
+          <li><a href="#">Algemene voorwaarden</a></li>
+          <li><a href="#">Privacyverklaring</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Frisian Motors B.V.<br>Leidijk 1B<br>9243 WH Bakkeveen</li>
+          <li><a href="tel:+31512767100">+31 (0)512 767 100</a></li>
+          <li><a href="mailto:info@frisianmotors.com">info@frisianmotors.com</a></li>
+          <li><a href="mailto:verkoop@frisianmotors.com">verkoop@frisianmotors.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="dk-foot-bot">
+      <span>© 2026 Frisian Motors</span>
+      <span>Ontwerpvoorstel door Dava Koeswoyo</span>
+    </div>
+  </div>
+</footer>
+
+<div class="dk-bar" id="dk-bar">
+  <div class="dk-wrap">
+    <span class="dk-bar-name">Leffert FM-50</span>
+    <span class="dk-bar-spec">55 km/u · 60 tot 80 km · kenteken standaard</span>
+    <div class="dk-bar-cta">
+      <a class="dk-btn dk-btn-wire dk-btn-sm" href="#dk-bouw">Samenstellen</a>
+      <a class="dk-btn dk-btn-fill dk-btn-sm" href="#dk-proefrit">Proefrit</a>
+    </div>
+  </div>
+</div>
+
+<a class="dk-ribbon" href="index.html">← Terug naar de ontwerpen</a>
+
+<script>
+(function(){
+  var head=document.getElementById('dk-header'),bar=document.getElementById('dk-bar');
+  function onScroll(){
+    var y=window.scrollY;
+    head.classList.toggle('dk-stuck',y>40);
+    bar.classList.toggle('dk-up',y>window.innerHeight*0.9);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el){
+    var target=parseInt(el.dataset.count,10),unit=el.querySelector('i'),dur=1100,t0=null;
+    if(reduce){ el.firstChild.nodeValue=target; return; }
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1),val=Math.round(target*(1-Math.pow(1-p,3)));
+      if(unit){ el.innerHTML=''; el.appendChild(document.createTextNode(val)); el.appendChild(unit); }
+      else { el.textContent=val; }
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('dk-in');
+      var n=e.target.querySelectorAll?e.target.querySelectorAll('[data-count]'):[];
+      if(e.target.hasAttribute&&e.target.hasAttribute('data-count')) countUp(e.target);
+      n.forEach(countUp);
+      io.unobserve(e.target);
+    });
+  },{threshold:.22,rootMargin:'0px 0px -8% 0px'});
+
+  document.querySelectorAll('.dk-rv').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('[data-count]').forEach(function(el){io.observe(el)});
+})();
+</script>
+
+</body>
+</html>
